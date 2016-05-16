@@ -1,0 +1,64 @@
+{{#site_header}}
+&lt;header class=&quot;site-header {{#glance_bar}}has-glance-bar{{/glance_bar}}&quot;&gt;
+
+  &lt;div class=&quot;site-header__bar site-header__menu-bar {{#basic_nav?}}basic-nav{{/basic_nav?}}&quot; data-js-component=&quot;stickyNav&quot;&gt;
+    &lt;div class=&quot;site-header__wrap&quot;&gt;
+
+      &lt;div class=&quot;menu-bar&quot;&gt;
+        &lt;div class=&quot;menu-bar__section menu-bar__menu&quot;
+            data-js-component=&quot;sideMenuToggle&quot;
+            data-menu-target=&quot;.site-menu&quot;
+            data-menu-overlay-class=&quot;site-menu-overlay&quot;
+            data-close-trigger=&quot;.site-menu__close, .site-menu-overlay&quot;&gt;
+          &lt;svg class=&quot;icon icon-menu&quot;&gt;
+            &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;{{ svg_sprite_path  }}#icon-menu&quot;&gt;&lt;/use&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+
+        {{^basic_nav?}}
+          &lt;div class=&quot;site-header__title show-at-md&quot;&gt;{{title}}&lt;/div&gt;
+        {{/basic_nav?}}
+
+
+        &lt;div class=&quot;menu-bar__section site-header__logo&quot;&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            &lt;svg class=&quot;icon icon-logo&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;{{ svg_sprite_path  }}#icon-ckl-logo&quot;&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;menu-bar__search--trigger&quot;
+             data-js-component=&quot;toggleSearch&quot;
+             data-open-target=&quot;.search-bar--in-site-header&quot;
+             data-close-target=&quot;.search-bar--in-site-header .search-bar__close&quot;&gt;
+          &lt;span class=&quot;menu-bar__search-label&quot;&gt;Search&lt;/span&gt;
+          &lt;svg class=&quot;icon icon-search&quot;&gt;
+            &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;{{ svg_sprite_path  }}#icon-search&quot;&gt;&lt;/use&gt;
+          &lt;/svg&gt;
+        &lt;/div&gt;
+
+        {{^basic_nav?}}
+          {{&gt; organisms-action-bar }}
+        {{/basic_nav?}}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    {{&gt; organisms-search-bar }}
+
+  &lt;/div&gt;
+
+  &lt;div class=&quot;site-header__group&quot;&gt;
+    &lt;div class=&quot;site-header__bar show-at-md&quot;&gt;
+      &lt;div class=&quot;site-header__wrap&quot;&gt;
+        {{&gt; organisms-site-nav }}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    {{&gt; organisms-glance-bar }}
+  &lt;/div&gt;
+
+
+&lt;/header&gt;
+{{/site_header}}
+
+{{&gt; organisms-site-menu }}

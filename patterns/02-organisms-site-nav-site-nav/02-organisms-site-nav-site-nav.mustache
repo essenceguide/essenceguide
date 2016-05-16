@@ -1,0 +1,41 @@
+{{#site_nav}}
+&lt;nav class=&quot;site-nav show-at-md&quot;&gt;
+
+  &lt;ul class=&quot;site-nav__list&quot;&gt;
+    {{#items}}
+      &lt;li class=&quot;site-nav__item&quot;&gt;
+        &lt;a href=&quot;{{url}}&quot; class=&quot;site-nav__link {{#bold?}}site-nav__link--heavy{{/bold?}}&quot;&gt;{{text}}&lt;/a&gt;
+
+          {{#sub_menu}}
+            &lt;div class=&quot;site-nav__sub-nav&quot;&gt;
+              &lt;ul class=&quot;site-nav__sub-nav-list&quot;&gt;
+                {{#items}}
+                  &lt;li class=&quot;site-nav__item&quot;&gt;
+                    &lt;a href=&quot;{{url}}&quot; class=&quot;site-nav__link&quot;&gt;{{text}}&lt;/a&gt;
+
+                  &lt;/li&gt;
+                {{/items}}
+              &lt;/ul&gt;
+            &lt;/div&gt;
+          {{/sub_menu}}
+
+          {{#subscribe?}}
+            &lt;div class=&quot;site-nav__sub-nav site-nav__subscribe&quot;&gt;
+                &lt;h3 class=&quot;site-nav__subscribe-title&quot;&gt;Subscribe and Save&lt;/h3&gt;
+                &lt;div class=&quot;site-nav__subscribe-media site-nav__subscribe-section&quot;&gt;
+                  &lt;img src=&quot;http://placehold.it/94x123&quot; alt=&quot;&quot;&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;site-nav__subscribe-content site-nav__subscribe-section&quot;&gt;
+                  &lt;p&gt;Get it for $1 an issue!&lt;/p&gt;
+                  &lt;p&gt;Save up to 78% off newstand&lt;/p&gt;
+                  &lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn--sm link-with-arrow link-with-arrow--transparent&quot;&gt;Subscribe&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+          {{/subscribe?}}
+
+      &lt;/li&gt;
+    {{/items}}
+  &lt;/ul&gt;
+
+&lt;/nav&gt;
+{{/site_nav}}
