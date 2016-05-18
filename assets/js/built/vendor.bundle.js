@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + {"0":"a8b4bf555be6774c7e43"}[chunkId] + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + {"0":"a82722809f17171b2058"}[chunkId] + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -101,8 +101,10 @@
 	__webpack_require__(2);
 	__webpack_require__(4);
 	__webpack_require__(6);
-	__webpack_require__(13);
-	module.exports = __webpack_require__(14);
+	__webpack_require__(17);
+	__webpack_require__(18);
+	__webpack_require__(19);
+	module.exports = __webpack_require__(20);
 
 
 /***/ },
@@ -253,7 +255,11 @@
 /* 10 */,
 /* 11 */,
 /* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/*!
@@ -908,7 +914,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 14 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/*!
@@ -918,6 +924,181 @@
 	https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 	*/
 	!function(){"use strict";function t(s){this.options=e.extend({},i.defaults,t.defaults,s),this.element=this.options.element,this.$element=e(this.element),this.createWrapper(),this.createWaypoint()}var e=__webpack_provided_window_dot_jQuery,i=window.Waypoint;t.prototype.createWaypoint=function(){var t=this.options.handler;this.waypoint=new i(e.extend({},this.options,{element:this.wrapper,handler:e.proxy(function(e){var i=this.options.direction.indexOf(e)>-1,s=i?this.$element.outerHeight(!0):"";this.$wrapper.height(s),this.$element.toggleClass(this.options.stuckClass,i),t&&t.call(this,e)},this)}))},t.prototype.createWrapper=function(){this.options.wrapper&&this.$element.wrap(this.options.wrapper),this.$wrapper=this.$element.parent(),this.wrapper=this.$wrapper[0]},t.prototype.destroy=function(){this.$element.parent()[0]===this.wrapper&&(this.waypoint.destroy(),this.$element.removeClass(this.options.stuckClass),this.options.wrapper&&this.$element.unwrap())},t.defaults={wrapper:'<div class="sticky-wrapper" />',stuckClass:"stuck",direction:"down right"},i.Sticky=t}();
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(jQuery) {;(function($) {
+	
+	  'use strict';
+	
+	  var pluginName = 'dropdown',
+	    namespace = 'plugin_' + pluginName;
+	
+	  /*-------------------------------------------- */
+	  /** Plugin Defaults */
+	  /*-------------------------------------------- */
+	
+	  var defaults = {
+	    trigger: null,
+	    displayEvent: 'click',
+	    hideDelay: 3000,
+	    mouseLeaveDelay: 500,
+	    toggledClass: 'active',
+	    showCallback: $.noop,
+	    hideCallback: $.noop
+	  };
+	
+	  /*-------------------------------------------- */
+	  /** Helpers */
+	  /*-------------------------------------------- */
+	
+	  function callMethod(instance, method, args) {
+	    if ( $.isFunction(instance[method]) ) {
+	      instance[method].apply(instance, args);
+	    }
+	  }
+	
+	  /*-------------------------------------------- */
+	  /** Plugin Constructor */
+	  /*-------------------------------------------- */
+	
+	  function Plugin(el, opts) {
+	    this.options = $.extend({}, defaults, opts);
+	    this.$el = $(el);
+	
+	    this._init();
+	  }
+	
+	  Plugin._hideActiveDropdown = function() {
+	    if (Plugin._activeDropdown) {
+	      Plugin._activeDropdown.hide();
+	      Plugin._clearActiveDropdownTimeout();
+	    }
+	  };
+	
+	  Plugin._clearActiveDropdownTimeout = function() {
+	    clearTimeout(Plugin._hideTimeout);
+	    clearTimeout(Plugin._mouseLeaveTimeout);
+	    Plugin._activeDropdown = null;
+	  };
+	
+	  Plugin._setActiveDropdown = function(active) {
+	    // hide the current active dropdown (may or may not exist)
+	    Plugin._hideActiveDropdown();
+	
+	    // set the new dropdown as the active one
+	    Plugin._activeDropdown = active;
+	
+	    // start a timeout to hide the dropdown after hideDelay threshold is eclipsed
+	    Plugin._hideTimeout = setTimeout(function() {
+	      Plugin._hideActiveDropdown();
+	    }, active.options.hideDelay);
+	  };
+	
+	  $.extend(Plugin.prototype, {
+	
+	  /*-------------------------------------------- */
+	  /** Private Methods */
+	  /*-------------------------------------------- */
+	
+	    _init: function() {
+	      this._addListeners();
+	    },
+	
+	    _addListeners: function() {
+	      var self = this;
+	
+	      this.$el.on('mouseleave', function(e) {
+	        Plugin._mouseLeaveTimeout = setTimeout($.proxy(self.hide, self), self.options.mouseLeaveDelay);
+	      });
+	
+	      this.$el.on('mouseenter', function(e) {
+	        Plugin._clearActiveDropdownTimeout();
+	      });
+	
+	      if (this.options.trigger) {
+	        $(this.options.trigger).on(this.options.displayEvent, function(e) {
+	          self.show();
+	        });
+	      }
+	    },
+	
+	  /*-------------------------------------------- */
+	  /** Public Methods */
+	  /*-------------------------------------------- */
+	
+	    show: function() {
+	      // if the element is already shown, return
+	      if ( this.$el.hasClass(this.options.toggledClass) ) return;
+	
+	      Plugin._setActiveDropdown(this);
+	
+	      this.$el.addClass(this.options.toggledClass);
+	      this.options.showCallback();
+	    },
+	
+	    hide: function() {
+	      // if the dropdown is already hidden, return
+	      if ( !this.$el.hasClass(this.options.toggledClass) )return;
+	
+	      this.$el.removeClass(this.options.toggledClass);
+	      this.options.hideCallback();
+	    },
+	
+	    destroy: function() {
+	      this.$el.off('mouseleave, mouseenter');
+	
+	      if (this.options.trigger) {
+	        $(this.options.trigger).off(this.options.displayEvent);
+	      }
+	    }
+	  });
+	
+	  /*-------------------------------------------- */
+	  /** Plugin Definition */
+	  /*-------------------------------------------- */
+	
+	  $.fn.dropdown_jq = function(options) {
+	
+	    var method = false,
+	      methodArgs = arguments;
+	
+	    if (typeof options == 'string') {
+	      method = options;
+	    }
+	
+	    return this.each(function() {
+	      var plugin = $.data(this, namespace);
+	
+	      if (!plugin) {
+	        $.data(this, namespace, new Plugin(this, options));
+	      } else if (method) {
+	        callMethod(plugin, method, Array.prototype.slice.call(methodArgs, 1));
+	      }
+	    });
+	  };
+	
+	}(jQuery));
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(__webpack_provided_window_dot_jQuery) {/*
+	 Sticky-kit v1.1.2 | WTFPL | Leaf Corcoran 2015 | http://leafo.net
+	*/
+	(function(){var c,f;c=this.jQuery||__webpack_provided_window_dot_jQuery;f=c(window);c.fn.stick_in_parent=function(b){var A,w,B,n,p,J,k,E,t,K,q,L;null==b&&(b={});t=b.sticky_class;B=b.inner_scrolling;E=b.recalc_every;k=b.parent;p=b.offset_top;n=b.spacer;w=b.bottoming;null==p&&(p=0);null==k&&(k=void 0);null==B&&(B=!0);null==t&&(t="is_stuck");A=c(document);null==w&&(w=!0);J=function(a){var b;return window.getComputedStyle?(a=window.getComputedStyle(a[0]),b=parseFloat(a.getPropertyValue("width"))+parseFloat(a.getPropertyValue("margin-left"))+
+	parseFloat(a.getPropertyValue("margin-right")),"border-box"!==a.getPropertyValue("box-sizing")&&(b+=parseFloat(a.getPropertyValue("border-left-width"))+parseFloat(a.getPropertyValue("border-right-width"))+parseFloat(a.getPropertyValue("padding-left"))+parseFloat(a.getPropertyValue("padding-right"))),b):a.outerWidth(!0)};K=function(a,b,q,C,F,u,r,G){var v,H,m,D,I,d,g,x,y,z,h,l;if(!a.data("sticky_kit")){a.data("sticky_kit",!0);I=A.height();g=a.parent();null!=k&&(g=g.closest(k));if(!g.length)throw"failed to find stick parent";
+	v=m=!1;(h=null!=n?n&&a.closest(n):c("<div />"))&&h.css("position",a.css("position"));x=function(){var d,f,e;if(!G&&(I=A.height(),d=parseInt(g.css("border-top-width"),10),f=parseInt(g.css("padding-top"),10),b=parseInt(g.css("padding-bottom"),10),q=g.offset().top+d+f,C=g.height(),m&&(v=m=!1,null==n&&(a.insertAfter(h),h.detach()),a.css({position:"",top:"",width:"",bottom:""}).removeClass(t),e=!0),F=a.offset().top-(parseInt(a.css("margin-top"),10)||0)-p,u=a.outerHeight(!0),r=a.css("float"),h&&h.css({width:J(a),
+	height:u,display:a.css("display"),"vertical-align":a.css("vertical-align"),"float":r}),e))return l()};x();if(u!==C)return D=void 0,d=p,z=E,l=function(){var c,l,e,k;if(!G&&(e=!1,null!=z&&(--z,0>=z&&(z=E,x(),e=!0)),e||A.height()===I||x(),e=f.scrollTop(),null!=D&&(l=e-D),D=e,m?(w&&(k=e+u+d>C+q,v&&!k&&(v=!1,a.css({position:"fixed",bottom:"",top:d}).trigger("sticky_kit:unbottom"))),e<F&&(m=!1,d=p,null==n&&("left"!==r&&"right"!==r||a.insertAfter(h),h.detach()),c={position:"",width:"",top:""},a.css(c).removeClass(t).trigger("sticky_kit:unstick")),
+	B&&(c=f.height(),u+p>c&&!v&&(d-=l,d=Math.max(c-u,d),d=Math.min(p,d),m&&a.css({top:d+"px"})))):e>F&&(m=!0,c={position:"fixed",top:d},c.width="border-box"===a.css("box-sizing")?a.outerWidth()+"px":a.width()+"px",a.css(c).addClass(t),null==n&&(a.after(h),"left"!==r&&"right"!==r||h.append(a)),a.trigger("sticky_kit:stick")),m&&w&&(null==k&&(k=e+u+d>C+q),!v&&k)))return v=!0,"static"===g.css("position")&&g.css({position:"relative"}),a.css({position:"absolute",bottom:b,top:"auto"}).trigger("sticky_kit:bottom")},
+	y=function(){x();return l()},H=function(){G=!0;f.off("touchmove",l);f.off("scroll",l);f.off("resize",y);c(document.body).off("sticky_kit:recalc",y);a.off("sticky_kit:detach",H);a.removeData("sticky_kit");a.css({position:"",bottom:"",top:"",width:""});g.position("position","");if(m)return null==n&&("left"!==r&&"right"!==r||a.insertAfter(h),h.remove()),a.removeClass(t)},f.on("touchmove",l),f.on("scroll",l),f.on("resize",y),c(document.body).on("sticky_kit:recalc",y),a.on("sticky_kit:detach",H),setTimeout(l,
+	0)}};q=0;for(L=this.length;q<L;q++)b=this[q],K(c(b));return this}}).call(this);
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }

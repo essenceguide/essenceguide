@@ -18,6 +18,7 @@
     {{&gt; molecules-accent-header }}
   {{/accent_header}}
 
+  &lt;div class=&quot;related-articles__wrap&quot;&gt;
   {{#items}}
     &lt;div class=&quot;related-articles__story&quot;&gt;
       &lt;a href=&quot;{{url}}&quot; class=&quot;related-articles__media&quot;&gt;
@@ -28,13 +29,12 @@
           &lt;span class=&quot;related-articles__text-sm&quot;&gt;{{category}}&lt;/span&gt;
         {{/category}}
 
-        &lt;a href=&quot;{{url}}&quot; class=&quot;related-articles__title&quot;&gt;{{title}}&lt;/a&gt;
-
-        {{#cta}}
-          &lt;a href=&quot;{{url}}&quot; class=&quot;link-with-arrow link-with-arrow--fresh related-articles__text-sm related-articles__cta&quot;&gt;{{cta}}&lt;/a&gt;
-        {{/cta}}
+        &lt;a href=&quot;{{url}}&quot; class=&quot;related-articles__title&quot;&gt;
+          &lt;span class=&quot;related-articles__title-wrap&quot;&gt;{{title}}&lt;/span&gt;
+        &lt;/a&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   {{/items}}
+  &lt;/div&gt;
 &lt;/div&gt;
 {{/related_articles}}

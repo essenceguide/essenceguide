@@ -4,6 +4,7 @@ webpackJsonp([0],[
 
 	var componentRegistry = __webpack_require__(1),
 	    svg4everybody = __webpack_require__(4);
+	
 	/*-------------------------------------------- */
 	/** Instantiate Modules */
 	/*-------------------------------------------- */
@@ -15,10 +16,14 @@ webpackJsonp([0],[
 	*/
 	
 	componentRegistry.registerComponent('contentSlider', __webpack_require__(5));
-	componentRegistry.registerComponent('menuAccordian', __webpack_require__(7));
-	componentRegistry.registerComponent('stickyNav', __webpack_require__(9));
+	componentRegistry.registerComponent('navAccordian', __webpack_require__(7));
+	componentRegistry.registerComponent('dropdownToggle', __webpack_require__(9));
+	componentRegistry.registerComponent('stickyToTop', __webpack_require__(10));
 	componentRegistry.registerComponent('toggleSearch', __webpack_require__(11));
 	componentRegistry.registerComponent('sideMenuToggle', __webpack_require__(12));
+	componentRegistry.registerComponent('enableMenu', __webpack_require__(13));
+	componentRegistry.registerComponent('enableSearchOverlay', __webpack_require__(15));
+	componentRegistry.registerComponent('expandNavMenu', __webpack_require__(16));
 	
 	componentRegistry.initComponents();
 	/*-------------------------------------------- */
@@ -110,28 +115,24 @@ webpackJsonp([0],[
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(8);
 	
-	module.exports = function(el) {
-	  var $el =$(el),
-	      menuItemsTarget = $el.data('menu-items'),
-	      triggerSelector = $el.data('menu-trigger'),
-	      $menuItems = $el.find(menuItemsTarget);
-	
+	module.exports = function (el) {
+	  var $menuItems = $(el).find('.slide-out-menu__list-item');
 	
 	  $menuItems.each(function() {
-	    var menuItem = new MenuItem(this, triggerSelector);
+	    var menuItem = new MenuItem(this);
 	    menuItem.close();
 	  });
 	};
-	
+	// expose on Drupal Behaviors
 	var currentActiveMenuItem;
 	
-	function MenuItem(el, triggerSelector) {
+	function MenuItem(el) {
 	  this.$el = $(el);
 	  this.isOpen = false;
-	  this.$menuTrigger = this.$el.find(triggerSelector);
-	  this.activeClass = 'is-open';
-	  this.CLOSED_HEIGHT = this.$el.find('.menu-group__link').outerHeight();
-	  this.initialHeight = this.$el.outerHeight();
+	  this.$menuTrigger = this.$el.find('.slide-out-menu__list-more');
+	  this.activeClass = 'slide-out-menu__list-item--is-open';
+	  this.CLOSED_HEIGHT = this.$el.find('.slide-out-menu__list-link').outerHeight();
+	  this.initialHeight = this.$el.outerHeight() + 1;
 	
 	  this.attachEvents();
 	}
@@ -161,10 +162,8 @@ webpackJsonp([0],[
 	MenuItem.prototype.toggleMenu = function() {
 	  if (this.isOpen) {
 	    this.close();
-	    console.log('closed');
 	  } else {
 	    this.open();
-	    console.log('opened');
 	  }
 	};
 
@@ -1726,522 +1725,43 @@ webpackJsonp([0],[
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+	'use strict';
 	
-	var Headroom = __webpack_require__(10);
+	var $ = __webpack_require__(2);
 	
-	module.exports = function(el) {
+	module.exports = function (el) {
 	  var $el = $(el),
-	      $header = $('.article__header'),
-	      $body = $('.article__body');
+	      activeClass = $el.data('active-class');
 	
-	  // exit early if this is a basic navigation
-	  // that doesn't need any of the fancy stuff
-	  if ($el.hasClass('basic-nav')) return false;
-	
-	  $( window ).load(function() {
-	    var smallHeightTrigger = $header.outerHeight(true);
-	    var mediumHeightTrigger = $('.article__social-share').height() + $('.article__social-share').offset().top;
-	
-	
-	    var headroomOptions = {
-	      onUnpin: function() {
-	        offset: smallHeightTrigger / 2,
-	        $el.find('.search-bar').removeClass('is-active');
+	    $el.find('.etr-dropdown__group').dropdown_jq({
+	      trigger: $el.data('trigger'),
+	      hideDelay: 3000,
+	      mouseLeaveDelay: 1000,
+	      toggledClass: 'etr-dropdown__group--is-open',
+	      showCallback: function() {
+	        $el.addClass(activeClass);
+	      },
+	      hideCallback: function() {
+	        $el.removeClass(activeClass);
 	      }
-	    }
-	
-	    if (window.matchMedia("(min-width: 400px)").matches) {
-	      /* the viewport is at least 400 pixels wide */
-	      console.log('fart noises');
-	
-	      $.extend(headroomOptions, {
-	          offset: mediumHeightTrigger - 75
-	      });
-	    } else {
-	    }
-	
-	
-	
-	      console.log(headroomOptions);
-	
-	    var headroom = new Headroom(
-	      document.querySelector('.site-header__menu-bar'), headroomOptions);
-	
-	    headroom.init();
-	
-	
-	
-	
-	  });
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	    });
+	}
+
 
 /***/ },
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	 * headroom.js v0.9.3 - Give your page some headroom. Hide your header until you need it
-	 * Copyright (c) 2016 Nick Williams - http://wicky.nillia.ms/headroom.js
-	 * License: MIT
-	 */
+	'use strict';
 	
-	(function(root, factory) {
-	  'use strict';
+	var $ = __webpack_require__(2);
 	
-	  if (true) {
-	    // AMD. Register as an anonymous module.
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  }
-	  else if (typeof exports === 'object') {
-	    // COMMONJS
-	    module.exports = factory();
-	  }
-	  else {
-	    // BROWSER
-	    root.Headroom = factory();
-	  }
-	}(this, function() {
-	  'use strict';
-	
-	  /* exported features */
-	  
-	  var features = {
-	    bind : !!(function(){}.bind),
-	    classList : 'classList' in document.documentElement,
-	    rAF : !!(window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame)
-	  };
-	  window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
-	  
-	  /**
-	   * Handles debouncing of events via requestAnimationFrame
-	   * @see http://www.html5rocks.com/en/tutorials/speed/animations/
-	   * @param {Function} callback The callback to handle whichever event
-	   */
-	  function Debouncer (callback) {
-	    this.callback = callback;
-	    this.ticking = false;
-	  }
-	  Debouncer.prototype = {
-	    constructor : Debouncer,
-	  
-	    /**
-	     * dispatches the event to the supplied callback
-	     * @private
-	     */
-	    update : function() {
-	      this.callback && this.callback();
-	      this.ticking = false;
-	    },
-	  
-	    /**
-	     * ensures events don't get stacked
-	     * @private
-	     */
-	    requestTick : function() {
-	      if(!this.ticking) {
-	        requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
-	        this.ticking = true;
-	      }
-	    },
-	  
-	    /**
-	     * Attach this as the event listeners
-	     */
-	    handleEvent : function() {
-	      this.requestTick();
-	    }
-	  };
-	  /**
-	   * Check if object is part of the DOM
-	   * @constructor
-	   * @param {Object} obj element to check
-	   */
-	  function isDOMElement(obj) {
-	    return obj && typeof window !== 'undefined' && (obj === window || obj.nodeType);
-	  }
-	  
-	  /**
-	   * Helper function for extending objects
-	   */
-	  function extend (object /*, objectN ... */) {
-	    if(arguments.length <= 0) {
-	      throw new Error('Missing arguments in extend function');
-	    }
-	  
-	    var result = object || {},
-	        key,
-	        i;
-	  
-	    for (i = 1; i < arguments.length; i++) {
-	      var replacement = arguments[i] || {};
-	  
-	      for (key in replacement) {
-	        // Recurse into object except if the object is a DOM element
-	        if(typeof result[key] === 'object' && ! isDOMElement(result[key])) {
-	          result[key] = extend(result[key], replacement[key]);
-	        }
-	        else {
-	          result[key] = result[key] || replacement[key];
-	        }
-	      }
-	    }
-	  
-	    return result;
-	  }
-	  
-	  /**
-	   * Helper function for normalizing tolerance option to object format
-	   */
-	  function normalizeTolerance (t) {
-	    return t === Object(t) ? t : { down : t, up : t };
-	  }
-	  
-	  /**
-	   * UI enhancement for fixed headers.
-	   * Hides header when scrolling down
-	   * Shows header when scrolling up
-	   * @constructor
-	   * @param {DOMElement} elem the header element
-	   * @param {Object} options options for the widget
-	   */
-	  function Headroom (elem, options) {
-	    options = extend(options, Headroom.options);
-	  
-	    this.lastKnownScrollY = 0;
-	    this.elem             = elem;
-	    this.tolerance        = normalizeTolerance(options.tolerance);
-	    this.classes          = options.classes;
-	    this.offset           = options.offset;
-	    this.scroller         = options.scroller;
-	    this.initialised      = false;
-	    this.onPin            = options.onPin;
-	    this.onUnpin          = options.onUnpin;
-	    this.onTop            = options.onTop;
-	    this.onNotTop         = options.onNotTop;
-	    this.onBottom         = options.onBottom;
-	    this.onNotBottom      = options.onNotBottom;
-	  }
-	  Headroom.prototype = {
-	    constructor : Headroom,
-	  
-	    /**
-	     * Initialises the widget
-	     */
-	    init : function() {
-	      if(!Headroom.cutsTheMustard) {
-	        return;
-	      }
-	  
-	      this.debouncer = new Debouncer(this.update.bind(this));
-	      this.elem.classList.add(this.classes.initial);
-	  
-	      // defer event registration to handle browser 
-	      // potentially restoring previous scroll position
-	      setTimeout(this.attachEvent.bind(this), 100);
-	  
-	      return this;
-	    },
-	  
-	    /**
-	     * Unattaches events and removes any classes that were added
-	     */
-	    destroy : function() {
-	      var classes = this.classes;
-	  
-	      this.initialised = false;
-	      this.elem.classList.remove(classes.unpinned, classes.pinned, classes.top, classes.notTop, classes.initial);
-	      this.scroller.removeEventListener('scroll', this.debouncer, false);
-	    },
-	  
-	    /**
-	     * Attaches the scroll event
-	     * @private
-	     */
-	    attachEvent : function() {
-	      if(!this.initialised){
-	        this.lastKnownScrollY = this.getScrollY();
-	        this.initialised = true;
-	        this.scroller.addEventListener('scroll', this.debouncer, false);
-	  
-	        this.debouncer.handleEvent();
-	      }
-	    },
-	    
-	    /**
-	     * Unpins the header if it's currently pinned
-	     */
-	    unpin : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(classList.contains(classes.pinned) || !classList.contains(classes.unpinned)) {
-	        classList.add(classes.unpinned);
-	        classList.remove(classes.pinned);
-	        this.onUnpin && this.onUnpin.call(this);
-	      }
-	    },
-	  
-	    /**
-	     * Pins the header if it's currently unpinned
-	     */
-	    pin : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(classList.contains(classes.unpinned)) {
-	        classList.remove(classes.unpinned);
-	        classList.add(classes.pinned);
-	        this.onPin && this.onPin.call(this);
-	      }
-	    },
-	  
-	    /**
-	     * Handles the top states
-	     */
-	    top : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(!classList.contains(classes.top)) {
-	        classList.add(classes.top);
-	        classList.remove(classes.notTop);
-	        this.onTop && this.onTop.call(this);
-	      }
-	    },
-	  
-	    /**
-	     * Handles the not top state
-	     */
-	    notTop : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(!classList.contains(classes.notTop)) {
-	        classList.add(classes.notTop);
-	        classList.remove(classes.top);
-	        this.onNotTop && this.onNotTop.call(this);
-	      }
-	    },
-	  
-	    bottom : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(!classList.contains(classes.bottom)) {
-	        classList.add(classes.bottom);
-	        classList.remove(classes.notBottom);
-	        this.onBottom && this.onBottom.call(this);
-	      }
-	    },
-	  
-	    /**
-	     * Handles the not top state
-	     */
-	    notBottom : function() {
-	      var classList = this.elem.classList,
-	        classes = this.classes;
-	      
-	      if(!classList.contains(classes.notBottom)) {
-	        classList.add(classes.notBottom);
-	        classList.remove(classes.bottom);
-	        this.onNotBottom && this.onNotBottom.call(this);
-	      }
-	    },
-	  
-	    /**
-	     * Gets the Y scroll position
-	     * @see https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY
-	     * @return {Number} pixels the page has scrolled along the Y-axis
-	     */
-	    getScrollY : function() {
-	      return (this.scroller.pageYOffset !== undefined)
-	        ? this.scroller.pageYOffset
-	        : (this.scroller.scrollTop !== undefined)
-	          ? this.scroller.scrollTop
-	          : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-	    },
-	  
-	    /**
-	     * Gets the height of the viewport
-	     * @see http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript
-	     * @return {int} the height of the viewport in pixels
-	     */
-	    getViewportHeight : function () {
-	      return window.innerHeight
-	        || document.documentElement.clientHeight
-	        || document.body.clientHeight;
-	    },
-	  
-	    /**
-	     * Gets the physical height of the DOM element
-	     * @param  {Object}  elm the element to calculate the physical height of which
-	     * @return {int}     the physical height of the element in pixels
-	     */
-	    getElementPhysicalHeight : function (elm) {
-	      return Math.max(
-	        elm.offsetHeight,
-	        elm.clientHeight
-	      );
-	    },
-	  
-	    /**
-	     * Gets the physical height of the scroller element
-	     * @return {int} the physical height of the scroller element in pixels
-	     */
-	    getScrollerPhysicalHeight : function () {
-	      return (this.scroller === window || this.scroller === document.body)
-	        ? this.getViewportHeight()
-	        : this.getElementPhysicalHeight(this.scroller);
-	    },
-	  
-	    /**
-	     * Gets the height of the document
-	     * @see http://james.padolsey.com/javascript/get-document-height-cross-browser/
-	     * @return {int} the height of the document in pixels
-	     */
-	    getDocumentHeight : function () {
-	      var body = document.body,
-	        documentElement = document.documentElement;
-	    
-	      return Math.max(
-	        body.scrollHeight, documentElement.scrollHeight,
-	        body.offsetHeight, documentElement.offsetHeight,
-	        body.clientHeight, documentElement.clientHeight
-	      );
-	    },
-	  
-	    /**
-	     * Gets the height of the DOM element
-	     * @param  {Object}  elm the element to calculate the height of which
-	     * @return {int}     the height of the element in pixels
-	     */
-	    getElementHeight : function (elm) {
-	      return Math.max(
-	        elm.scrollHeight,
-	        elm.offsetHeight,
-	        elm.clientHeight
-	      );
-	    },
-	  
-	    /**
-	     * Gets the height of the scroller element
-	     * @return {int} the height of the scroller element in pixels
-	     */
-	    getScrollerHeight : function () {
-	      return (this.scroller === window || this.scroller === document.body)
-	        ? this.getDocumentHeight()
-	        : this.getElementHeight(this.scroller);
-	    },
-	  
-	    /**
-	     * determines if the scroll position is outside of document boundaries
-	     * @param  {int}  currentScrollY the current y scroll position
-	     * @return {bool} true if out of bounds, false otherwise
-	     */
-	    isOutOfBounds : function (currentScrollY) {
-	      var pastTop  = currentScrollY < 0,
-	        pastBottom = currentScrollY + this.getScrollerPhysicalHeight() > this.getScrollerHeight();
-	      
-	      return pastTop || pastBottom;
-	    },
-	  
-	    /**
-	     * determines if the tolerance has been exceeded
-	     * @param  {int} currentScrollY the current scroll y position
-	     * @return {bool} true if tolerance exceeded, false otherwise
-	     */
-	    toleranceExceeded : function (currentScrollY, direction) {
-	      return Math.abs(currentScrollY-this.lastKnownScrollY) >= this.tolerance[direction];
-	    },
-	  
-	    /**
-	     * determine if it is appropriate to unpin
-	     * @param  {int} currentScrollY the current y scroll position
-	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-	     * @return {bool} true if should unpin, false otherwise
-	     */
-	    shouldUnpin : function (currentScrollY, toleranceExceeded) {
-	      var scrollingDown = currentScrollY > this.lastKnownScrollY,
-	        pastOffset = currentScrollY >= this.offset;
-	  
-	      return scrollingDown && pastOffset && toleranceExceeded;
-	    },
-	  
-	    /**
-	     * determine if it is appropriate to pin
-	     * @param  {int} currentScrollY the current y scroll position
-	     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-	     * @return {bool} true if should pin, false otherwise
-	     */
-	    shouldPin : function (currentScrollY, toleranceExceeded) {
-	      var scrollingUp  = currentScrollY < this.lastKnownScrollY,
-	        pastOffset = currentScrollY <= this.offset;
-	  
-	      return (scrollingUp && toleranceExceeded) || pastOffset;
-	    },
-	  
-	    /**
-	     * Handles updating the state of the widget
-	     */
-	    update : function() {
-	      var currentScrollY  = this.getScrollY(),
-	        scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up',
-	        toleranceExceeded = this.toleranceExceeded(currentScrollY, scrollDirection);
-	  
-	      if(this.isOutOfBounds(currentScrollY)) { // Ignore bouncy scrolling in OSX
-	        return;
-	      }
-	  
-	      if (currentScrollY <= this.offset ) {
-	        this.top();
-	      } else {
-	        this.notTop();
-	      }
-	  
-	      if(currentScrollY + this.getViewportHeight() >= this.getScrollerHeight()) {
-	        this.bottom();
-	      }
-	      else {
-	        this.notBottom();
-	      }
-	  
-	      if(this.shouldUnpin(currentScrollY, toleranceExceeded)) {
-	        this.unpin();
-	      }
-	      else if(this.shouldPin(currentScrollY, toleranceExceeded)) {
-	        this.pin();
-	      }
-	  
-	      this.lastKnownScrollY = currentScrollY;
-	    }
-	  };
-	  /**
-	   * Default options
-	   * @type {Object}
-	   */
-	  Headroom.options = {
-	    tolerance : {
-	      up : 0,
-	      down : 0
-	    },
-	    offset : 0,
-	    scroller: window,
-	    classes : {
-	      pinned : 'headroom--pinned',
-	      unpinned : 'headroom--unpinned',
-	      top : 'headroom--top',
-	      notTop : 'headroom--not-top',
-	      bottom : 'headroom--bottom',
-	      notBottom : 'headroom--not-bottom',
-	      initial : 'headroom'
-	    }
-	  };
-	  Headroom.cutsTheMustard = typeof features !== 'undefined' && features.rAF && features.bind && features.classList;
-	
-	  return Headroom;
-	}));
+	module.exports = function (element) {
+	  // DOM element specified by data-js-component="stickyToTop"
+	  $(element).stick_in_parent({
+	    'parent' : 'body'
+	  });
+	};
 
 /***/ },
 /* 11 */
@@ -2331,6 +1851,344 @@ webpackJsonp([0],[
 	
 	  $el.on('click', menuTrigger);
 	}
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2),
+	    config = __webpack_require__(14);
+	
+	module.exports = function (el) {
+	  var $el = $(el),
+	      $html = $('html'),
+	      $menu = $('.slide-out'),
+	      $menuText = $('.site-nav__menu-text'),
+	      $btn = $('.site-nav__menu-btn'),
+	      $overlay = $('<div>').addClass('overlay'),
+	      isMenuOpen = false;
+	
+	  function menuTrigger() {
+	    if (window.innerWidth <= config.breakpoints.small) {
+	      menuToggle();
+	    } else {
+	      menuOpen();
+	    }
+	  }
+	
+	
+	  // for desktop
+	  function menuOpen() {
+	      isMenuOpen = true;
+	      $html.addClass('menu--is-open');
+	      $menu.addClass('menu-open');
+	      $('body').append($overlay);
+	      $('.overlay').addClass('overlay--is-open')
+	      addOverlayClass();
+	
+	      $('.slide-out__close, .overlay--is-open').bind('click', closeMenu);
+	  }
+	
+	  function closeMenu() {
+	    isMenuOpen = false;
+	    $el.removeClass($el.data('active-state'));
+	    $html.removeClass('menu--is-open');
+	    $menu.removeClass('menu-open');
+	    $menuText.html('menu');
+	    $overlay.removeClass('overlay--is-open');
+	    $('.slide-out__close, .overlay--is-open').unbind('click');
+	  }
+	
+	  // for mobile
+	  function menuToggle() {
+	    isMenuOpen = !isMenuOpen;
+	    $btn.toggleClass($el.data('active-state'));
+	    $html.toggleClass('menu--is-open');
+	    $menu.toggleClass('menu-open');
+	
+	    toggleMenuText();
+	    toggleOverlay();
+	  }
+	
+	  function toggleMenuText() {
+	    if (isMenuOpen) {
+	      $menuText.html('close');
+	    } else {
+	      $menuText.html('menu');
+	    }
+	  }
+	
+	  function toggleOverlay() {
+	    if (isMenuOpen) {
+	      $('body').append($overlay);
+	      addOverlayClass();
+	      $('.slide-out__close, .overlay').bind('click', closeMenu);
+	    } else {
+	      $overlay.remove();
+	      $('.slide-out__close, .overlay').unbind('click');
+	    }
+	  }
+	
+	  function addOverlayClass() {
+	    setTimeout(function(){
+	      $overlay.addClass('overlay--is-open');
+	    }, 0);
+	  }
+	
+	
+	  $el.on('click', menuTrigger);
+	
+	  $(window).resize(function() {
+	    closeMenu();
+	  });
+	
+	}
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	module.exports = {
+	  /**
+	   * These values should be kept in-sync with scss/base/_breakponts.scss values
+	   */
+	  breakpoints: {
+	    xsmall: 480,
+	    small: 768,
+	    medium: 992,
+	    large: 1200,
+	    xlarge: 1300
+	  }
+	};
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2);
+	
+	module.exports = function (el) {
+	  var $el = $(el),
+	      $html = $('html'),
+	      $searchOverlay = $('.search-overlay'),
+	      $searchInput = $searchOverlay.find('.form-full-width__input'),
+	      $searchCloseBtn = $('.search-overlay__close'),
+	      isOpen = false;
+	
+	  function openSearchOverlay() {
+	    $searchOverlay.addClass($searchOverlay.data('active-class'));
+	    $searchInput.focus();
+	    $html.addClass('fixed');
+	    isOpen = true;
+	    $el.add($searchInput).bind('keydown', function(e) {
+	      closeWithEscapeKey(e);
+	    });
+	  }
+	
+	  function closeSearchOverlay() {
+	    $searchOverlay.removeClass($searchOverlay.data('active-class'));
+	    $html.removeClass('fixed');
+	    $el.add($searchInput).unbind('keydown');
+	    isOpen = false;
+	    $searchInput.blur();
+	  }
+	
+	  function closeWithEscapeKey(e) {
+	    if (isOpen && e.keyCode == 27) {
+	      closeSearchOverlay();
+	    }
+	  }
+	
+	  $(el).on('click', function(e) {
+	    e.preventDefault();
+	    openSearchOverlay();
+	  });
+	
+	
+	  $searchCloseBtn.on('click', closeSearchOverlay);
+	}
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(2),
+	    _ = __webpack_require__(8);
+	
+	var OPEN_DELAY = 300,
+	    EXIT_DELAY = 500,
+	    FAST_EXIT_DELAY = 300;
+	
+	module.exports = function (el) {
+	  var $el = $(el),
+	      $navContainer = $el.find('.site-nav__main-nav-list'),
+	      $navItems = $el.find('.site-nav__main-nav-link'),
+	      subMenuSelector = $el.data('sub-menu-target'),
+	      $submenu = $(subMenuSelector);
+	
+	  // Create Sub Menu / Mega dropdown
+	  var subMenu = new SubMenu($($el.data('sub-menu-target')));
+	
+	  // Create Nav Items
+	  $navItems.each(function() {
+	    var navItem = new NavItem(this);
+	    navItem.$el.on('over', function(e, data) {
+	      if ($(this).data('menu') == 'has-menu') {
+	        subMenu.open();
+	        subMenu.displayContentWithId(data.id);
+	      } else {
+	        subMenu.closeWithDelay(FAST_EXIT_DELAY);
+	      }
+	    });
+	  });
+	
+	
+	
+	  $(document).on('touchstart', function(e) {
+	    // if the touch was not contained within the nav or submenu, close submenu
+	    var $matchedParent = $(e.target).parents('.site-nav__main-nav-list, ' + subMenuSelector);
+	
+	    if ($matchedParent.length == 0) subMenu.close();
+	  });
+	
+	  // if we mouse leave submenu or nav item container, close submenu
+	  subMenu.$el.on('mouseleave', _.bind(subMenu.closeWithDelay, subMenu, EXIT_DELAY));
+	  $navContainer.on('mouseleave', _.bind(subMenu.closeWithDelay, subMenu, EXIT_DELAY));
+	};
+	
+	
+	/**
+	 * Nav Item
+	 */
+	
+	function NavItem(el) {
+	  this.$el = $(el);
+	  this.id = this.$el.attr('id');
+	  this.hasBeenTouched = false;
+	
+	  this.attachEvents();
+	
+	  NavItem.navItems.push(this);
+	}
+	
+	NavItem.navItems = [];
+	
+	NavItem.resetTouchedState = function(exceptForId) {
+	  _.each(NavItem.navItems, function(navItem) {
+	    if (navItem.id == exceptForId) return;
+	
+	    navItem.resetTouchedState();
+	  });
+	};
+	
+	NavItem.setActiveStates = function(value) {
+	  _.invoke(NavItem.navItems, 'setActive', value);
+	};
+	
+	NavItem.prototype.attachEvents = function() {
+	  var self = this;
+	
+	  this.$el.on('mouseover', $.proxy(this.triggerOverEvent, this));
+	
+	  this.$el.on('touchstart', function(e) {
+	    if (!self.hasBeenTouched) {
+	      e.preventDefault();
+	      self.hasBeenTouched = true;
+	      NavItem.resetTouchedState(self.id);
+	      self.triggerOverEvent();
+	    }
+	  });
+	};
+	
+	NavItem.prototype.setActive = function(value) {
+	  this.$el[value ? 'addClass' : 'removeClass']('site-nav__main-nav-link--is-open');
+	};
+	
+	NavItem.prototype.triggerOverEvent = function() {
+	  this.$el.trigger('over', {id: this.id});
+	  NavItem.setActiveStates(false);
+	  this.setActive(true);
+	};
+	
+	NavItem.prototype.resetTouchedState = function() {
+	  this.hasBeenTouched = false;
+	  this.setActive(false);
+	};
+	
+	/**
+	 * Sub Menu
+	 */
+	function SubMenu(el) {
+	  this.$el = $(el);
+	  this.$contentSections = this.$el.find('.expanded-menu__menu-section');
+	  this.isOpen = false;
+	  this.closeTimeout = null;
+	  this.openTimeout = null;
+	
+	
+	  this.attachEvents();
+	}
+	
+	SubMenu.prototype.attachEvents = function() {
+	  var self = this;
+	
+	  this.$el.on('mouseenter', function() {
+	    clearTimeout(self.closeTimeout);
+	  });
+	
+	  $(window).on('resize', _.bind(this.close, this));
+	};
+	
+	SubMenu.prototype.open = function() {
+	  var self = this;
+	
+	  clearTimeout(this.closeTimeout);
+	
+	  this.openTimeout = setTimeout(function() {
+	    self.$el.addClass('expanded-menu--is-open');
+	    self.isOpen = true;
+	  }, OPEN_DELAY);
+	
+	};
+	
+	SubMenu.prototype.hideAllContentSections = function() {
+	  this.$contentSections.removeClass('expanded-menu__menu-section--is-open');
+	};
+	
+	SubMenu.prototype.closeWithDelay = function(delay) {
+	  var self = this;
+	  // if sub menu isn't open, don't delay the close by setting delay to 0
+	  delay = !this.isOpen ? 0 : (delay || this.closeDelay);
+	
+	  this.closeTimeout = setTimeout(function() {
+	    self.close();
+	  }, delay);
+	};
+	
+	SubMenu.prototype.close = function() {
+	  clearTimeout(this.openTimeout);
+	  NavItem.setActiveStates(false);
+	
+	  if (!this.isOpen) return;
+	
+	  this.$el.removeClass('expanded-menu--is-open');
+	  this.isOpen = false;
+	
+	};
+	
+	SubMenu.prototype.displayContentWithId = function(id) {
+	  this.hideAllContentSections();
+	  this.$el.find('[data-menu-id="' + id + '"]').addClass('expanded-menu__menu-section--is-open');
+	};
 
 /***/ }
 ]);

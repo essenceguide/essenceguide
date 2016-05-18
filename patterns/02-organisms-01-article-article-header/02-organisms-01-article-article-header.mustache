@@ -1,6 +1,8 @@
 &lt;header class=&quot;article__header&quot;&gt;
-  &lt;div class=&quot;show-at-md&quot;&gt;
+
+  &lt;div class=&quot;article__header-top&quot;&gt;
     {{&gt; molecules-breadcrumbs }}
+    {{&gt; organisms-article-sponsor }}
   &lt;/div&gt;
 
   {{#header}}
@@ -9,15 +11,13 @@
 
     {{&gt; organisms-article-title }}
 
+    {{^is_portrait_layout?}}
+
     {{&gt; organisms-article-media }}
-
-    {{&gt; organisms-article-sponsor }}
-
-    {{&gt; organisms-article-meta }}
-
-    {{&gt; organisms-article-lead }}
-
     {{&gt; organisms-article-credit }}
+
+    {{/is_portrait_layout?}}
+
 
   {{/header}}
 &lt;/header&gt;

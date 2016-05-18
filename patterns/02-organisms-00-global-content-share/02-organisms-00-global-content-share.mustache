@@ -1,0 +1,26 @@
+{{#social_share}}
+&lt;div class=&quot;social-share {{#is_vertical?}}social-share--vertical{{/is_vertical?}}{{#share_count}} social-share--share-count{{/share_count}}&quot;&gt;
+  {{#share_count}}
+  &lt;div class=&quot;social-share__share-count&quot;&gt;
+    &lt;div class=&quot;social-share__share-count-number&quot;&gt;{{share_count}}&lt;/div&gt;
+    &lt;div class=&quot;social-share__share-count-text&quot;&gt;SHARES&lt;/div&gt;
+  &lt;/div&gt;
+  {{/share_count}}
+  &lt;div class=&quot;social-share__icon-wrap&quot;&gt;
+  {{#items}}
+    &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}} &quot;&gt;
+      {{^comment_count}}
+      &lt;svg class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
+        {{&gt;molecules-svg-use-tag}}
+      &lt;/svg&gt;
+      {{/comment_count}}
+      &lt;div class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
+      {{#comment_count}}
+        {{ comment_count }}
+      {{/comment_count}}
+      &lt;/div&gt;
+    &lt;/a&gt;
+  {{/items}}
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/social_share}}

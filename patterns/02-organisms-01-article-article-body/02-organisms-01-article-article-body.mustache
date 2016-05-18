@@ -1,9 +1,5 @@
 &lt;div class=&quot;article__body&quot;&gt;
 
-  &lt;div class=&quot;show-at-md article__social-share&quot;&gt;
-    {{&gt; molecules-social-share }}
-  &lt;/div&gt;
-
   {{#body}}
       {{! render the literal value of the body if it's not a structured array }}
       {{! This requires a patch to the Mustache Compiler - Or it will print as 'Array'
@@ -11,13 +7,10 @@
 
       {{{body}}}
 
+
       {{&gt; organisms-article-text }}
 
-      {{&gt; organisms-article-media }}
-
-      {{&gt; molecules-blockquote }}
-
-      {{&gt; organisms-article-video }}
+      {{&gt; organisms-content-list }}
 
       {{&gt; organisms-related-content }}
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="35px" height="35px" viewBox="0 0 35 35" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="social" transform="translate(-221.000000, -5.000000)" fill="#00B9AE">
+            <g id="Social">
+                <g transform="translate(78.000000, 5.000000)">
+                    <g id="comments" transform="translate(143.000000, 0.000000)">
+                        <g id="Group-9">
+                            <path d="M17.5,0.111702128 C27.143617,0.111702128 34.962766,7.89361702 34.962766,17.5 C34.962766,27.106383 27.143617,34.8882979 17.5,34.8882979 C7.85638298,34.8882979 0.0372340426,27.106383 0.0372340426,17.5 C0.0372340426,7.89361702 7.85638298,0.111702128 17.5,0.111702128 L17.5,0.111702128 Z" id="Shape"></path>
+                            <path d="M2.12234043,24.462766 C3.61170213,25.9521277 -0.29787234,33.8829787 0.0372340426,34.1808511 C0.372340426,34.5159574 8.60106383,31.5744681 9.82978723,32.8031915 C11.3191489,34.2925532 0.670212766,22.9734043 2.12234043,24.462766 L2.12234043,24.462766 Z" id="Shape"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

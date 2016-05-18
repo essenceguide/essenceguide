@@ -3,28 +3,24 @@
 var $ = require('jquery'),
     _ = require('underscore');
 
-module.exports = function(el) {
-  var $el =$(el),
-      menuItemsTarget = $el.data('menu-items'),
-      triggerSelector = $el.data('menu-trigger'),
-      $menuItems = $el.find(menuItemsTarget);
-
+module.exports = function (el) {
+  var $menuItems = $(el).find('.slide-out-menu__list-item');
 
   $menuItems.each(function() {
-    var menuItem = new MenuItem(this, triggerSelector);
+    var menuItem = new MenuItem(this);
     menuItem.close();
   });
 };
-
+// expose on Drupal Behaviors
 var currentActiveMenuItem;
 
-function MenuItem(el, triggerSelector) {
+function MenuItem(el) {
   this.$el = $(el);
   this.isOpen = false;
-  this.$menuTrigger = this.$el.find(triggerSelector);
-  this.activeClass = 'is-open';
-  this.CLOSED_HEIGHT = this.$el.find('.menu-group__link').outerHeight();
-  this.initialHeight = this.$el.outerHeight();
+  this.$menuTrigger = this.$el.find('.slide-out-menu__list-more');
+  this.activeClass = 'slide-out-menu__list-item--is-open';
+  this.CLOSED_HEIGHT = this.$el.find('.slide-out-menu__list-link').outerHeight();
+  this.initialHeight = this.$el.outerHeight() + 1;
 
   this.attachEvents();
 }
@@ -54,9 +50,7 @@ MenuItem.prototype.close = function() {
 MenuItem.prototype.toggleMenu = function() {
   if (this.isOpen) {
     this.close();
-    console.log('closed');
   } else {
     this.open();
-    console.log('opened');
   }
 };
