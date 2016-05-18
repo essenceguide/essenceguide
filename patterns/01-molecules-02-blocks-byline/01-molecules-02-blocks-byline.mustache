@@ -12,6 +12,7 @@
 }}
 
 {{#byline}}
+&lt;div class=&quot;byline&quot;&gt;
   {{#url}}
 
       {{#img}}
@@ -21,7 +22,7 @@
       {{/img}}
       &lt;div class=&quot;byline__info&quot;&gt;
         &lt;div class=&quot;byline__text&quot;&gt;
-          By &lt;a class=&quot;byline&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
+          By &lt;a class=&quot;byline__link&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
         &lt;/div&gt;
         {{#date}}
           &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
@@ -30,7 +31,6 @@
   {{/url}}
 
   {{^url}}
-      &lt;div class=&quot;byline&quot;&gt;
         {{#img}}
         &lt;div class=&quot;byline__media&quot;&gt;
           &lt;img class=&quot;byline__media-img&quot; src=&quot;{{img}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
@@ -44,6 +44,7 @@
             &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
           {{/date}}
         &lt;/div&gt;
-      &lt;/div&gt;
   {{/url}}
+&lt;/div&gt;
 {{/byline}}
+

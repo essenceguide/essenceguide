@@ -17,9 +17,11 @@ componentRegistry.registerComponent('dropdownToggle', require('./modules/dropdow
 componentRegistry.registerComponent('stickyToTop', require('./modules/stickyToTop'));
 componentRegistry.registerComponent('toggleSearch', require('./modules/toggleSearch'));
 componentRegistry.registerComponent('sideMenuToggle', require('./modules/sideMenuToggle'));
+componentRegistry.registerComponent('gallery', require('./modules/gallery'));
 componentRegistry.registerComponent('enableMenu', require('./modules/enableMenu'));
 componentRegistry.registerComponent('enableSearchOverlay', require('./modules/enableSearchOverlay'));
 componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNavMenu'));
+
 
 componentRegistry.initComponents();
 /*-------------------------------------------- */
