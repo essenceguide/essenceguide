@@ -3249,7 +3249,7 @@ blockquote,
     line-height: 1;
     color: white;
     text-transform: uppercase;
-    margin-bottom: 7px; }
+    margin-bottom: 10px; }
     @media (max-width: 767px) {
       .footer__list-title {
         margin-bottom: 20px; } }
