@@ -3203,7 +3203,12 @@ blockquote,
       width: 239px;
       height: 49px;
       fill: white;
-      color: white; }
+      color: white;
+      margin-bottom: 25px; }
+      @media (max-width: 767px) {
+        .footer__logo-icon {
+          width: 190px;
+          height: 40px; } }
   .footer .social-list {
     display: block; }
     .footer .social-list .social-list__pretext {
@@ -3643,7 +3648,8 @@ blockquote,
     margin-right: 30px;
     padding: 0;
     background: transparent;
-    color: #131313; }
+    color: #B70F7C;
+    fill: #B70F7C; }
     .slide-out__search-btn svg {
       position: relative;
       top: 4px;
