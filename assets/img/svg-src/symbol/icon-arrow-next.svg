@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="17px" height="30px" viewBox="0 0 17 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
-    <title>Next Icon</title>
-    <defs></defs>
-    <g id="mobile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Mobile-Portrait" transform="translate(-407.000000, -828.000000)" fill="#FFFFFF">
-            <g id="img" transform="translate(63.000000, 696.000000)">
-                <g id="left-arrow" transform="translate(352.000000, 145.500000) rotate(-180.000000) translate(-352.000000, -145.500000) translate(330.000000, 113.000000)">
-                    <path d="M13.381631,45.4286938 C13.6360516,45.6831145 13.9685554,45.8099995 14.3017098,45.8099995 C14.6348642,45.8099995 14.9673679,45.6831145 15.2217885,45.4286938 L28.8251599,31.8246718 C29.3333505,31.3164812 29.3333505,30.4927049 28.8251599,29.9845143 L15.2217885,16.381143 C14.7135979,15.8729523 13.8898216,15.8729523 13.381631,16.381143 C12.8734404,16.8893336 12.8734404,17.7131099 13.381631,18.2213005 L26.0649235,30.9045931 L13.381631,43.5878856 C12.8727897,44.0967269 12.8727897,44.9198525 13.381631,45.4286938 L13.381631,45.4286938 Z" id="Shape" transform="translate(21.103151, 30.905000) rotate(-180.000000) translate(-21.103151, -30.905000) "></path>
-                </g>
-            </g>
-        </g>
-    </g>
+<svg width="22px" height="44px" viewBox="0 0 22 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs xmlns="http://www.w3.org/2000/svg">
+
+		<style type="text/css">
+		      <![CDATA[
+		        .filtered{
+		          filter: url(#dropshadow);
+		        }
+		      ]]>
+	    </style>
+
+		<filter id="dropshadow" height="130%">
+		  <feGaussianBlur in="SourceAlpha" stdDeviation="3"/> 
+		  <feOffset dx="2" dy="2" result="offsetblur"/>
+		  <feComponentTransfer>
+		    <feFuncA type="linear" slope="0.2"/>
+		  </feComponentTransfer>
+		  <feMerge> 
+		    <feMergeNode/>
+		    <feMergeNode in="SourceGraphic"/> 
+		  </feMerge>
+		</filter>
+	</defs>
+
+
+    <path class="filtered" d="M0,44 L0,0 L22,22 L0,44 L0,44 Z" id="arrow-next"></path>
+
 </svg>
