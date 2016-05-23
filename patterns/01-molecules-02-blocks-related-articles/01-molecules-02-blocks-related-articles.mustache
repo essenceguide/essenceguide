@@ -1,0 +1,40 @@
+{{!
+*
+* Related List Module
+*
+* @param array items      Array of related-article content, required
+* @param string url       URL of linked content, required
+* @param string img       String of image url, required
+* @param string alt       String of text for image alternate text, required
+* @param string title     String of text for title of related list item, required
+* @param string category  String of text to display the category, optional
+* @param string cta       String of text for CTA, optional
+*
+}}
+
+{{#related_articles}}
+&lt;div class=&quot;related-articles&quot;&gt;
+  {{#accent_header}}
+    {{&gt; molecules-accent-header }}
+  {{/accent_header}}
+
+  &lt;div class=&quot;related-articles__wrap&quot;&gt;
+  {{#items}}
+    &lt;div class=&quot;related-articles__story&quot;&gt;
+      &lt;a href=&quot;{{url}}&quot; class=&quot;related-articles__media&quot;&gt;
+        &lt;img src=&quot;{{img}}&quot; alt=&quot;{{alt}}&quot;&gt;
+      &lt;/a&gt;
+      &lt;div class=&quot;related-articles__body&quot;&gt;
+        {{#category}}
+          &lt;span class=&quot;related-articles__text-sm&quot;&gt;{{category}}&lt;/span&gt;
+        {{/category}}
+
+        &lt;a href=&quot;{{url}}&quot; class=&quot;related-articles__title&quot;&gt;
+          &lt;span class=&quot;related-articles__title-wrap&quot;&gt;{{title}}&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  {{/items}}
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/related_articles}}

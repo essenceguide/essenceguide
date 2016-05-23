@@ -1,0 +1,44 @@
+{{#content_list}}
+&lt;div class=&quot;content-list__interior {{#is_content_insert?}}content-list--content-insert{{/is_content_insert?}}&quot;&gt;
+  &lt;div class=&quot;content-list__header&quot;&gt;{{ header_title }}&lt;/div&gt;
+  &lt;ul class=&quot;content-list&quot;&gt;
+    {{#items}}
+    &lt;li class=&quot;content-list__item&quot;&gt;
+      &lt;div class=&quot;content-list__item__wrap&quot;&gt;
+        &lt;div class=&quot;content-list__item-info&quot;&gt;
+          {{#category}}
+          &lt;div class=&quot;content-list__item-category&quot;&gt;{{ category }}&lt;/div&gt;
+          {{/category}}
+          {{#url}}
+          &lt;a href=&quot;{{ url }}&quot; class=&quot;content-list__item-link&quot;&gt;
+            &lt;span class=&quot;content-list__item-link-text&quot;&gt;{{ title }}&lt;/span&gt;
+          &lt;/a&gt;
+          {{/url}}
+          {{#sponsor}}
+          &lt;div class=&quot;content-list__item-source&quot;&gt;Content From {{ sponsor }}&lt;/div&gt;
+          {{/sponsor}}
+        &lt;/div&gt;
+        {{^sponsor}}
+        &lt;div class=&quot;content-list__item-published&quot;&gt;
+          {{#published_month}}
+          &lt;div class=&quot;content-list__item-published-month&quot;&gt;{{ published_month }}&lt;/div&gt;
+          {{/published_month}}
+          {{#published_date}}
+          &lt;div class=&quot;content-list__item-published-date&quot;&gt;{{ published_date }}&lt;/div&gt;
+          {{/published_date}}
+          {{#published_time}}
+          &lt;div class=&quot;content-list__item-published-time&quot;&gt;{{ published_time }}&lt;/div&gt;
+          {{/published_time}}
+        &lt;/div&gt;
+        {{/sponsor}}
+      &lt;/div&gt;
+    &lt;/li&gt;
+    {{/items}}
+  &lt;/ul&gt;
+  {{#link_out}}
+  &lt;div class=&quot;content-list__link&quot;&gt;
+    &lt;a href=&quot;{{link_out_url}}&quot;&gt;{{ link_out_text }}&lt;/a&gt;
+  &lt;/div&gt;
+  {{/link_out}}
+&lt;/div&gt;
+{{/content_list}}

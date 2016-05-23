@@ -1,0 +1,26 @@
+{{&lt; templates-two-col-sw-sidebar }}
+
+  {{$ header }}
+    {{&gt; organisms-site-header }}
+  {{/ header }}
+
+  {{$ main }}
+
+    {{#page.content}}
+        {{{page.content}}}
+    {{/page.content}}
+      {{&gt; templates-article }}
+
+  {{/ main }}
+
+  {{$ sidebar_content }}
+
+    {{&gt; templates-sidebar }}
+
+  {{/ sidebar_content }}
+
+  {{$ footer }}
+    {{&gt; organisms-site-footer }}
+  {{/ footer }}
+
+{{/ templates-two-col-sw-sidebar }}

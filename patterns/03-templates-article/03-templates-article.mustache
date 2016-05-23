@@ -1,0 +1,33 @@
+&lt;article class=&quot;article&quot;&gt;
+
+    {{&gt; organisms-article-header }}
+
+    &lt;div class=&quot;article__two-col&quot;&gt;
+      &lt;div class=&quot;article__two-col__col-2&quot;&gt;
+
+        {{#is_portrait_layout?}}
+          &lt;div class=&quot;article__header--portrait&quot;&gt;
+          {{#header}}
+
+            {{{header}}}
+                {{&gt; organisms-article-media }}
+                {{&gt; organisms-article-credit }}
+            {{/header}}
+          &lt;/div&gt;
+        {{/is_portrait_layout?}}
+
+        &lt;div class=&quot;article__intro&quot;&gt;
+          {{&gt; organisms-article-intro }}
+        &lt;/div&gt;
+
+        {{&gt; organisms-article-body }}
+        {{&gt; atoms-outbrain-2x3-placeholder }}
+
+      &lt;/div&gt;
+      {{#latest_news}}
+      &lt;div class=&quot;article__two-col__col-1&quot;&gt;
+        {{&gt; organisms-content-list }}
+      &lt;/div&gt;
+      {{/latest_news}}
+    &lt;/div&gt;
+&lt;/article&gt;

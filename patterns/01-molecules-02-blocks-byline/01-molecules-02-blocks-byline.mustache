@@ -1,0 +1,49 @@
+{{!
+*
+* Byline List Module
+*
+* @param string img     String of image url
+* @param string img_alt String of text for image alternate text
+* @param string text    String of text for title of related list item
+*
+* @param string url     String for url source, is optional.
+* @param string date    String of text to display date, is optional.
+*
+}}
+
+{{#byline}}
+  {{#url}}
+
+      {{#img}}
+      &lt;div class=&quot;byline__media&quot;&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;&lt;img class=&quot;byline__media-img&quot; src=&quot;{{img}}&quot; alt=&quot;{{img_alt}}&quot;&gt;&lt;/a&gt;
+      &lt;/div&gt;
+      {{/img}}
+      &lt;div class=&quot;byline__info&quot;&gt;
+        &lt;div class=&quot;byline__text&quot;&gt;
+          By &lt;a class=&quot;byline&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
+        &lt;/div&gt;
+        {{#date}}
+          &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
+        {{/date}}
+      &lt;/div&gt;
+  {{/url}}
+
+  {{^url}}
+      &lt;div class=&quot;byline&quot;&gt;
+        {{#img}}
+        &lt;div class=&quot;byline__media&quot;&gt;
+          &lt;img class=&quot;byline__media-img&quot; src=&quot;{{img}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
+        &lt;/div&gt;
+        {{/img}}
+        &lt;div class=&quot;byline__info&quot;&gt;
+          &lt;div class=&quot;byline__text&quot;&gt;
+            By {{text}}
+          &lt;/div&gt;
+          {{#date}}
+            &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
+          {{/date}}
+        &lt;/div&gt;
+      &lt;/div&gt;
+  {{/url}}
+{{/byline}}

@@ -1,0 +1,39 @@
+{{#story_card}}
+&lt;div class=&quot;story-card {{#horizontal?}}story-card--horizontal{{/horizontal?}} {{#featured?}}story-card--featured{{/featured?}} {{#social_share}}has-social-share{{/social_share}}&quot;&gt;
+  &lt;div class=&quot;story-card__media&quot;&gt;
+    &lt;a href=&quot;{{url}}&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+      &lt;img src=&quot;{{src}}&quot; alt=&quot;{{alt}}&quot;&gt;
+      {{#badge}}
+        &lt;svg class=&quot;story-card__badge&quot;&gt;
+          &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;{{ svg_sprite_path  }}#icon-{{ icon }}&quot;&gt;&lt;/use&gt;
+        &lt;/svg&gt;
+      {{/badge}}
+    &lt;/a&gt;
+    {{#social_share}}
+      &lt;div class=&quot;story-card__share&quot;&gt;
+        {{&gt; molecules-social-share }}
+      &lt;/div&gt;
+    {{/social_share}}
+  &lt;/div&gt;
+
+  &lt;div class=&quot;story-card__body&quot;&gt;
+    {{#category}}
+      &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;{{category}}&lt;/span&gt;
+    {{/category}}
+
+    &lt;a href=&quot;{{url}}&quot; class=&quot;story-card__title&quot;&gt;{{title}}&lt;/a&gt;
+
+    {{#featured?}}
+      &lt;div class=&quot;story-card__content&quot;&gt;
+        {{content}}
+      &lt;/div&gt;
+    {{/featured?}}
+
+    {{#sponsor}}
+      &lt;div class=&quot;ad&quot;&gt;
+        &lt;img src='http://placehold.it/175x30' src='placeholder image'&gt;
+      &lt;/div&gt;
+    {{/sponsor}}
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/story_card}}
