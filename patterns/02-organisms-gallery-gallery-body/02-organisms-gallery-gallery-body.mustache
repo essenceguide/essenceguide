@@ -1,0 +1,17 @@
+&lt;div class=&quot;gallery__body article__body&quot;&gt;
+
+  {{#body}}
+      {{! render the literal value of the body if it's not a structured array }}
+      {{! This requires a patch to the Mustache Compiler - Or it will print as 'Array'
+      see -- pattern-lab/patches/fix-printing-array-value.diff}}
+
+      {{{body}}}
+
+      {{&gt; organisms-gallery }}
+
+      {{&gt; atoms-outbrain-6x1-placeholder }}
+
+      {{&gt; organisms-related-content }}
+
+  {{/body}}
+&lt;/div&gt;

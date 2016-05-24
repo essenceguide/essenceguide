@@ -21,6 +21,8 @@ componentRegistry.registerComponent('enableMenu', require('./modules/enableMenu'
 componentRegistry.registerComponent('enableSearchOverlay', require('./modules/enableSearchOverlay'));
 componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNavMenu'));
 
+componentRegistry.registerComponent('gallery', require('./modules/gallery'));
+
 componentRegistry.initComponents();
 /*-------------------------------------------- */
 /** End Modules */
