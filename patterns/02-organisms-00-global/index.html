@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="stylesheet" href="../../assets/css/main.css?1464102580" media="all" />
+		<link rel="stylesheet" href="../../assets/css/main.css?1464212061" media="all" />
     <script src="../../assets/js/lib/modernizr.min.js"></script>
 
 
@@ -17,8 +17,8 @@
 		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
-		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1464102580" media="all">
-		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1464102580" media="all" />
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1464212061" media="all">
+		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1464212061" media="all" />
 		
 
 		<!-- End Pattern Lab -->
@@ -42,6 +42,66 @@
 								<pre class="sg-code-html">
 									<code>
 										&lt;h3 class=&quot;accent-header&quot;&gt;&lt;/h3&gt;
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div id="organisms-billboard" class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-billboard/02-organisms-00-global-billboard.html" class="patternLink" data-patternpartial="organisms-billboard">Billboard</a></h2>
+						<div class="sg-pattern-body">
+							  <div class="billboard billboard--overlay">
+      <div class="billboard__media">
+        <img src="../../assets/img/prince.jpg" alt="This is alt text">
+      </div>
+
+    <div class="billboard__content">
+        <a href="http://foo.com" class="billboard__category">Celebrity Spotlights</a>
+      <h2 class="billboard__title">
+        <a href="http://google.com">'ESSENCE Live' Honors the Life &amp; Legacy of Princez</a>
+      </h2>
+      <a href="http://google.com" class="btn btn--transparent">Watch Now</a>
+    </div>
+  </div>
+
+							<div class="sg-code" style="display: none">
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										  &lt;div class=&quot;billboard billboard--overlay&quot;&gt;
+      &lt;div class=&quot;billboard__media&quot;&gt;
+        &lt;img src=&quot;../../assets/img/prince.jpg&quot; alt=&quot;This is alt text&quot;&gt;
+      &lt;/div&gt;
+
+    &lt;div class=&quot;billboard__content&quot;&gt;
+        &lt;a href=&quot;http://foo.com&quot; class=&quot;billboard__category&quot;&gt;Celebrity Spotlights&lt;/a&gt;
+      &lt;h2 class=&quot;billboard__title&quot;&gt;
+        &lt;a href=&quot;http://google.com&quot;&gt;'ESSENCE Live' Honors the Life &amp;amp; Legacy of Princez&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;a href=&quot;http://google.com&quot; class=&quot;btn btn--transparent&quot;&gt;Watch Now&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div id="organisms-channel-mantle" class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-channel-mantle/02-organisms-00-global-channel-mantle.html" class="patternLink" data-patternpartial="organisms-channel-mantle">Channel Mantle</a></h2>
+						<div class="sg-pattern-body">
+							<div class="channel-mantle" style="background-image: url(../../assets/img/channel-bg.png);">
+    <h1 class="channel-mantle__title">Celebrity</h1>
+</div>
+
+							<div class="sg-code" style="display: none">
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										&lt;div class=&quot;channel-mantle&quot; style=&quot;background-image: url(../../assets/img/channel-bg.png);&quot;&gt;
+    &lt;h1 class=&quot;channel-mantle__title&quot;&gt;Celebrity&lt;/h1&gt;
+&lt;/div&gt;
+
 									</code>
 								</pre>
 							</div>
@@ -388,73 +448,87 @@
 					<div id="organisms-featured-story" class="sg-pattern">
 						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-featured-story/02-organisms-00-global-featured-story.html" class="patternLink" data-patternpartial="organisms-featured-story">Featured Story</a></h2>
 						<div class="sg-pattern-body">
-							  <div class="featured-story">
-    <div class="media media-wrap featured-story__media-wrap">
-          <img class="featured-story__img" src="http://placehold.it/1200x800" alt="">
-
-        <div class="hide-at-sm">
-          
-          <div class="social-share ">
-              <a href="foo.com" class="social-share__item social-share__item--facebook ">
-                <svg class="social-share__icon social-share__icon--facebook">
-                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                </svg>
-              </a>
-              <a href="foo.com" class="social-share__item social-share__item--pinterest ">
-                <svg class="social-share__icon social-share__icon--pinterest">
-                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                </svg>
-              </a>
-          </div>
-        </div>
-    </div>
-    <div class="featured-story__body">
-      <div class="featured-story__content">
-          <span class="featured-story__category">Healthy Baking</span>
-
-        <h2 class="featured-story__title">How to Make Naturally-Dyed Easter Eggs</h2>
-
-
-          <a href="http://foo.com" class="btn btn-secondary btn-accent btn--centered">View More</a>
+							<div class="featured-story">
+  <a class="featured-story__link featured-story__media" href="foo.com">
+    <img class="featured-story__img" src="http://placehold.it/518x518" alt="This is some alt text">
+    <div class="btn btn-primary">watch now</div>
+  </a>
+  <div class="featured-story__content">
+    <div class="featured-story__content-inner">
+      <a class="featured-story__category" href="http://google.com">Celebrity Spoklight</a>
+      <a class="featured-story__title" href="foo.com">Behind The Cover: Ciara Dishes On Her Favorite Hair Looks Through The Years</a>
+      <div class="featured-story__text">
+        From the r to the effortless bedhead, Ciara has had some fierce hairstyles through the years. Which one is your favorite?
       </div>
     </div>
   </div>
+</div>
 
 							<div class="sg-code" style="display: none">
-									<div class="sg-code-contains">
-										This pattern contains: 
-											<a href="../../patterns/01-molecules-02-blocks-social-share/01-molecules-02-blocks-social-share.html"><code>molecules-social-share</code></a>
-									</div>
 								<h3 class="sg-code-head">HTML</h3>
 								<pre class="sg-code-html">
 									<code>
-										  &lt;div class=&quot;featured-story&quot;&gt;
-    &lt;div class=&quot;media media-wrap featured-story__media-wrap&quot;&gt;
-          &lt;img class=&quot;featured-story__img&quot; src=&quot;http://placehold.it/1200x800&quot; alt=&quot;&quot;&gt;
-
-        &lt;div class=&quot;hide-at-sm&quot;&gt;
-          
-          &lt;div class=&quot;social-share &quot;&gt;
-              &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
-                &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
-                   &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                &lt;/svg&gt;
-              &lt;/a&gt;
-              &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
-                &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
-                   &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                &lt;/svg&gt;
-              &lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;featured-story__body&quot;&gt;
-      &lt;div class=&quot;featured-story__content&quot;&gt;
-          &lt;span class=&quot;featured-story__category&quot;&gt;Healthy Baking&lt;/span&gt;
-
-        &lt;h2 class=&quot;featured-story__title&quot;&gt;How to Make Naturally-Dyed Easter Eggs&lt;/h2&gt;
-
-
-          &lt;a href=&quot;http://foo.com&quot; class=&quot;btn btn-secondary btn-accent btn--centered&quot;&gt;View More&lt;/a&gt;
+										&lt;div class=&quot;featured-story&quot;&gt;
+  &lt;a class=&quot;featured-story__link featured-story__media&quot; href=&quot;foo.com&quot;&gt;
+    &lt;img class=&quot;featured-story__img&quot; src=&quot;http://placehold.it/518x518&quot; alt=&quot;This is some alt text&quot;&gt;
+    &lt;div class=&quot;btn btn-primary&quot;&gt;watch now&lt;/div&gt;
+  &lt;/a&gt;
+  &lt;div class=&quot;featured-story__content&quot;&gt;
+    &lt;div class=&quot;featured-story__content-inner&quot;&gt;
+      &lt;a class=&quot;featured-story__category&quot; href=&quot;http://google.com&quot;&gt;Celebrity Spoklight&lt;/a&gt;
+      &lt;a class=&quot;featured-story__title&quot; href=&quot;foo.com&quot;&gt;Behind The Cover: Ciara Dishes On Her Favorite Hair Looks Through The Years&lt;/a&gt;
+      &lt;div class=&quot;featured-story__text&quot;&gt;
+        From the r to the effortless bedhead, Ciara has had some fierce hairstyles through the years. Which one is your favorite?
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div id="organisms-featured-video" class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-featured-video/02-organisms-00-global-featured-video.html" class="patternLink" data-patternpartial="organisms-featured-video">Featured Video</a></h2>
+						<div class="sg-pattern-body">
+							<div class="featured-video">
+  <a class="featured-video__link featured-video__media" href="foo.com">
+    <img class="featured-video__img" src="http://placehold.it/939x528" alt="This is some alt text">
+    <div class="btn btn--transparent">watch now</div>
+  </a>
+  <div class="featured-video__content">
+    <div class="featured-video__content-inner">
+      <a class="featured-video__category" href="http://google.com">Celebrity Spoklight</a>
+      <a class="featured-video__title" href="foo.com">Behind The Cover: Ciara Dishes On Her Favorite Hair Looks Through The Years</a>
+      <div class="featured-video__text">
+        From the r to the effortless bedhead, Ciara has had some fierce hairstyles through the years. Which one is your favorite?
+      </div>
+    </div>
+
+  </div>
+</div>
+
+							<div class="sg-code" style="display: none">
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										&lt;div class=&quot;featured-video&quot;&gt;
+  &lt;a class=&quot;featured-video__link featured-video__media&quot; href=&quot;foo.com&quot;&gt;
+    &lt;img class=&quot;featured-video__img&quot; src=&quot;http://placehold.it/939x528&quot; alt=&quot;This is some alt text&quot;&gt;
+    &lt;div class=&quot;btn btn--transparent&quot;&gt;watch now&lt;/div&gt;
+  &lt;/a&gt;
+  &lt;div class=&quot;featured-video__content&quot;&gt;
+    &lt;div class=&quot;featured-video__content-inner&quot;&gt;
+      &lt;a class=&quot;featured-video__category&quot; href=&quot;http://google.com&quot;&gt;Celebrity Spoklight&lt;/a&gt;
+      &lt;a class=&quot;featured-video__title&quot; href=&quot;foo.com&quot;&gt;Behind The Cover: Ciara Dishes On Her Favorite Hair Looks Through The Years&lt;/a&gt;
+      &lt;div class=&quot;featured-video__text&quot;&gt;
+        From the r to the effortless bedhead, Ciara has had some fierce hairstyles through the years. Which one is your favorite?
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;
 
 									</code>
 								</pre>
@@ -556,6 +630,496 @@
       &lt;img class=&quot;image-grid__media&quot; src=&quot;http://placehold.it/546x546&quot; alt=&quot;&quot;&gt;
     &lt;/div&gt;
   &lt;/div&gt;
+&lt;/div&gt;
+
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div id="organisms-story-card-four-up" class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-story-card-four-up/02-organisms-00-global-story-card-four-up.html" class="patternLink" data-patternpartial="organisms-story-card-four-up">Story Card Four Up</a></h2>
+						<div class="sg-pattern-body">
+							<div class="g-wrap">
+    <div class="accent-header">
+      <h2 class="accent-header__title"><span class="accent-header__title-text">More From Essence</span></h1>
+    </div>
+
+    <div class="g-span xs-12 g-span-sm-3">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+    <div class="g-span xs-12 g-span-sm-3">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+    <div class="g-span xs-12 g-span-sm-3">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+    <div class="g-span xs-12 g-span-sm-3">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+
+    <a href="http://google.com" class="btn btn--centered">View More</a>
+</div>
+
+							<div class="sg-code" style="display: none">
+									<div class="sg-code-contains">
+										This pattern contains: 
+											<a href="../../patterns/01-molecules-00-text-accent-header/01-molecules-00-text-accent-header.html"><code>molecules-accent-header</code></a>
+											<a href="../../patterns/02-organisms-00-global-story-card/02-organisms-00-global-story-card.html"><code>organisms-story-card</code></a>
+									</div>
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										&lt;div class=&quot;g-wrap&quot;&gt;
+    &lt;div class=&quot;accent-header&quot;&gt;
+      &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;More From Essence&lt;/span&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;g-span xs-12 g-span-sm-3&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;g-span xs-12 g-span-sm-3&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;g-span xs-12 g-span-sm-3&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;g-span xs-12 g-span-sm-3&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;a href=&quot;http://google.com&quot; class=&quot;btn btn--centered&quot;&gt;View More&lt;/a&gt;
+&lt;/div&gt;
+
+									</code>
+								</pre>
+							</div>
+						</div>
+					</div>
+					<div id="organisms-story-card-three-up" class="sg-pattern">
+						<h2 class="sg-pattern-head" ><a href="../../patterns/02-organisms-00-global-story-card-three-up/02-organisms-00-global-story-card-three-up.html" class="patternLink" data-patternpartial="organisms-story-card-three-up">Story Card Three Up</a></h2>
+						<div class="sg-pattern-body">
+							<div class="g-wrap">
+    <div class="accent-header">
+      <h2 class="accent-header__title"><span class="accent-header__title-text">More From Essence</span></h1>
+    </div>
+
+    <div class="g-span xs-12 g-span-sm-4">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+    <div class="g-span xs-12 g-span-sm-4">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+    <div class="g-span xs-12 g-span-sm-4">
+      <div class="story-card   has-social-share">
+        <div class="story-card__media">
+          <a href="" class="story-card__link media-wrap">
+            <img src="http://placehold.it/1020x574" alt="This is a media alt text">
+          </a>
+            <div class="story-card__share">
+              
+              <div class="social-share ">
+                  <a href="foo.com" class="social-share__item social-share__item--pinterest ">
+                    <svg class="social-share__icon social-share__icon--pinterest">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-pinterest"></use>                    </svg>
+                  </a>
+                  <a href="foo.com" class="social-share__item social-share__item--facebook ">
+                    <svg class="social-share__icon social-share__icon--facebook">
+                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/symbols.svg#icon-facebook"></use>                    </svg>
+                  </a>
+              </div>
+            </div>
+        </div>
+      
+        <div class="story-card__body">
+            <span class="story-card__category story-card__text-sm">Food and Drink</span>
+      
+          <a href="" class="story-card__title">How to Make Superfast Dinner Salads</a>
+      
+      
+        </div>
+      </div>
+    </div>
+
+    <a href="http://google.com" class="btn btn--centered">View More</a>
+</div>
+
+							<div class="sg-code" style="display: none">
+									<div class="sg-code-contains">
+										This pattern contains: 
+											<a href="../../patterns/01-molecules-00-text-accent-header/01-molecules-00-text-accent-header.html"><code>molecules-accent-header</code></a>
+											<a href="../../patterns/02-organisms-00-global-story-card/02-organisms-00-global-story-card.html"><code>organisms-story-card</code></a>
+									</div>
+								<h3 class="sg-code-head">HTML</h3>
+								<pre class="sg-code-html">
+									<code>
+										&lt;div class=&quot;g-wrap&quot;&gt;
+    &lt;div class=&quot;accent-header&quot;&gt;
+      &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;More From Essence&lt;/span&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;g-span xs-12 g-span-sm-4&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;g-span xs-12 g-span-sm-4&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;g-span xs-12 g-span-sm-4&quot;&gt;
+      &lt;div class=&quot;story-card   has-social-share&quot;&gt;
+        &lt;div class=&quot;story-card__media&quot;&gt;
+          &lt;a href=&quot;&quot; class=&quot;story-card__link media-wrap&quot;&gt;
+            &lt;img src=&quot;http://placehold.it/1020x574&quot; alt=&quot;This is a media alt text&quot;&gt;
+          &lt;/a&gt;
+            &lt;div class=&quot;story-card__share&quot;&gt;
+              
+              &lt;div class=&quot;social-share &quot;&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+                  &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                    &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                       &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                    &lt;/svg&gt;
+                  &lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;div class=&quot;story-card__body&quot;&gt;
+            &lt;span class=&quot;story-card__category story-card__text-sm&quot;&gt;Food and Drink&lt;/span&gt;
+      
+          &lt;a href=&quot;&quot; class=&quot;story-card__title&quot;&gt;How to Make Superfast Dinner Salads&lt;/a&gt;
+      
+      
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;a href=&quot;http://google.com&quot; class=&quot;btn btn--centered&quot;&gt;View More&lt;/a&gt;
 &lt;/div&gt;
 
 									</code>
@@ -873,10 +1437,10 @@
 			
 		}
 	</script>
-	<script id="pl-js-polyfill-insert-1464102580">
+	<script id="pl-js-polyfill-insert-1464212061">
 		(function() {
 			if (self != top) {
-				var cb = '1464102580';
+				var cb = '1464212061';
 				var js = [];
 				if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
 					js.push("styleguide/js/vendor/classlist-polyfill.js");
@@ -885,10 +1449,10 @@
 			}
 		})();
 	</script>
-	<script id="pl-js-insert-1464102580">
+	<script id="pl-js-insert-1464212061">
 		(function() {
 			if (self != top) {
-				var cb = '1464102580';
+				var cb = '1464212061';
 				var js = [ { "src": "styleguide/js/vendor/jwerty.js", "dep": [ "styleguide/js/postmessage.js", { "src": "data/annotations.js", "dep": [ "styleguide/js/annotations-pattern.js" ] }, "styleguide/js/code-pattern.js" ] } ];
 				scriptLoader.run(js,cb,'pl-js-insert');
 			}

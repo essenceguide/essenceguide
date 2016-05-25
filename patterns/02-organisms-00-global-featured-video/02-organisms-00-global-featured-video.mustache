@@ -1,0 +1,26 @@
+{{#featured_video}}
+&lt;div class=&quot;featured-video&quot;&gt;
+  {{#content}}
+  &lt;a class=&quot;featured-video__link featured-video__media&quot; href=&quot;{{url}}&quot;&gt;
+    {{#media}}
+    &lt;img class=&quot;featured-video__img&quot; src=&quot;{{src}}&quot; alt=&quot;{{alt}}&quot;&gt;
+    {{/media}}
+    {{#cta}}
+    &lt;div class=&quot;btn btn--transparent&quot;&gt;{{cta}}&lt;/div&gt;
+    {{/cta}}
+  &lt;/a&gt;
+  &lt;div class=&quot;featured-video__content&quot;&gt;
+    &lt;div class=&quot;featured-video__content-inner&quot;&gt;
+      {{#category}}
+      &lt;a class=&quot;featured-video__category&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
+      {{/category}}
+      &lt;a class=&quot;featured-video__title&quot; href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;
+      &lt;div class=&quot;featured-video__text&quot;&gt;
+        {{teaser}}
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  {{/content}}
+&lt;/div&gt;
+{{/featured_video}}

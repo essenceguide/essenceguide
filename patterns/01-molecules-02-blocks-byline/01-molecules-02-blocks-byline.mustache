@@ -2,48 +2,48 @@
 *
 * Byline List Module
 *
-* @param string img     String of image url
+* @param string avatar     String of image url
 * @param string img_alt String of text for image alternate text
-* @param string text    String of text for title of related list item
+* @param string author_name    String of text for title of related list item
 *
-* @param string url     String for url source, is optional.
+* @param string author_url     String for url source, is optional.
 * @param string date    String of text to display date, is optional.
 *
 }}
 
 {{#byline}}
-  {{#url}}
+  {{#author_url}}
 
-      {{#img}}
+      {{#avatar}}
       &lt;div class=&quot;byline__media&quot;&gt;
-        &lt;a href=&quot;{{url}}&quot;&gt;&lt;img class=&quot;byline__media-img&quot; src=&quot;{{img}}&quot; alt=&quot;{{img_alt}}&quot;&gt;&lt;/a&gt;
+        &lt;a href=&quot;{{author_url}}&quot;&gt;&lt;img class=&quot;byline__media-img&quot; src=&quot;{{avatar}}&quot; alt=&quot;{{img_alt}}&quot;&gt;&lt;/a&gt;
       &lt;/div&gt;
-      {{/img}}
+      {{/avatar}}
       &lt;div class=&quot;byline__info&quot;&gt;
         &lt;div class=&quot;byline__text&quot;&gt;
-          By &lt;a class=&quot;byline&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
+          By &lt;a class=&quot;byline&quot; href=&quot;{{author_url}}&quot;&gt;{{author_name}}&lt;/a&gt;
         &lt;/div&gt;
         {{#date}}
           &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
         {{/date}}
       &lt;/div&gt;
-  {{/url}}
+  {{/author_url}}
 
-  {{^url}}
+  {{^author_url}}
       &lt;div class=&quot;byline&quot;&gt;
-        {{#img}}
+        {{#avatar}}
         &lt;div class=&quot;byline__media&quot;&gt;
-          &lt;img class=&quot;byline__media-img&quot; src=&quot;{{img}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
+          &lt;img class=&quot;byline__media-img&quot; src=&quot;{{avatar}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
         &lt;/div&gt;
-        {{/img}}
+        {{/avatar}}
         &lt;div class=&quot;byline__info&quot;&gt;
           &lt;div class=&quot;byline__text&quot;&gt;
-            By {{text}}
+            By {{author_name}}
           &lt;/div&gt;
           {{#date}}
             &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
           {{/date}}
         &lt;/div&gt;
       &lt;/div&gt;
-  {{/url}}
+  {{/author_url}}
 {{/byline}}
