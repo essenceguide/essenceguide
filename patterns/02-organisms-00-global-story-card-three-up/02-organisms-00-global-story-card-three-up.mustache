@@ -1,17 +1,17 @@
 {{#story_card_three_up}}
+{{#accent_header}}
+  {{&gt; molecules-accent-header }}
+{{/accent_header}}
 &lt;div class=&quot;g-wrap&quot;&gt;
-  {{#accent_header}}
-    {{&gt; molecules-accent-header }}
-  {{/accent_header}}
 
   {{#items}}
-    &lt;div class=&quot;g-span xs-12 g-span-sm-4&quot;&gt;
+    &lt;div class=&quot;g-span-xs-12 g-span-sm-4&quot;&gt;
       {{&gt; organisms-story-card }}
     &lt;/div&gt;
   {{/items}}
 
   {{#cta}}
-    &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered&quot;&gt;{{text}}&lt;/a&gt;
+    &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;
   {{/cta}}
 &lt;/div&gt;
 {{/story_card_three_up}}
