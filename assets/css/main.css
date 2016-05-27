@@ -5193,4 +5193,10 @@ blockquote,
 @media (max-width: 767px) {
   .channel-section .content-list__interior {
     margin-bottom: 30px; } }
+
+.homepage-section .accent-header__title-text {
+  font-size: 2.125rem; }
+  @media (min-width: 768px) {
+    .homepage-section .accent-header__title-text {
+      font-size: 2.5rem; } }
 /*# sourceMappingURL=main.css.map */
