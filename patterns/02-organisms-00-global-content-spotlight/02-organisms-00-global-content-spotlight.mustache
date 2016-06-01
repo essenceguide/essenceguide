@@ -1,0 +1,27 @@
+{{#content_spotlight}}
+&lt;div class=&quot;content-spotlight&quot;&gt;
+  &lt;div class=&quot;accent-header&quot;&gt;
+    &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;{{title}}&lt;/span&gt;&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;conetnt-spotlight__column-wrap&quot;&gt;
+    &lt;div class=&quot;content-spotlight__column content-spotlight__column--featured&quot;&gt;
+      {{#featured_content}}
+        {{&gt; organisms-story-card }}
+      {{/featured_content}}
+    &lt;/div&gt;
+    &lt;div class=&quot;content-spotlight__column&quot;&gt;
+      {{#content_column_1}}
+      {{&gt; organisms-story-card }}
+      {{/content_column_1}}
+    &lt;/div&gt;
+    &lt;div class=&quot;content-spotlight__column&quot;&gt;
+      {{#content_column_2}}
+      {{&gt; organisms-story-card }}
+      {{/content_column_2}}
+    &lt;/div&gt;
+  &lt;/div&gt;
+  {{#cta}}
+  &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;
+  {{/cta}}
+&lt;/div&gt;
+{{/content_spotlight}}

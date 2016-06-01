@@ -1,8 +1,18 @@
 {{#homepage_section}}
-&lt;div class=&quot;section homepage-section&quot;&gt;
 
-    {{&gt; organisms-homepage-topstories }}
-    {{&gt; organisms-homepage-category }}
-
+{{^is_full_width?}}
+&lt;div class=&quot;page-container&quot;&gt;
+  &lt;div class=&quot;section homepage-section&quot;&gt;
+      {{&gt; organisms-homepage-topstories }}
+      {{&gt; organisms-content-spotlight }}
+      {{&gt; organisms-homepage-category }}
+  &lt;/div&gt;
 &lt;/div&gt;
+{{/is_full_width?}}
+
+{{#is_full_width?}}
+  {{&gt; atoms-full-width-ad }}
+  {{&gt; organisms-featured-topic }}
+{{/is_full_width?}}
+
 {{/homepage_section}}
