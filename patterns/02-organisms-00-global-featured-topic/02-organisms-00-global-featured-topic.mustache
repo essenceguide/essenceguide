@@ -1,13 +1,16 @@
 {{#featured_topic}}
 &lt;div class=&quot;featured-topic&quot;&gt;
   &lt;div class=&quot;page-container&quot;&gt;
-    &lt;div class=&quot;top-stories__content-interior&quot; style=&quot;background-image: url({{image}})&quot;&gt;
+    &lt;div class=&quot;featured-topic__content-interior&quot; style=&quot;background-image: url({{image}})&quot;&gt;
       &lt;div class=&quot;story-overlay&quot;&gt;
-        &lt;div class=&quot;story-overlay__info-interior&quot;&gt;
-          &lt;div class=&quot;story-overlay__info-category&quot;&gt;{{category}}&lt;/div&gt;
-          &lt;div class=&quot;story-overlay__info-title&quot;&gt;
-            &lt;a href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;
+        &lt;div class=&quot;story-overlay__info-wrap&quot;&gt;
+          &lt;div class=&quot;story-overlay__info&quot;&gt;
+            &lt;div class=&quot;story-overlay__info-category&quot;&gt;{{category}}&lt;/div&gt;
+            &lt;div class=&quot;story-overlay__info-title&quot;&gt;&lt;a href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;&lt;/div&gt;
           &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;story-overlay__content-list&quot;&gt;
+          {{&gt; organisms-content-list}}
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
