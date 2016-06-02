@@ -1,0 +1,20 @@
+{{#simple_story_card_four_up}}
+&lt;div class=&quot;simple-story-card-four-up&quot;&gt;
+  {{#accent_header}}
+    {{&gt; molecules-accent-header }}
+  {{/accent_header}}
+  &lt;div class=&quot;g-wrap&quot;&gt;
+    {{#items}}
+    &lt;div class=&quot;simple-story-card g-span-xs-12 g-span-sm-3&quot;&gt;
+      &lt;div class=&quot;simple-story-card__category&quot;&gt;{{category}}&lt;/div&gt;
+      &lt;div class=&quot;simple-story-card__title&quot;&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    {{/items}}
+  &lt;/div&gt;
+  {{#cta}}
+  &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;
+  {{/cta}}
+&lt;/div&gt;
+{{/simple_story_card_four_up}}
