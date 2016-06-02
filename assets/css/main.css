@@ -4681,6 +4681,7 @@ blockquote,
   .top-stories__content-interior {
     display: block;
     height: auto;
+    min-height: 600px;
     position: relative;
     background-position: center center;
     background-size: cover;
