@@ -1,8 +1,8 @@
 {{#content_spotlight}}
 &lt;div class=&quot;content-spotlight&quot;&gt;
-  &lt;div class=&quot;accent-header&quot;&gt;
-    &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;{{title}}&lt;/span&gt;&lt;/h2&gt;
-  &lt;/div&gt;
+  {{#accent_header}}
+    {{&gt; molecules-accent-header }}
+  {{/accent_header}}
   &lt;div class=&quot;conetnt-spotlight__column-wrap&quot;&gt;
     &lt;div class=&quot;content-spotlight__column content-spotlight__column--featured&quot;&gt;
       {{#featured_content}}

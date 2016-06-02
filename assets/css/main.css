@@ -3306,7 +3306,6 @@ blockquote,
       .footer__tout-image img {
         position: relative;
         z-index: 1;
-        box-shadow: 0 0 3px #A29E9D;
         margin: 25px auto 0; }
   .footer-top:after {
     clear: both;
@@ -4908,6 +4907,71 @@ blockquote,
       width: 100%;
       height: 100%;
       background: linear-gradient(transparent, rgba(88, 0, 92, 0.8)); } }
+
+.featured-social__column-wrap {
+  width: 100%;
+  margin: 0 auto;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-direction: column;
+      flex-direction: column; }
+  .featured-social__column-wrap:after {
+    clear: both;
+    content: "";
+    display: table; }
+  @media (min-width: 768px) {
+    .featured-social__column-wrap {
+      max-width: 920px;
+      -ms-flex-direction: row;
+          flex-direction: row; } }
+
+.featured-social__link {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 20px; }
+  .featured-social__link a {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 600;
+    color: #B70F7C; }
+  @media (min-width: 768px) {
+    .featured-social__link {
+      margin-bottom: 50px; } }
+
+.featured-social__post {
+  float: left;
+  width: 50%;
+  outline: 1px solid white; }
+  .featured-social__post img {
+    width: 100%; }
+  @media (min-width: 768px) {
+    .featured-social__post {
+      float: none;
+      width: 100%;
+      outline: none; }
+      .featured-social__post:not(:last-child) {
+        margin-bottom: 20%; } }
+
+.featured-social__column {
+  -ms-flex-order: 2;
+      order: 2; }
+  .featured-social__column--featured {
+    -ms-flex-order: 1;
+        order: 1; }
+    .featured-social__column--featured .featured-social__post {
+      float: none;
+      width: 100%; }
+  @media (min-width: 768px) {
+    .featured-social__column {
+      width: 21.7391304348%;
+      -ms-flex-order: 1;
+          order: 1; }
+      .featured-social__column--featured {
+        width: 47.8260869565%; } }
 
 /**
  * Block: gallery-controls
