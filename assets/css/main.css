@@ -1055,7 +1055,8 @@ body {
   font-family: "proxima-nova", sans-serif;
   font-weight: 300;
   background-color: white;
-  color: #333; }
+  color: #333;
+  overflow-x: hidden; }
 
 h1,
 .h1,
@@ -1156,7 +1157,8 @@ img {
   margin-right: auto;
   padding-right: 10px;
   padding-left: 10px;
-  background: white; }
+  background: white;
+  box-sizing: border-box; }
   .page-container:after {
     clear: both;
     content: "";
@@ -1609,7 +1611,7 @@ img {
     font-weight: 600;
     display: block;
     color: #131313;
-    font-size: 1.125rem;
+    font-size: 1.5625rem;
     line-height: 1.2; }
   .story-card__media {
     position: relative;
@@ -4442,6 +4444,7 @@ blockquote,
           padding-right: 10px;
           padding-left: 10px;
           background: white;
+          box-sizing: border-box;
           padding-left: 10px;
           padding-right: 10px; }
         .search-bar--in-site-header .search-bar__search--trigger-text,
