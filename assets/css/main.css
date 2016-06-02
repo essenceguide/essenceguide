@@ -1993,15 +1993,14 @@ img {
   display: inline-block;
   height: 40px;
   min-width: 190px;
-  padding-top: 14px;
-  padding-right: 10px;
-  padding-left: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
   box-sizing: border-box;
   border-radius: 25px;
   background-color: #B70F7C;
   color: white;
   font-size: 0.875rem;
-  line-height: 1;
+  line-height: 40px;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.16em;
