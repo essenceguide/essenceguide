@@ -4815,6 +4815,12 @@ blockquote,
 .content-spotlight__cta {
   clear: both; }
 
+.featured-topic:not(:last-child) {
+  margin-bottom: 30px; }
+  @media (min-width: 768px) {
+    .featured-topic:not(:last-child) {
+      margin-bottom: 70px; } }
+
 .featured-topic__content-interior {
   display: block;
   position: relative;
@@ -5031,14 +5037,20 @@ blockquote,
     font-family: "abril-display", serif;
     font-style: italic;
     font-weight: 700;
-    font-size: 1.9375rem;
+    font-size: 1.5625rem;
     line-height: 1.6;
-    padding: 70px 60px 30px;
+    padding: 50px 30px 30px;
     margin: 0; }
     .quote-block__text::first-letter {
-      font-size: 3.1875rem;
-      letter-spacing: -0.5px;
+      font-size: 2.75rem;
+      letter-spacing: -3px;
       line-height: 1; }
+    @media (min-width: 768px) {
+      .quote-block__text {
+        padding: 70px 60px 30px;
+        font-size: 1.9375rem; }
+        .quote-block__text::first-letter {
+          font-size: 3.1875rem; } }
     .quote-block__text:after {
       content: '”'; }
   .quote-block__author-name {
@@ -5496,6 +5508,18 @@ blockquote,
   /*-------------------------------------------- */
   /** Media Queries */
   /*-------------------------------------------- */ }
+  .billboard__wrap {
+    text-align: center;
+    padding: 70px 10px;
+    background-color: #F5F5F4;
+    margin-bottom: 30px; }
+    .billboard__wrap .billboard__title {
+      font-size: 2.1875rem; }
+    @media (min-width: 768px) {
+      .billboard__wrap {
+        margin-bottom: 70px; }
+        .billboard__wrap .billboard__title {
+          font-size: 2.8125rem; } }
   .billboard--overlay .billboard__media:after {
     content: "";
     position: absolute;
@@ -5516,7 +5540,7 @@ blockquote,
   .billboard__category {
     font-family: "proxima-nova", sans-serif;
     font-weight: 600;
-    display: inline-block;
+    display: block;
     margin-bottom: 30px;
     font-size: 0.8125rem;
     color: #C43E95;
@@ -5534,7 +5558,7 @@ blockquote,
   .billboard__title {
     font-family: "proxima-nova", sans-serif;
     font-weight: 300;
-    display: inline-block;
+    display: block;
     margin-top: 0;
     font-size: 2.1875rem;
     color: #000; }

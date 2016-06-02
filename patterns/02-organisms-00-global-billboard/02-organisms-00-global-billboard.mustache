@@ -1,19 +1,25 @@
 {{#billboard}}
-  &lt;div class=&quot;billboard {{#overlay?}}billboard--overlay{{/overlay?}}&quot;&gt;
-    {{#media}}
-      &lt;div class=&quot;billboard__media&quot;&gt;
-        &lt;img src=&quot;{{src}}&quot; alt=&quot;{{alt}}&quot;&gt;
-      &lt;/div&gt;
-    {{/media}}
+  {{#add_wrap?}}
+  &lt;div class=&quot;billboard__wrap&quot;&gt;
+  {{/add_wrap?}}
+    &lt;div class=&quot;billboard {{#overlay?}}billboard--overlay{{/overlay?}}&quot;&gt;
+      {{#media}}
+        &lt;div class=&quot;billboard__media&quot;&gt;
+          &lt;img src=&quot;{{src}}&quot; alt=&quot;{{alt}}&quot;&gt;
+        &lt;/div&gt;
+      {{/media}}
 
-    &lt;div class=&quot;billboard__content&quot;&gt;
-      {{#category}}
-        &lt;a href=&quot;{{url}}&quot; class=&quot;billboard__category&quot;&gt;{{text}}&lt;/a&gt;
-      {{/category}}
-      &lt;h2 class=&quot;billboard__title&quot;&gt;
-        &lt;a href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;
-      &lt;/h2&gt;
-      &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--transparent&quot;&gt;{{cta}}&lt;/a&gt;
+      &lt;div class=&quot;billboard__content&quot;&gt;
+        {{#category}}
+          &lt;a href=&quot;{{url}}&quot; class=&quot;billboard__category&quot;&gt;{{text}}&lt;/a&gt;
+        {{/category}}
+        &lt;h2 class=&quot;billboard__title&quot;&gt;
+          &lt;a href=&quot;{{url}}&quot;&gt;{{title}}&lt;/a&gt;
+        &lt;/h2&gt;
+        &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--transparent&quot;&gt;{{cta}}&lt;/a&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+  {{#add_wrap?}}
   &lt;/div&gt;
+  {{/add_wrap?}}
 {{/billboard}}

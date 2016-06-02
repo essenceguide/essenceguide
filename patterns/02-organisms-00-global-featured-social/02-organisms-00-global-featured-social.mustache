@@ -3,30 +3,32 @@
   {{#accent_header}}
     {{&gt; molecules-accent-header }}
   {{/accent_header}}
+  {{#social_account}}
   &lt;div class=&quot;featured-social__link&quot;&gt;
-    Follow us &lt;a href=&quot;#&quot;&gt;@Essence&lt;/a&gt;
+    Follow us &lt;a href=&quot;{{url}}&quot;&gt;{{name}}&lt;/a&gt;
   &lt;/div&gt;
+  {{/social_account}}
   &lt;div class=&quot;featured-social__column-wrap&quot;&gt;
     &lt;div class=&quot;featured-social__column&quot;&gt;
+      {{#column_1_posts}}
       &lt;div class=&quot;featured-social__post&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placeimg.com/200/200/people&quot;&gt;&lt;/a&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;&lt;img src=&quot;{{img}}&quot;&gt;&lt;/a&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;featured-social__post&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placeimg.com/200/200/people&quot;&gt;&lt;/a&gt;
-      &lt;/div&gt;
+      {{/column_1_posts}}
     &lt;/div&gt;
     &lt;div class=&quot;featured-social__column featured-social__column--featured&quot;&gt;
+      {{#featured_column_post}}
       &lt;div class=&quot;featured-social__post&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placeimg.com/440/440/people&quot;&gt;&lt;/a&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;&lt;img src=&quot;{{img}}&quot;&gt;&lt;/a&gt;
       &lt;/div&gt;
+      {{/featured_column_post}}
     &lt;/div&gt;
     &lt;div class=&quot;featured-social__column&quot;&gt;
+      {{#column_2_posts}}
       &lt;div class=&quot;featured-social__post&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placeimg.com/200/200/people&quot;&gt;&lt;/a&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;&lt;img src=&quot;{{img}}&quot;&gt;&lt;/a&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;featured-social__post&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img src=&quot;http://placeimg.com/200/200/people&quot;&gt;&lt;/a&gt;
-      &lt;/div&gt;
+      {{/column_2_posts}}
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
