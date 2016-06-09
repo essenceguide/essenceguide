@@ -12,38 +12,25 @@
 }}
 
 {{#byline}}
-  {{#author_url}}
-
-      {{#avatar}}
-      &lt;div class=&quot;byline__media&quot;&gt;
-        &lt;a href=&quot;{{author_url}}&quot;&gt;&lt;img class=&quot;byline__media-img&quot; src=&quot;{{avatar}}&quot; alt=&quot;{{img_alt}}&quot;&gt;&lt;/a&gt;
-      &lt;/div&gt;
-      {{/avatar}}
-      &lt;div class=&quot;byline__info&quot;&gt;
-        &lt;div class=&quot;byline__text&quot;&gt;
-          By &lt;a class=&quot;byline&quot; href=&quot;{{author_url}}&quot;&gt;{{author_name}}&lt;/a&gt;
-        &lt;/div&gt;
-        {{#date}}
-          &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
-        {{/date}}
-      &lt;/div&gt;
-  {{/author_url}}
-
-  {{^author_url}}
-      &lt;div class=&quot;byline&quot;&gt;
-        {{#avatar}}
-        &lt;div class=&quot;byline__media&quot;&gt;
-          &lt;img class=&quot;byline__media-img&quot; src=&quot;{{avatar}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
-        &lt;/div&gt;
-        {{/avatar}}
-        &lt;div class=&quot;byline__info&quot;&gt;
-          &lt;div class=&quot;byline__text&quot;&gt;
-            By {{author_name}}
-          &lt;/div&gt;
-          {{#date}}
-            &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
-          {{/date}}
-        &lt;/div&gt;
-      &lt;/div&gt;
-  {{/author_url}}
+  {{#avatar}}
+  &lt;div class=&quot;byline__media&quot;&gt;
+    &lt;img class=&quot;byline__media-img&quot; src=&quot;{{avatar}}&quot; alt=&quot;{{img_alt}}&quot;&gt;
+  &lt;/div&gt;
+  {{/avatar}}
+  &lt;div class=&quot;byline__info&quot;&gt;
+    &lt;div class=&quot;byline__text&quot;&gt;
+      By
+      {{#authors}}
+        {{#author_url}}
+        &lt;a class=&quot;byline byline__name&quot; href=&quot;{{author_url}}&quot;&gt;{{author_name}}&lt;/a&gt;
+        {{/author_url}}
+        {{^author_url}}
+        &lt;span class=&quot;byline__name&quot;&gt;{{author_name}}&lt;/span&gt;
+        {{/author_url}}
+      {{/authors}}
+    &lt;/div&gt;
+    {{#date}}
+      &lt;div class=&quot;byline__date&quot;&gt;{{date}}&lt;/div&gt;
+    {{/date}}
+  &lt;/div&gt;
 {{/byline}}
