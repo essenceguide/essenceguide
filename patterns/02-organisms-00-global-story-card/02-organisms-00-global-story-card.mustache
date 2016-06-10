@@ -30,8 +30,15 @@
     {{/featured?}}
 
     {{#sponsor}}
-      &lt;div class=&quot;ad&quot;&gt;
-        &lt;img src='http://placehold.it/175x30' src='placeholder image'&gt;
+      &lt;div class=&quot;story-card__sponsor&quot;&gt;
+        {{#image}}
+        &lt;div class=&quot;ad&quot;&gt;
+          &lt;img src='{{image}}' src='placeholder image'&gt;
+        &lt;/div&gt;
+        {{/image}}
+        {{#text}}
+        &lt;span class=&quot;story-card__sponsor-text&quot;&gt;{{text}}&lt;/span&gt;
+        {{/text}}
       &lt;/div&gt;
     {{/sponsor}}
   &lt;/div&gt;

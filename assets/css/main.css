@@ -1652,6 +1652,12 @@ img {
     letter-spacing: 0.1em;
     line-height: 1;
     margin-bottom: 10px; }
+  .story-card__sponsor {
+    margin-top: 10px; }
+    .story-card__sponsor-text {
+      font-size: 0.75rem;
+      line-height: 1;
+      color: #A29E9D; }
   .story-card__cta {
     display: block;
     text-transform: uppercase; }
@@ -5520,7 +5526,7 @@ blockquote,
   .featured-video__category {
     font-family: "proxima-nova", sans-serif;
     font-weight: 600;
-    display: inline-block;
+    display: block;
     margin-bottom: 15px;
     font-size: 1rem;
     text-transform: uppercase;

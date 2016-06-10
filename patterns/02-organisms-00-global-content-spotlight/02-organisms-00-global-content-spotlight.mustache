@@ -11,12 +11,34 @@
     &lt;/div&gt;
     &lt;div class=&quot;content-spotlight__column&quot;&gt;
       {{#content_column_1}}
+      {{^is_sponsored?}}
       {{&gt; organisms-story-card }}
+      {{/is_sponsored?}}
+      {{#is_sponsored?}}
+      &lt;a href=&quot;#&quot; class=&quot;ad-outbrain__ad&quot;&gt;
+        &lt;img src=&quot;http://placehold.it/400x300?text=Outbrain+Placeholder&quot; alt=&quot;Outbrain Placeholder&quot; /&gt;
+        &lt;div class=&quot;ad-outbrain__content&quot;&gt;
+          The Most Revealing Red Carpet Looks of All Time
+          &lt;span class=&quot;ad-outbrain__source&quot;&gt;Brilliant Earth&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      {{/is_sponsored?}}
       {{/content_column_1}}
     &lt;/div&gt;
     &lt;div class=&quot;content-spotlight__column&quot;&gt;
       {{#content_column_2}}
+      {{^is_sponsored?}}
       {{&gt; organisms-story-card }}
+      {{/is_sponsored?}}
+      {{#is_sponsored?}}
+      &lt;a href=&quot;#&quot; class=&quot;ad-outbrain__ad&quot;&gt;
+        &lt;img src=&quot;http://placehold.it/400x300?text=Outbrain+Placeholder&quot; alt=&quot;Outbrain Placeholder&quot; /&gt;
+        &lt;div class=&quot;ad-outbrain__content&quot;&gt;
+          The Most Revealing Red Carpet Looks of All Time
+          &lt;span class=&quot;ad-outbrain__source&quot;&gt;Brilliant Earth&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      {{/is_sponsored?}}
       {{/content_column_2}}
     &lt;/div&gt;
   &lt;/div&gt;
