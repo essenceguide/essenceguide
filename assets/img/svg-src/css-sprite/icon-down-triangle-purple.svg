@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="7px" viewBox="0 0 12 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-Package-v1-r2" transform="translate(-545.000000, -5806.000000)" fill="#B70F7C">
+            <g id="red-carpet" transform="translate(89.000000, 4931.000000)">
+                <g id="load-more" transform="translate(0.000000, 852.000000)">
+                    <path d="M462.170256,24.6830304 L466.576637,29.0894118 C466.676986,29.1895044 466.808133,29.2395506 466.939537,29.2395506 C467.07094,29.2395506 467.202344,29.1895044 467.302693,29.0894118 C467.503135,28.8889701 467.503135,28.5640543 467.302693,28.363356 L462.089412,23.1503313 C461.88897,22.9498896 461.564054,22.9498896 461.363356,23.1503313 L456.150331,28.3636126 C455.94989,28.5640543 455.94989,28.8889701 456.150331,29.0896685 C456.350773,29.2901102 456.675689,29.2901102 456.876387,29.0896685 L461.195825,24.6830303 L462.170256,24.6830304 Z" id="Shape" transform="translate(461.726512, 26.120000) rotate(-180.000000) translate(-461.726512, -26.120000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
