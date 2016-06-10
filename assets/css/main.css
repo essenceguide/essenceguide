@@ -5465,6 +5465,26 @@ blockquote,
       font-size: 3.125rem; } }
 
 /**
+ * Block: package-mantle
+ * Element: package-mantle__element
+ * Modifier: package-mantle--modifier
+ */
+.package-mantle {
+  padding: 0; }
+  .package-mantle__desktop {
+    width: 100%;
+    display: none; }
+    @media (min-width: 1024px) {
+      .package-mantle__desktop {
+        display: block; } }
+  .package-mantle__mobile {
+    width: 100%;
+    display: block; }
+    @media (min-width: 1024px) {
+      .package-mantle__mobile {
+        display: none; } }
+
+/**
  * Block: featured-video
  * Element: featured-video__element
  * Modifier: featured-video--modifier
