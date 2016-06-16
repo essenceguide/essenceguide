@@ -1,0 +1,19 @@
+{{#search_body}}
+
+  {{#search_header}}
+    {{&gt; organisms-search-header}}
+  {{/search_header}}
+
+  {{#search_results}}
+    &lt;div class=&quot;search-content__results&quot;&gt;
+    {{#items}}
+      {{&gt; organisms-story-card}}
+    {{/items}}
+    &lt;/div&gt;
+  {{/search_results}}
+
+  {{#search_footer}}
+    {{&gt; organisms-search-footer}}
+  {{/search_footer}}
+
+{{/search_body}}

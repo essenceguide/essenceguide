@@ -1,0 +1,29 @@
+{{#search_header}}
+&lt;div class=&quot;search-header&quot;&gt;
+  &lt;form class=&quot;search-header__form&quot; action=&quot;{{form_action}}&quot;&gt;
+    &lt;input type=&quot;text&quot;&gt;
+  &lt;/form&gt;
+  {{#results_count}}
+  &lt;div class=&quot;search-header__results&quot;&gt;
+    &lt;span class=&quot;search-header__results-count&quot;&gt;{{results_count}}&lt;/span&gt; Results
+  &lt;/div&gt;
+  {{/results_count}}
+  {{#search_nav}}
+    &lt;div class=&quot;search-header__nav&quot;&gt;
+    {{#items}}
+      &lt;a class=&quot;search-header__nav-item {{item_class}}&quot; href=&quot;{{item_link}}&quot;&gt;{{item_text}}&lt;/a&gt;
+    {{/items}}
+    &lt;/div&gt;
+  {{/search_nav}}
+  {{#search_options}}
+  &lt;div class=&quot;search-header__options&quot;&gt;
+    &lt;span class=&quot;search-header__options-display&quot;&gt;Displaying {{display_range}} of {{results_count}}&lt;/span&gt;
+    &lt;span class=&quot;search-header__options-range&quot;&gt;Show
+    {{#display_links}}
+    &lt;a class=&quot;search-header__options-range-link {{display_link_class}}&quot; href=&quot;{{display_link_url}}&quot;&gt;{{display_link_count}}&lt;/a&gt;
+    {{/display_links}}
+    &lt;/span&gt;
+  &lt;/div&gt;
+  {{/search_options}}
+&lt;/div&gt;
+{{/search_header}}
