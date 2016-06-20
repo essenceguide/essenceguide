@@ -5857,20 +5857,18 @@ blockquote,
     .search-content .story-card {
       margin: 0 auto; }
       .search-content .story-card:not(:last-child) {
-        margin: 0 auto 20px; }
+        margin: 0 auto 40px; }
       .search-content .story-card__media {
-        float: left;
+        display: inline-block;
+        vertical-align: middle;
         width: 32.6086956522%;
-        margin-right: 2.1739130435%; }
+        margin-right: 1.5217391304%; }
         .search-content .story-card__media .media-wrap {
           margin-bottom: 0; }
       .search-content .story-card__body {
+        display: inline-block;
+        vertical-align: middle;
         padding-left: 0;
         padding-right: 0;
-        width: 65.2173913043%;
-        position: absolute;
-        left: 34.7826086957%;
-        top: 50%;
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%); } }
+        width: 65.2173913043%; } }
 /*# sourceMappingURL=main.css.map */
