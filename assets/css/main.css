@@ -1500,7 +1500,7 @@ img {
 .breadcrumbs {
   padding: 0;
   margin-top: 0;
-  margin-bottom: 17px;
+  margin-bottom: 0;
   line-height: 1; }
   .breadcrumbs__crumb {
     display: inline-block;
@@ -2836,6 +2836,8 @@ blockquote,
   background: white; }
   .site-nav__wrap {
     margin-bottom: 30px; }
+    .site-nav__wrap .breadcrumbs {
+      margin-top: 20px; }
     @media (max-width: 767px) {
       .site-nav__wrap {
         margin-bottom: 15px; } }
@@ -2872,7 +2874,7 @@ blockquote,
   .site-nav__leaderboard {
     text-align: center;
     width: 100%;
-    padding-top: 30px; }
+    padding-top: 20px; }
     @media (max-width: 767px) {
       .site-nav__leaderboard {
         display: none; } }
