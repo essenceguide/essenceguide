@@ -3371,55 +3371,26 @@ blockquote,
       @media (min-width: 768px) {
         .footer .social-list .social-list__pretext {
           text-align: left; } }
-  .footer__list:after {
+  .footer .link-list:after {
     clear: both;
     content: "";
     display: table; }
   @media (max-width: 767px) {
-    .footer__list {
+    .footer .link-list {
       width: 100%;
       padding: 0 20px;
       margin-bottom: 40px;
       box-sizing: border-box; } }
   @media (min-width: 768px) {
-    .footer__list {
+    .footer .link-list {
       float: left;
       width: 26.5957446809%;
       margin-bottom: 0; }
-      .footer__list-wrap {
+      .footer .link-list__wrap {
         float: left;
         width: 59.6825396825%; }
-      .footer__list:not(:last-child) {
+      .footer .link-list:not(:last-child) {
         margin-right: 9.9734042553%; } }
-  .footer__list-title {
-    font-family: "proxima-nova", sans-serif;
-    font-weight: 700;
-    font-size: 0.875rem;
-    line-height: 1;
-    color: white;
-    text-transform: uppercase;
-    margin-bottom: 10px; }
-    @media (max-width: 767px) {
-      .footer__list-title {
-        margin-bottom: 20px; } }
-  .footer__list-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none; }
-  .footer__list-item {
-    margin-bottom: 7px; }
-    @media (max-width: 767px) {
-      .footer__list-item {
-        width: 49%;
-        float: left; } }
-    .footer__list-item a {
-      font-family: "proxima-nova", sans-serif;
-      font-weight: 400;
-      font-size: 0.875rem;
-      line-height: 1;
-      color: white; }
-      .footer__list-item a:hover {
-        text-decoration: underline; }
 
 .headboard-subscribe {
   position: relative;
@@ -3669,9 +3640,13 @@ blockquote,
   width: 13px;
   height: 13px; }
 
-.social-list__icon--video {
-  width: 21px;
-  height: 17px; }
+.social-list__icon--youtube {
+  width: 18px;
+  height: 15px; }
+
+.social-list__icon--google-plus {
+  width: 20px;
+  height: 15px; }
 
 .social-list__icon--email {
   width: 20px;
@@ -5275,6 +5250,38 @@ blockquote,
     right: 0;
     background-color: #F1CCE0;
     z-index: 0; }
+
+.link-list__title {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 10px; }
+  @media (max-width: 767px) {
+    .link-list__title {
+      margin-bottom: 20px; } }
+
+.link-list__container {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+.link-list__item {
+  margin-bottom: 7px; }
+  @media (max-width: 767px) {
+    .link-list__item {
+      width: 49%;
+      float: left; } }
+  .link-list__item a {
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1;
+    color: white; }
+    .link-list__item a:hover {
+      text-decoration: underline; }
 
 /**
  * Block: gallery-controls

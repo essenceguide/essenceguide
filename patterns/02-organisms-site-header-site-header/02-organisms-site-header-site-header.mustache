@@ -5,30 +5,7 @@
     &lt;div class=&quot;visible-lg site-nav__headboard show-at-md&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
         &lt;div class=&quot;site-nav__block site-nav__block--left&quot;&gt;
-          &lt;div class=&quot;social-list  module-name-etr_social_follow_us&quot;&gt;
-            &lt;div class=&quot;social-list__icons&quot;&gt;
-              &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{facebook_url}}&quot;&gt;
-                &lt;svg class=&quot;social-list__icon social-list__icon--facebook&quot;&gt;
-                  &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-facebook&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-              &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{pinterest_url}}&quot;&gt;
-                &lt;svg class=&quot;social-list__icon social-list__icon--pinterest&quot;&gt;
-                  &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-pinterest&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-              &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{twitter_url}}&quot;&gt;
-                &lt;svg class=&quot;social-list__icon social-list__icon--twitter&quot;&gt;
-                  &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-twitter&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-              &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{instagram_url}}&quot;&gt;
-                &lt;svg class=&quot;social-list__icon social-list__icon--instagram&quot;&gt;
-                  &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-instagram&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-            &lt;/div&gt;
-          &lt;/div&gt;
+          {{&gt; molecules-social-outbound }}
         &lt;/div&gt;
         &lt;a href=&quot;{{home_url}}&quot; class=&quot;site-nav__block site-nav__headboard-brand&quot;&gt;
           &lt;svg class=&quot;site-nav__brand-logo&quot; viewBox=&quot;0 0 134 27&quot;&gt;
@@ -101,40 +78,7 @@
                 &lt;span class=&quot;site-nav__utility-links-item__link&quot;&gt;Follow Us&lt;/span&gt;
               &lt;/a&gt;
               &lt;div class=&quot;hidden-xs etr-dropdown__group etr-dropdown__group--lg etr-dropdown__group--centered&quot;&gt;
-                &lt;div class=&quot;social-list module-name-etr_social_follow_us&quot;&gt;
-                  &lt;div class=&quot;social-list__icons&quot;&gt;
-                    &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{facebook_url}}&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--facebook&quot;&gt;
-                        &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-facebook&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt;
-                    &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{twitter_url}}&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--twitter&quot;&gt;
-                        &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-twitter&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt;
-                    &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{pinterest_url}}&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--pinterest&quot;&gt;
-                        &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-pinterest&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt;
-                    {{! &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--video&quot;&gt;
-                        &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-video&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt; }}
-                    &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{instagram_url}}&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--instagram&quot;&gt;
-                        &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-instagram&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt;
-                    {{! &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-                      &lt;svg class=&quot;social-list__icon social-list__icon--email&quot;&gt;
-                        &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-email&quot;&gt;&lt;/use&gt;
-                      &lt;/svg&gt;
-                    &lt;/a&gt; }}
-                  &lt;/div&gt;
-                &lt;/div&gt;
+                {{&gt; molecules-social-outbound}}
               &lt;/div&gt;
             &lt;/div&gt;
           &lt;/span&gt;
@@ -298,42 +242,10 @@
           {{/nav_menu}}
         &lt;/nav&gt;
       &lt;/div&gt;
-
       &lt;div class=&quot;slide-out__footer&quot;&gt;
-        &lt;div class=&quot;social-list social-list--alt module-name-etr_social_follow_us&quot;&gt;
-          &lt;div class=&quot;social-list__icons&quot;&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{facebook_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--facebook&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-facebook&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{twitter_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--twitter&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-twitter&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{pinterest_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--pinterest&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-pinterest&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{youtube_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--video&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-video&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{instagram_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--instagram&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-instagram&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{googleplus_url}}&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--email&quot;&gt;
-                &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-google-plus&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+        {{#slide_out_social}}
+          {{&gt; molecules-social-outbound }}
+        {{/slide_out_social}}
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;

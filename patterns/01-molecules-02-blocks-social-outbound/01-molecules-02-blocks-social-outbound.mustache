@@ -1,0 +1,14 @@
+{{#social_outbound}}
+&lt;div class=&quot;social-list {{#large_icons?}}social-list--large{{/large_icons?}} {{#white_icons?}}social-list--white{{/white_icons?}} module-name-etr_social_follow_us&quot;&gt;
+  &lt;div class=&quot;social-list__pretext&quot;&gt;{{pretext}}&lt;/div&gt;
+  &lt;div class=&quot;social-list__icons&quot;&gt;
+    {{#icons}}
+    &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;{{url}}&quot;&gt;
+      &lt;svg class=&quot;social-list__icon social-list__icon--{{slug}}&quot;&gt;
+        &lt;use xlink:href=&quot;{{path_to_symbols}}#icon-{{slug}}&quot;&gt;&lt;/use&gt;
+      &lt;/svg&gt;
+    &lt;/a&gt;
+    {{/icons}}
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/social_outbound}}

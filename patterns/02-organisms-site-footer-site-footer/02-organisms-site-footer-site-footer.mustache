@@ -35,60 +35,16 @@
     &lt;div class=&quot;footer-top&quot;&gt;
       &lt;div class=&quot;footer__logo&quot;&gt;
         &lt;svg class=&quot;footer__logo-icon&quot;&gt;
-          &lt;use xlink:href='../../assets/img/symbols.svg#icon-essence-logo--slideout'&gt;&lt;/use&gt;
+          &lt;use xlink:href='{{path_to_symbols}}#icon-essence-logo--slideout'&gt;&lt;/use&gt;
         &lt;/svg&gt;
-        &lt;div class=&quot;social-list social-list--large social-list--white module-name-etr_social_follow_us&quot;&gt;
-          &lt;div class=&quot;social-list__pretext&quot;&gt;{{social_pretext}}&lt;/div&gt;
-          &lt;div class=&quot;social-list__icons&quot;&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--facebook&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--twitter&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-twitter&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--pinterest&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--video&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-video&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--instagram&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-instagram&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-            &lt;a target=&quot;_blank&quot; class=&quot;social-list__item&quot; href=&quot;#&quot;&gt;
-              &lt;svg class=&quot;social-list__icon social-list__icon--email&quot;&gt;
-                &lt;use xlink:href=&quot;../../assets/img/symbols.svg#icon-google-plus&quot;&gt;&lt;/use&gt;
-              &lt;/svg&gt;
-            &lt;/a&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+        {{&gt; molecules-social-outbound }}
       &lt;/div&gt;
-      &lt;div class=&quot;footer__list-wrap&quot;&gt;
-        {{#link_lists}}
-        &lt;div class=&quot;footer__list&quot;&gt;
-          &lt;div class=&quot;footer__list-title&quot;&gt;{{list_title}}&lt;/div&gt;
-            &lt;ul class=&quot;footer__list-container&quot;&gt;
-              {{#links}}
-              &lt;li class=&quot;footer__list-item&quot;&gt;&lt;a href=&quot;{{url}}&quot;&gt;{{link_text}}&lt;/a&gt;&lt;/li&gt;
-              {{/links}}
-            &lt;/ul&gt;
-        &lt;/div&gt;
-        {{/link_lists}}
+      &lt;div class=&quot;link-list__wrap&quot;&gt;
+        {{&gt; molecules-link-lists }}
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class=&quot;footer-bottom&quot;&gt;
-      &lt;div class=&quot;footer-bottom__legal-text&quot;&gt;{{legal_text_1}}&lt;/div&gt;
-      &lt;div class=&quot;footer-bottom__legal-text&quot;&gt;{{{legal_text_2}}}&lt;/div&gt;
+      {{&gt; molecules-legal-text }}
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
