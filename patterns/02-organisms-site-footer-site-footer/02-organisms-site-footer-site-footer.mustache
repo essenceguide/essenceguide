@@ -2,33 +2,7 @@
 &lt;div class=&quot;footer__wrap page-container&quot;&gt;
   &lt;div class=&quot;footer__tout-row&quot;&gt;
     &lt;div class=&quot;footer__tout-row-interior&quot;&gt;
-      {{#touts}}
-      &lt;div class=&quot;footer__tout&quot;&gt;
-        &lt;div class=&quot;footer__tout-header&quot;&gt;
-          &lt;div class=&quot;footer__tout__text-1&quot;&gt;{{title-1}}&lt;/div&gt;
-          &lt;div class=&quot;footer__tout__text-2&quot;&gt;{{title-2}}&lt;/div&gt;
-          &lt;div class=&quot;footer__tout__text-3&quot;&gt;{{text}}&lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;footer__tout-interior&quot;&gt;
-          {{#is_newsletter_signup?}}
-          &lt;div class=&quot;footer__tout-form&quot;&gt;
-            &lt;form action=&quot;#&quot;&gt;
-              &lt;input type=&quot;text&quot; name=&quot;email&quot; placeholder=&quot;Email&quot;&gt;
-              &lt;input type=&quot;text&quot; name=&quot;zipcode&quot; placeholder=&quot;Zipcode&quot;&gt;
-            &lt;/form&gt;
-          &lt;/div&gt;
-          {{/is_newsletter_signup?}}
-          {{^is_newsletter_signup?}}
-          &lt;div class=&quot;footer__tout-image&quot;&gt;
-            &lt;img src=&quot;{{img}}&quot;&gt;
-          &lt;/div&gt;
-          {{/is_newsletter_signup?}}
-        &lt;/div&gt;
-        &lt;div class=&quot;footer__tout-button&quot;&gt;
-          &lt;a href=&quot;{{url}}&quot; class=&quot;btn&quot;&gt;{{link_text}}&lt;/a&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-      {{/touts}}
+      {{&gt; molecules-footer-touts }}
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;footer&quot;&gt;
