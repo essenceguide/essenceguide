@@ -1,25 +1,30 @@
 {{#site_footer}}
-&lt;div class=&quot;footer__wrap page-container&quot;&gt;
-  &lt;div class=&quot;footer__tout-row&quot;&gt;
-    &lt;div class=&quot;footer__tout-row-interior&quot;&gt;
-      {{&gt; molecules-footer-touts }}
+  {{#content_pagination}}
+    &lt;div class=&quot;page-container&quot;&gt;
+      {{&gt; organisms-content-pagination }}
     &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;footer&quot;&gt;
-    &lt;div class=&quot;footer-top&quot;&gt;
-      &lt;div class=&quot;footer__logo&quot;&gt;
-        &lt;svg class=&quot;footer__logo-icon&quot;&gt;
-          &lt;use xlink:href='{{path_to_symbols}}#icon-essence-logo--slideout'&gt;&lt;/use&gt;
-        &lt;/svg&gt;
-        {{&gt; molecules-social-outbound }}
-      &lt;/div&gt;
-      &lt;div class=&quot;link-list__wrap&quot;&gt;
-        {{&gt; molecules-link-lists }}
+  {{/content_pagination}}
+  &lt;div class=&quot;footer__wrap page-container&quot;&gt;
+    &lt;div class=&quot;footer__tout-row&quot;&gt;
+      &lt;div class=&quot;footer__tout-row-interior&quot;&gt;
+        {{&gt; molecules-footer-touts }}
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class=&quot;footer-bottom&quot;&gt;
-      {{&gt; molecules-legal-text }}
+    &lt;div class=&quot;footer&quot;&gt;
+      &lt;div class=&quot;footer-top&quot;&gt;
+        &lt;div class=&quot;footer__logo&quot;&gt;
+          &lt;svg class=&quot;footer__logo-icon&quot;&gt;
+            &lt;use xlink:href='{{path_to_symbols}}#icon-essence-logo--slideout'&gt;&lt;/use&gt;
+          &lt;/svg&gt;
+          {{&gt; molecules-social-outbound }}
+        &lt;/div&gt;
+        &lt;div class=&quot;link-list__wrap&quot;&gt;
+          {{&gt; molecules-link-lists }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;footer-bottom&quot;&gt;
+        {{&gt; molecules-legal-text }}
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;
 {{/site_footer}}
