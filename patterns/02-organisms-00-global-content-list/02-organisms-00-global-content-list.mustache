@@ -5,6 +5,7 @@
     {{#items}}
     &lt;li class=&quot;content-list__item{{^show_published?}} content-list__item--hide-published{{/show_published?}}&quot;&gt;
       {{^is_ad?}}
+      {{^is_sponsored?}}
       &lt;div class=&quot;content-list__item__wrap&quot;&gt;
         &lt;div class=&quot;content-list__item-info&quot;&gt;
           {{#category}}
@@ -15,14 +16,10 @@
             &lt;span class=&quot;content-list__item-link-text&quot;&gt;{{ title }}&lt;/span&gt;
           &lt;/a&gt;
           {{/url}}
-          {{#sponsor}}
-          &lt;div class=&quot;content-list__item-source&quot;&gt;Sponsored By {{ sponsor }}&lt;/div&gt;
-          {{/sponsor}}
           {{#share_count_text}}
           &lt;div class=&quot;content-list__item-share-count&quot;&gt;{{share_count_text}}&lt;/div&gt;
           {{/share_count_text}}
         &lt;/div&gt;
-        {{^sponsor}}
         &lt;div class=&quot;content-list__item-published&quot;&gt;
           {{#published_month}}
           &lt;div class=&quot;content-list__item-published-month&quot;&gt;{{ published_month }}&lt;/div&gt;
@@ -34,9 +31,12 @@
           &lt;div class=&quot;content-list__item-published-time&quot;&gt;{{ published_time }}&lt;/div&gt;
           {{/published_time}}
         &lt;/div&gt;
-        {{/sponsor}}
       &lt;/div&gt;
+      {{/is_sponsored?}}
       {{/is_ad?}}
+      {{#is_sponsored?}}
+        {{{sponsored_content_html}}}
+      {{/is_sponsored?}}
       {{#is_ad?}}
       {{&gt; atoms-ad-300x250-placeholder }}
       {{/is_ad?}}
