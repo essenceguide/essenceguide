@@ -6022,4 +6022,10 @@ blockquote,
         padding-left: 0;
         padding-right: 0;
         width: 65.2173913043%; } }
+
+@media (min-width: 1024px) {
+  .search-content__results--filter-all .story-card__media {
+    display: none; }
+  .search-content__results--filter-all .story-card__body {
+    width: 100%; } }
 /*# sourceMappingURL=main.css.map */
