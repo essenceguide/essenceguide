@@ -5422,6 +5422,12 @@ blockquote,
     .link-list__item a:hover {
       text-decoration: underline; }
 
+.videos-slider {
+  margin-bottom: 50px; }
+  .videos-slider .page-container {
+    padding-left: 0;
+    padding-right: 0; }
+
 /**
  * Block: gallery-controls
  * Element: gallery-controls__element
