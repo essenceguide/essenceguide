@@ -1,10 +1,22 @@
 {{#videos_slider}}
   &lt;div class=&quot;videos-slider&quot;&gt;
-    &lt;div class=&quot;videos-slider__featured&quot;&gt;
-      {{&gt; organisms-featured-topic }}
+    {{#featured_video}}
+    &lt;div class=&quot;videos-slider__featured&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
+      &lt;div class=&quot;videos-slider__featured-info&quot;&gt;
+        &lt;div class=&quot;videos-slider__featured-category&quot;&gt;{{category}}&lt;/div&gt;
+        &lt;div class=&quot;videos-slider__featured-title&quot;&gt;{{title}}&lt;/div&gt;
+        &lt;a href=&quot;{{url}}&quot;&gt;Watch Now&lt;/a&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
+    {{/featured_video}}
     &lt;div class=&quot;videos-slider__playlist&quot;&gt;
       {{#items}}
+      &lt;div class=&quot;videos-slider__playlist-item&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
+        &lt;div class=&quot;videos-slider__playlist-item__info&quot;&gt;
+          &lt;div class=&quot;videos-slider__playlist-item__category&quot;&gt;{{category}}&lt;/div&gt;
+          &lt;div class=&quot;videos-slider__playlist-item__title&quot;&gt;{{title}}&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
       {{/items}}
     &lt;/div&gt;
   &lt;/div&gt;

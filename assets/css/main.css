@@ -1195,6 +1195,10 @@ img {
   box-sizing: border-box;
   width: 100%; }
 
+@media (max-width: 1023px) {
+  .sidebar .ad {
+    text-align: center; } }
+
 .sidebar .ad:not(:last-child) {
   margin: 0 0 1em; }
 
@@ -1539,6 +1543,9 @@ img {
       color: #800A57; }
   .breadcrumbs__crumb-link--is-active {
     color: #7E8C8C; }
+  @media (max-width: 1023px) {
+    .breadcrumbs {
+      display: none; } }
 
 @media (min-width: 768px) {
   .breadcrumbs__crumb-link,
@@ -5424,6 +5431,85 @@ blockquote,
 
 .videos-slider {
   margin-bottom: 50px; }
+  .videos-slider:after {
+    clear: both;
+    content: "";
+    display: table; }
+  .videos-slider__featured {
+    width: 73.0158730159%;
+    height: 690px;
+    float: left;
+    position: relative;
+    background-size: cover; }
+    .videos-slider__featured-info {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 0 40px 35px 40px;
+      box-sizing: border-box;
+      z-index: 20; }
+    .videos-slider__featured-category {
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 600;
+      font-size: 0.8125rem;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 10px; }
+    .videos-slider__featured-title {
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 300;
+      font-size: 2.5rem;
+      color: white; }
+    .videos-slider__featured:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(transparent, #B70F7C);
+      opacity: 0.6;
+      left: 0;
+      bottom: 0;
+      z-index: 10; }
+  .videos-slider__playlist {
+    width: 25.7936507937%;
+    height: 690px;
+    float: right;
+    overflow-y: hidden;
+    background-size: cover; }
+    .videos-slider__playlist-item {
+      height: 183px;
+      background-color: purple;
+      clear: both;
+      position: relative; }
+      .videos-slider__playlist-item__category {
+        font-family: "proxima-nova", sans-serif;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: white;
+        margin-bottom: 8px; }
+      .videos-slider__playlist-item__title {
+        font-family: "proxima-nova", sans-serif;
+        font-weight: 600;
+        font-size: 1.125rem;
+        color: white; }
+      .videos-slider__playlist-item__info {
+        position: absolute;
+        z-index: 20;
+        bottom: 0;
+        left: 0;
+        padding: 0 15px 20px 15px; }
+      .videos-slider__playlist-item:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(transparent, black);
+        opacity: 0.6;
+        left: 0;
+        bottom: 0;
+        z-index: 10; }
   .videos-slider .page-container {
     padding-left: 0;
     padding-right: 0; }
