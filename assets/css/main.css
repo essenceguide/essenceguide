@@ -1557,7 +1557,7 @@ img {
       color: #800A57; }
   .breadcrumbs__crumb-link--is-active {
     color: #7E8C8C; }
-  @media (max-width: 1023px) {
+  @media (max-width: 767px) {
     .breadcrumbs {
       display: none; } }
 
