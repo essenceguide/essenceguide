@@ -20,6 +20,7 @@ componentRegistry.registerComponent('sideMenuToggle', require('./modules/sideMen
 componentRegistry.registerComponent('enableMenu', require('./modules/enableMenu'));
 componentRegistry.registerComponent('enableSearchOverlay', require('./modules/enableSearchOverlay'));
 componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNavMenu'));
+componentRegistry.registerComponent('videoSlider', require('./modules/videoSlider'));
 
 componentRegistry.registerComponent('gallery', require('./modules/gallery'));
 

@@ -1,5 +1,5 @@
 {{#videos_slider}}
-  &lt;div class=&quot;videos-slider&quot;&gt;
+  &lt;div class=&quot;videos-slider&quot; data-js-component=&quot;videoSlider&quot;&gt;
     {{#featured_video}}
     &lt;div class=&quot;videos-slider__featured&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
       &lt;div class=&quot;videos-slider__featured-info&quot;&gt;
@@ -9,7 +9,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
     {{/featured_video}}
-    &lt;div class=&quot;videos-slider__playlist&quot; data-js-component=&quot;videoSlider&quot;&gt;
+    &lt;div class=&quot;videos-slider__playlist&quot;&gt;
       {{#items}}
       &lt;a class=&quot;videos-slider__playlist-item&quot; href=&quot;{{url}}&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
         &lt;div class=&quot;videos-slider__playlist-item__info&quot;&gt;
