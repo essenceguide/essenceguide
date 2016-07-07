@@ -6,6 +6,7 @@ var $ = require('jquery'),
 module.exports = function(el) {
 
     var $el = $(el),
+        $playlist = $el.find('.videos-slider__playlist'),
         slickOptions = {
           vertical : true,
           slidesToShow: 4,
@@ -32,5 +33,5 @@ module.exports = function(el) {
           ]
         };
 
-    $el.slick(slickOptions);
+    $playlist.slick(slickOptions);
 };
