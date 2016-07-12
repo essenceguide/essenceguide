@@ -1626,6 +1626,11 @@ img {
 .media-wrap {
   background-color: #F0F2F2;
   text-align: center; }
+  .media-wrap picture {
+    width: 100%;
+    height: auto; }
+    .media-wrap picture img {
+      width: 100%; }
 
 .story-card {
   margin: 0 auto 50px; }
@@ -2917,9 +2922,6 @@ blockquote,
     text-align: center;
     width: 100%;
     padding-top: 20px; }
-    @media (max-width: 767px) {
-      .site-nav__leaderboard {
-        display: none; } }
   .site-nav__block {
     float: left; }
     .site-nav__block--left {
