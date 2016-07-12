@@ -5,6 +5,11 @@
     &lt;/div&gt;
   {{/content_pagination}}
   &lt;div class=&quot;footer__wrap page-container&quot;&gt;
+    {{#show_leaderboard?}}
+    &lt;div class=&quot;footer__leaderboard page-container&quot;&gt;
+      &lt;a href=&quot;{{home_url}}&quot;&gt;&lt;img src=&quot;{{leaderboard_ad}}&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+    {{/show_leaderboard?}}
     &lt;div class=&quot;footer__tout-row&quot;&gt;
       &lt;div class=&quot;footer__tout-row-interior&quot;&gt;
         {{&gt; molecules-footer-touts }}

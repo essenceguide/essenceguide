@@ -3233,6 +3233,9 @@ blockquote,
 
 .footer {
   background: linear-gradient(to top, #630A5D, #B70F7C); }
+  .footer__leaderboard {
+    margin: 0 auto 20px;
+    text-align: center; }
   .footer__wrap {
     max-width: 1440px;
     padding-left: 0;
