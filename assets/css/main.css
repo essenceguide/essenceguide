@@ -1832,7 +1832,7 @@ img {
       overflow-y: hidden;
       position: relative; }
       .article__body--collapsed {
-        max-height: 400px; }
+        max-height: 250px; }
         .article__body--collapsed:after {
           content: '';
           display: block;
