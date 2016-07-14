@@ -1,4 +1,4 @@
-&lt;div class=&quot;article__body&quot;&gt;
+&lt;div class=&quot;article__body{{#show_article_expand}} article__body--collapsed{{/show_article_expand}}&quot;&gt;
 
   {{#body}}
       {{! render the literal value of the body if it's not a structured array }}
@@ -7,12 +7,9 @@
 
       {{{body}}}
 
-
       {{&gt; organisms-article-text }}
 
       {{&gt; organisms-content-list }}
-
-      {{&gt; atoms-outbrain-2x3-placeholder }}
 
   {{/body}}
 &lt;/div&gt;

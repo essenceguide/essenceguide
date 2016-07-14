@@ -22,6 +22,7 @@ componentRegistry.registerComponent('enableSearchOverlay', require('./modules/en
 componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNavMenu'));
 componentRegistry.registerComponent('videoSlider', require('./modules/videoSlider'));
 
+componentRegistry.registerComponent('articleExpand', require('./modules/article/articleExpand'));
 componentRegistry.registerComponent('gallery', require('./modules/gallery'));
 
 componentRegistry.initComponents();
