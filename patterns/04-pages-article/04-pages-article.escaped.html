@@ -309,7 +309,32 @@
           &lt;a href=&quot;#&quot; class=&quot;site-nav__quickview-link&quot;&gt;Subscribe&lt;/a&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-
+    &lt;div class=&quot;site-nav__quickshare hide-at-sm&quot;&gt;
+      &lt;div class=&quot;social-share  social-share--share-count&quot;&gt;
+        &lt;div class=&quot;social-share__share-count&quot;&gt;
+          &lt;div class=&quot;social-share__share-count-number&quot;&gt;50&lt;/div&gt;
+          &lt;div class=&quot;social-share__share-count-text&quot;&gt;SHARES&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;social-share__icon-wrap&quot;&gt;
+          &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot; target = &quot;_blank&quot;&gt;
+            &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;            &lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--twitter &quot; target = &quot;_blank&quot;&gt;
+            &lt;svg class=&quot;social-share__icon social-share__icon--twitter&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-twitter&quot;&gt;&lt;/use&gt;            &lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot; target = &quot;&quot;&gt;
+            &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;            &lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--email &quot; target = &quot;&quot;&gt;
+            &lt;svg class=&quot;social-share__icon social-share__icon--email&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-email&quot;&gt;&lt;/use&gt;            &lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
     &lt;/div&gt;&lt;!-- /.site-nav --&gt;
     &lt;div class=&quot;search-overlay&quot; data-active-class=&quot;search-overlay--is-open&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
@@ -719,7 +744,7 @@
               
             &lt;/div&gt;
     
-            &lt;div class=&quot;article__body article__body--collapsed&quot;&gt;
+            &lt;div class=&quot;article__body article__body--collapsed&quot; data-js-component=&quot;articleShareHeader&quot; data-share-header=&quot;.site-nav__quickshare&quot;&gt;
             
             
                   

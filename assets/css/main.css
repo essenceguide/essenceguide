@@ -2908,6 +2908,39 @@ blockquote,
     @media (max-width: 767px) {
       .site-nav__wrap {
         margin-bottom: 15px; } }
+  .site-nav__quickshare {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white; }
+    .site-nav__quickshare .social-share {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+      margin: 0 auto;
+      text-align: center; }
+      .site-nav__quickshare .social-share__item {
+        width: 40px;
+        height: 40px;
+        margin-left: 14px; }
+      .site-nav__quickshare .social-share__icon--facebook {
+        width: 13px;
+        height: 25px; }
+      .site-nav__quickshare .social-share__icon--twitter {
+        width: 24px;
+        height: 20px; }
+      .site-nav__quickshare .social-share__icon--pinterest {
+        width: 20px;
+        height: 25px; }
+      .site-nav__quickshare .social-share__icon--email {
+        width: 24px;
+        height: 20px; }
   .site-nav__quickview {
     border-top: 1px solid #D1CDCC;
     background-color: white; }
