@@ -1,10 +1,13 @@
 'use strict';
 
 var $ = require('jquery');
+require('waypoints');
 
-module.exports = function (element) {
-  // DOM element specified by data-js-component="stickyToTop"
-  $(element).stick_in_parent({
-    'parent' : 'body'
-  });
+module.exports = function (el) {
+	var $el = $(el);
+
+	// DOM element specified by data-js-component="stickyToTop"
+	$el.stick_in_parent({
+	'parent' : 'body'
+	});
 };

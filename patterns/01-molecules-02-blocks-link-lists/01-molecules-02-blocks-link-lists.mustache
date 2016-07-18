@@ -3,7 +3,12 @@
   &lt;div class=&quot;link-list__title&quot;&gt;{{list_title}}&lt;/div&gt;
     &lt;ul class=&quot;link-list__container&quot;&gt;
       {{#links}}
-      &lt;li class=&quot;link-list__item&quot;&gt;&lt;a href=&quot;{{url}}&quot;&gt;{{link_text}}&lt;/a&gt;&lt;/li&gt;
+      {{^ad_div}}
+        &lt;li class=&quot;link-list__item&quot;&gt;&lt;a href=&quot;{{url}}&quot;&gt;{{link_text}}&lt;/a&gt;&lt;/li&gt;
+      {{/ad_div}}
+      {{#ad_div}}
+        &lt;div id=&quot;subscribe_ad_global_footer&quot;&gt;&lt;/div&gt;
+      {{/ad_div}}
       {{/links}}
     &lt;/ul&gt;
 &lt;/div&gt;

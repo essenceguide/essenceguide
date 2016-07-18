@@ -8,18 +8,26 @@
   {{/share_count}}
   &lt;div class=&quot;social-share__icon-wrap&quot;&gt;
   {{#items}}
-    &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}} &quot; target = &quot;{{target}}&quot;&gt;
-      {{^comment_count}}
-      &lt;svg class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
-        {{&gt;molecules-svg-use-tag}}
-      &lt;/svg&gt;
-      {{/comment_count}}
-      {{#comment_count}}
-      &lt;div class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
+
+      {{^identifier}}
+       &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}} &quot; target = &quot;{{target}}&quot;&gt;
+
+        &lt;svg class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
+          {{&gt;molecules-svg-use-tag}}
+        &lt;/svg&gt;
+
+      &lt;/a&gt;
+      {{/identifier}}
+      {{#identifier}}
+      &lt;span class=&quot;disqus-count-text social-share__item social-share__item--{{icon}}&quot;&gt;
+      &lt;a href=&quot;{{url}}&quot; data-disqus-identifier =&quot;{{identifier}}&quot;&gt;
+
         {{ comment_count }}
-      &lt;/div&gt;
-      {{/comment_count}}
-    &lt;/a&gt;
+
+      &lt;/a&gt;
+      &lt;/span&gt;
+      {{/identifier}}
+
   {{/items}}
   &lt;/div&gt;
 &lt;/div&gt;

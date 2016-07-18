@@ -23,6 +23,7 @@ componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNa
 componentRegistry.registerComponent('videoSlider', require('./modules/videoSlider'));
 
 componentRegistry.registerComponent('articleExpand', require('./modules/article/articleExpand'));
+componentRegistry.registerComponent('articleShareHeader', require('./modules/article/articleShareHeader'));
 componentRegistry.registerComponent('gallery', require('./modules/gallery'));
 
 componentRegistry.initComponents();

@@ -44,7 +44,11 @@
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
             })();
+
+
+
         &lt;/script&gt;
+
         &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
       &lt;/div&gt;
       {{#latest_news}}
@@ -53,4 +57,12 @@
       &lt;/div&gt;
       {{/latest_news}}
     &lt;/div&gt;
+ &lt;script&gt;
+ (function () {
+  var d = document, s = d.createElement('script');
+  s.type = 'text/javascript';
+  s.src = '//essencecom.disqus.com/count.js';
+  (d.getElementsByTagName('HEAD')[0] || d.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+&lt;/script&gt;
 &lt;/article&gt;
