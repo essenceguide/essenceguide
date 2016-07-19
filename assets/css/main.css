@@ -1976,7 +1976,7 @@ img {
       content: "";
       display: block;
       background-color: #00B9AE; }
-    .article__body > p:last-of-type:after {
+    .article__body .article-tombstone:after {
       content: "";
       position: relative;
       display: inline-block;
