@@ -306,7 +306,7 @@
 /*-------------------------------------------- */
 /** Theme Variables */
 /*-------------------------------------------- */
-.article__meta-byline .byline__media:after, .social-share__item--comments:after, .link-with-arrow--fresh:after, .link-with-arrow--accent:after, .content-list__link:after, .link-with-arrow--transparent:after, .btn--arrow:after, .featured-topic .story-overlay__content-list .content-list__link:after, .videos-slider__playlist .slick-arrow:after, .content-pagination__link-arrow, .search-footer__page-link-wrap--prev:before, .search-footer__page-link-wrap--next:after, .load-more__text:after, .btn--play:before, .quote-block:after, .content-list__item-share-count:before {
+.article__meta-byline .byline__media:after, .social-share__item--comments:before, .link-with-arrow--fresh:after, .link-with-arrow--accent:after, .content-list__link:after, .link-with-arrow--transparent:after, .btn--arrow:after, .featured-topic .story-overlay__content-list .content-list__link:after, .videos-slider__playlist .slick-arrow:after, .content-pagination__link-arrow, .search-footer__page-link-wrap--prev:before, .search-footer__page-link-wrap--next:after, .load-more__text:after, .btn--play:before, .quote-block:after, .content-list__item-share-count:before {
   background: url("svg/sprite.css.svg") no-repeat; }
 
 .article__meta-byline .byline__media:after {
@@ -314,7 +314,7 @@
   width: 75px;
   height: 60px; }
 
-.social-share__item--comments:after {
+.social-share__item--comments:before {
   background-position: 0 83.33333333333333%;
   width: 35px;
   height: 35px; }
@@ -1412,9 +1412,20 @@ img {
     font-weight: 700;
     background-color: transparent;
     text-align: center;
-    font-size: 1rem;
     position: relative; }
-    .social-share__item--comments:after {
+    .social-share__item--comments a {
+      font-size: 1rem;
+      color: white;
+      position: relative;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      text-align: center; }
+    .social-share__item--comments:before {
       content: '';
       position: absolute;
       right: 0;
@@ -1976,7 +1987,7 @@ img {
       content: "";
       display: block;
       background-color: #00B9AE; }
-    .article__body > p:last-of-type:after {
+    .article__body .article-tombstone:after {
       content: "";
       position: relative;
       display: inline-block;

@@ -4,6 +4,6 @@
   {{/title}}
 
   {{#text}}
-    &lt;p&gt;{{{text}}}&lt;/p&gt;
+    &lt;p {{#has_tombstone?}}class=&quot;article-tombstone&quot;{{/has_tombstone?}}&gt;{{{text}}}&lt;/p&gt;
   {{/text}}
 {{/article_text}}

@@ -25,6 +25,7 @@
         {{&gt; atoms-outbrain-2x3-placeholder }}
         {{&gt; organisms-related-content }}
         &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
+
         &lt;script&gt;
             /**
              *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -44,7 +45,9 @@
                 s.setAttribute('data-timestamp', +new Date());
                 (d.head || d.body).appendChild(s);
             })();
+
         &lt;/script&gt;
+
         &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
       &lt;/div&gt;
       {{#latest_news}}
@@ -53,4 +56,67 @@
       &lt;/div&gt;
       {{/latest_news}}
     &lt;/div&gt;
+
+    &lt;script&gt;
+
+      var DISQUSWIDGETS, disqus_domain, disqus_shortname='essencecom';
+      typeof DISQUSWIDGETS === &quot;undefined&quot; &amp;&amp; (DISQUSWIDGETS = function() {
+          var f = document,
+              a = f.getElementById(&quot;dsq-count-scr&quot;),
+              a = a &amp;&amp; a.src.match(/(https?:)?\/\/(?:www\.)?([\w_\-]+)\.((?:dev\.)?disqus\.(?:com|org)(?::\d+)?)/i),
+              e = {},
+              s = f.head || f.body,
+              j = {},
+              q = {
+                  identifier: 1,
+                  url: 2
+              };
+          e.domain = a &amp;&amp; a[3] || disqus_domain || &quot;disqus.com&quot;; 
+          e.forum = a &amp;&amp; a[2] || disqus_shortname; 
+          e.proto = a &amp;&amp; a[1] || &quot;&quot;;
+          e.getCount = function(b) {
+              var c;
+              c = encodeURIComponent;
+              var a = e.proto + &quot;//&quot; + e.forum + &quot;.&quot; + e.domain + &quot;/count-data.js?&quot;,
+                  d = [],
+                  k = 0,
+                  l = 10,
+                  r = &quot;&quot;,
+                  b = b || {};
+              b.reset &amp;&amp;
+                  (j = {}, r = &quot;&amp;_=&quot; + +new Date);
+              for (var b = [f.getElementsByTagName(&quot;A&quot;), f.getElementsByClassName &amp;&amp; f.getElementsByClassName(&quot;disqus-comment-count&quot;) || []], m, i, g, h, n = 0; n &lt; b.length; n++) {
+                  m = b[n];
+                  for (var o = 0; o &lt; m.length; o++) {
+                      i = m[o];
+                      g = i.getAttribute(&quot;data-disqus-identifier&quot;);
+                      h = i.hash === &quot;#disqus_thread&quot; &amp;&amp; i.href.replace(&quot;#disqus_thread&quot;, &quot;&quot;) || i.getAttribute(&quot;data-disqus-url&quot;);
+                      if (g) h = q.identifier;
+                      else if (h) g = h, h = q.url;
+                      else continue;
+                      var p;
+                      j.hasOwnProperty(g) ? p = j[g] : (p = j[g] = {
+                          elements: [],
+                          type: h
+                      }, d.push(c(h) + &quot;=&quot; + c(g)));
+                      p.elements.push(i)
+                  }
+              }
+              d.sort();
+              for (c = d.slice(k, l); c.length;) b = f.createElement(&quot;script&quot;), b.src = a + c.join(&quot;&amp;&quot;) + r, s.appendChild(b), k += 10, l += 10, c = d.slice(k, l)
+          };
+          e.displayCount = function(b) {
+              for (var c, a, d, e = b.counts, b = b.text.comments; c = e.shift();)
+                  if (a = j[c.id]) {
+                      c = c.comments;
+                      a = a.elements;
+                      for (d = a.length - 1; d &gt;= 0; d--) a[d].innerHTML = c
+                  }
+          };
+          return e
+      }());
+      DISQUSWIDGETS.getCount();
+
+  &lt;/script&gt;
+
 &lt;/article&gt;
