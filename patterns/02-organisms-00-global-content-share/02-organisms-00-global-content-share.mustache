@@ -13,19 +13,21 @@
        &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}} &quot; target = &quot;{{target}}&quot;&gt;
 
         &lt;svg class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
-          {{&gt;molecules-svg-use-tag}}
+          &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;{{ path_to_symbols  }}#icon-{{ icon }}&quot;&gt;&lt;/use&gt;
         &lt;/svg&gt;
 
       &lt;/a&gt;
       {{/identifier}}
       {{#identifier}}
-      &lt;span class=&quot;disqus-count-text social-share__item social-share__item--{{icon}}&quot;&gt;
-      &lt;a href=&quot;{{url}}&quot; data-disqus-identifier =&quot;{{identifier}}&quot;&gt;
+      
+        &lt;span class=&quot;disqus-count-text social-share__item social-share__item--{{icon}}&quot;&gt;
+        &lt;a href=&quot;{{url}}&quot; data-disqus-identifier =&quot;{{identifier}}&quot;&gt;
 
-        {{ comment_count }}
+          {{ comment_count }}
 
-      &lt;/a&gt;
-      &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;/span&gt;
+
       {{/identifier}}
 
   {{/items}}

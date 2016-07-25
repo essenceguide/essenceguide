@@ -58,11 +58,13 @@
               &lt;a href=&quot;#&quot; id=&quot;subscribe-dropdown-trigger&quot;&gt;
                 &lt;span class=&quot;site-nav__utility-links-item__link&quot;&gt;Subscribe&lt;/span&gt;
               &lt;/a&gt;
+              {{#subscribe_dropdown}}
               &lt;div class=&quot;etr-dropdown__group&quot;&gt;
-                &lt;a class=&quot;etr-dropdown__group-link&quot; href=&quot;{{subscribe_url}}&quot;&gt;Subscribe today&lt;/a&gt;
-                &lt;a class=&quot;etr-dropdown__group-link&quot; href=&quot;{{give_a_gift}}&quot;&gt;Give a gift&lt;/a&gt;
-                &lt;a class=&quot;etr-dropdown__group-link&quot; href=&quot;{{become_an_insider}}&quot;&gt;Become an Insider&lt;/a&gt;
+                {{#items}}
+                &lt;a class=&quot;etr-dropdown__group-link&quot; href=&quot;{{url}}&quot;&gt;{{text}}&lt;/a&gt;
+                {{/items}}
               &lt;/div&gt;
+              {{/subscribe_dropdown}}
             &lt;/div&gt;
             &lt;div class=&quot;etr-dropdown site-nav__utility-links-item hidden-xs&quot; data-js-component=&quot;dropdownToggle&quot; data-trigger=&quot;#dropdown-follow-us&quot; data-active-class=&quot;etr-dropdown--is-open&quot; data-toggle-class=&quot;etr-dropdown__group--is-open&quot;&gt;
               &lt;a href=&quot;#&quot; class=&quot;&quot; id=&quot;dropdown-follow-us&quot;&gt;
@@ -106,9 +108,9 @@
               &lt;div class=&quot;expanded-menu__menu-section__standard&quot;&gt;
                 {{#items}}
                 &lt;article class=&quot;media media__centered media__small media__has-gallery module-name-etr_menu_expanded_small_tout&quot;&gt;
-                  &lt;a href=&quot;http://example.com&quot;&gt;
+                  &lt;a href=&quot;{{url}}&quot;&gt;
                     &lt;div class=&quot;media-left media-left__img-wrap&quot;&gt;
-                      &lt;img src=&quot;http://placehold.it/250x250&quot; /&gt;
+                      &lt;img src=&quot;{{img}}&quot; /&gt;
                     &lt;/div&gt;
                     &lt;div class=&quot;media-body&quot;&gt;
                       &lt;span class=&quot;media-category&quot;&gt;{{category}}&lt;/span&gt;

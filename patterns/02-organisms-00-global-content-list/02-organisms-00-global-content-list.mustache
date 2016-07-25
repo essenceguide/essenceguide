@@ -44,9 +44,11 @@
     {{/items}}
   &lt;/ul&gt;
   {{#link_out}}
-  &lt;div class=&quot;content-list__link&quot;&gt;
-    &lt;a href=&quot;{{link_out_url}}&quot;&gt;{{ link_out_text }}&lt;/a&gt;
-  &lt;/div&gt;
+    {{#link_out_url}}
+    &lt;div class=&quot;content-list__link&quot;&gt;
+      &lt;a href=&quot;{{link_out_url}}&quot;&gt;{{ link_out_text }}&lt;/a&gt;
+    &lt;/div&gt;
+    {{/link_out_url}}
   {{/link_out}}
 &lt;/div&gt;
 {{/content_list}}
