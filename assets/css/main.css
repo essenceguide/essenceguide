@@ -6124,10 +6124,13 @@ blockquote,
         position: relative;
         top: 50%;
         -ms-transform: translateY(-50%);
-            transform: translateY(-50%); }
-    .featured-video .btn {
-      left: 40px;
-      bottom: 50px; } }
+            transform: translateY(-50%); } }
+  .featured-video .btn {
+    position: absolute; }
+    @media (min-width: 1024px) {
+      .featured-video .btn {
+        left: 30px;
+        bottom: 20px; } }
   .featured-video__text:not(:last-child) {
     margin-bottom: 25px; }
 
