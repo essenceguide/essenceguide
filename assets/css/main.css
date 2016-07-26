@@ -3421,12 +3421,8 @@ blockquote,
     .footer__tout-header {
       margin-bottom: 15px; }
     .footer__tout-interior {
-      min-height: 216px;
-      height: auto;
-      margin-bottom: 15px; }
-      @media (min-width: 768px) {
-        .footer__tout-interior {
-          height: 216px; } }
+      margin-bottom: 15px;
+      height: 216px; }
       .footer__tout-interior input[type="text"] {
         border: 0;
         font-size: 0.875rem;
