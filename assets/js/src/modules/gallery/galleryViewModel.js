@@ -17,7 +17,7 @@ function GalleryViewModel(config) {
   BaseGalleryViewModel.call(this);
 
   // Sets slides from gallery Config in template
-  this.config = config;
+  this.config = JSON.encode(config);
 
   this.slides(config.slides);
   this.totalSlideCount(config.galleryTotalSlideCount);
