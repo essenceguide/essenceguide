@@ -11,16 +11,12 @@ module.exports = function(el) {
     galleryViewModel = new GalleryViewModel(window[configVar]);
 
     galleryViewModel.currentSlide.subscribe(function(){
-      updateFacebook(galleryViewModel.currentSlide().url);
-
-      updatePinterest(galleryViewModel.currentSlide().url, galleryViewModel.currentSlide().caption, galleryViewModel.currentSlide().image);
-
-      updateTwitter(galleryViewModel.currentSlide().caption);
-
-      updateEmail(galleryViewModel.currentSlide().title);
+      updateSocialLinks(galleryViewModel.currentSlide());
     });
 
     ko.applyBindings(galleryViewModel, el);
+
+    updateSocialLinks(galleryViewModel.currentSlide());
 }
 
 function updateFacebook(url) {
@@ -39,4 +35,11 @@ function updateTwitter(caption) {
 
 function updateEmail(title) {
 	$('.social-share__item--email').attr('href', 'mailto:?Subject=' + encodeURI( striptags(title) ) );
+}
+
+function updateSocialLinks(slide) {
+  updateFacebook(slide.url);
+  updatePinterest(slide.url, slide.image);
+  updateTwitter(slide.caption);
+  updateEmail(slide.title);
 }
