@@ -9,19 +9,19 @@ var $ = require('jquery'),
 module.exports = function(el) {
     var configVar = $(el).data('config'),
     galleryViewModel = new GalleryViewModel(window[configVar]);
-   
+
 
     galleryViewModel.currentSlide.subscribe(function(){
-      updateSocialLinks(galleryViewModel.currentSlide());
-      outbrainRefresh();
-      refreshADs();
-      refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+      // updateSocialLinks(galleryViewModel.currentSlide());
+      // outbrainRefresh();
+      // refreshADs();
+      // refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
     });
 
     ko.applyBindings(galleryViewModel, el);
 
     updateSocialLinks(galleryViewModel.currentSlide());
-    
+
 }
 
 function updateFacebook(url) {
@@ -53,36 +53,36 @@ function updateSocialLinks(slide) {
 //Update the image data in pinrest
 
 function updatePinterestImage(slide){
-	
+
 	if (typeof slide.image !== "undefined") {
-		
+
 		 if(typeof slide.image.original !== "undefined"){
-			 
+
 			 updatePinterest(slide.url, slide.image.original);
-	
+
 	       }
-		
+
 		 else if(window.matchMedia( "(min-width: 1280px)" ).matches){
-				
+
 				 updatePinterest(slide.url, slide.image.lg);
 			}
 			else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
-				
+
 				 updatePinterest(slide.url, slide.image.md);
-				
+
 			}
 			else if (window.matchMedia( "(min-width: 768px)" ).matches) {
-				
+
 				 updatePinterest(slide.url, slide.image.sm);
-				
+
 			}
 			else if (window.matchMedia( "(min-width: 480px)" ).matches) {
-				
+
 				 updatePinterest(slide.url, slide.image.xs);
-				
+
 			}
 			else{
-				
+
 				 updatePinterest(slide.url, slide.image.xss);
 			}
 	}
@@ -118,7 +118,7 @@ function refreshADs(){
       'ad-ad_galery_300x250_1',
       'ad-ad_galery_300x250_2',
     ];
-    
+
     var existing_ads = [];
     // Validate ad slot exists on this page.
     for (var i = 0; i < ad_slots.length; i++) {
