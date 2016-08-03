@@ -21,6 +21,7 @@ componentRegistry.registerComponent('enableMenu', require('./modules/enableMenu'
 componentRegistry.registerComponent('enableSearchOverlay', require('./modules/enableSearchOverlay'));
 componentRegistry.registerComponent('expandNavMenu', require('./modules/expandNavMenu'));
 componentRegistry.registerComponent('videoSlider', require('./modules/videoSlider'));
+componentRegistry.registerComponent('stickySidebar', require('./modules/stickySidebar'));
 
 componentRegistry.registerComponent('articleExpand', require('./modules/article/articleExpand'));
 componentRegistry.registerComponent('articleShareHeader', require('./modules/article/articleShareHeader'));

@@ -12,10 +12,10 @@ module.exports = function(el) {
 
 
     galleryViewModel.currentSlide.subscribe(function(){
-      // updateSocialLinks(galleryViewModel.currentSlide());
-      // outbrainRefresh();
-      // refreshADs();
-      // refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+      updateSocialLinks(galleryViewModel.currentSlide());
+      outbrainRefresh();
+      refreshADs();
+      refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
     });
 
     ko.applyBindings(galleryViewModel, el);

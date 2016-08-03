@@ -16,8 +16,7 @@ module.exports = function() {
     this.setSlideBySlug(state.data.slug);
   }.bind(this));
 
-  // update browser history/url when current slide changes (and when title card
-  // is removed which sets url to url of first slide)
+  // update browser history/url when current slide changes
   ko.computed(function() {
     if (this.currentSlide() && this.currentSlide().url) {
       History.pushState({slug: this.currentSlide().url}, this.currentSlide().browserTitle, this.currentSlide().url);
