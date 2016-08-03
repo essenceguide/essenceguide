@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="stylesheet" href="../../assets/css/main.css?1470085497" media="all" />
+		<link rel="stylesheet" href="../../assets/css/main.css?1470236347" media="all" />
     <script src="../../assets/js/lib/modernizr.min.js"></script>
 
 
@@ -17,8 +17,8 @@
 		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
-		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1470085497" media="all">
-		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1470085497" media="all" />
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1470236347" media="all">
+		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1470236347" media="all" />
 		
 
 		<!-- End Pattern Lab -->
@@ -135,7 +135,7 @@
           <!-- /ko -->
       </div>
       <script type="text/html" id="image-slide-template">
-        <img class="gallery__image" src="" alt="" data-pin-no-hover="true"  data-bind="attr: {src: image, alt: title}">
+        <img class="gallery__image" src="" alt="" data-pin-no-hover="true"  data-bind="attr: {src:  updateImageSrc(image), alt: title}">
       </script>
       
       <script type="text/html" id="video-slide-template">
@@ -152,6 +152,39 @@
       
       <script>
         var galleryConfig = ;
+        
+        // Placing the function here , since images are not getting called when placed inside index.js : Have
+        // To figure out a better way than this.
+        
+        function updateImageSrc(image){
+      		
+      	  if (typeof image !== "undefined") {
+      		  
+      		    if(typeof image.original !== "undefined"){
+      		    		return image.original;
+      		
+      		    }
+      		    else if(window.matchMedia( "(min-width: 1280px)" ).matches){
+      				return image.lg;
+      			}
+      			else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
+      				
+      				return image.md;
+      				
+      			}
+      			else if (window.matchMedia( "(min-width: 768px)" ).matches) {
+      				return image.sm;
+      				
+      			}
+      			else if (window.matchMedia( "(min-width: 480px)" ).matches) {
+      				return image.xs;
+      				
+      			}
+      			else{
+      				return image.xxs;
+      			}
+      	 	 }
+      	}
       </script>
 
 
@@ -307,7 +340,7 @@
           &lt;!-- /ko --&gt;
       &lt;/div&gt;
       &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
-        &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src: image, alt: title}&quot;&gt;
+        &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src:  updateImageSrc(image), alt: title}&quot;&gt;
       &lt;/script&gt;
       
       &lt;script type=&quot;text/html&quot; id=&quot;video-slide-template&quot;&gt;
@@ -324,6 +357,39 @@
       
       &lt;script&gt;
         var galleryConfig = ;
+        
+        // Placing the function here , since images are not getting called when placed inside index.js : Have
+        // To figure out a better way than this.
+        
+        function updateImageSrc(image){
+      		
+      	  if (typeof image !== &quot;undefined&quot;) {
+      		  
+      		    if(typeof image.original !== &quot;undefined&quot;){
+      		    		return image.original;
+      		
+      		    }
+      		    else if(window.matchMedia( &quot;(min-width: 1280px)&quot; ).matches){
+      				return image.lg;
+      			}
+      			else if (window.matchMedia( &quot;(min-width: 1024px)&quot; ).matches) {
+      				
+      				return image.md;
+      				
+      			}
+      			else if (window.matchMedia( &quot;(min-width: 768px)&quot; ).matches) {
+      				return image.sm;
+      				
+      			}
+      			else if (window.matchMedia( &quot;(min-width: 480px)&quot; ).matches) {
+      				return image.xs;
+      				
+      			}
+      			else{
+      				return image.xxs;
+      			}
+      	 	 }
+      	}
       &lt;/script&gt;
 
 
@@ -805,7 +871,7 @@
     <!-- /ko -->
 </div>
 <script type="text/html" id="image-slide-template">
-  <img class="gallery__image" src="" alt="" data-pin-no-hover="true"  data-bind="attr: {src: image, alt: title}">
+  <img class="gallery__image" src="" alt="" data-pin-no-hover="true"  data-bind="attr: {src:  updateImageSrc(image), alt: title}">
 </script>
 
 <script type="text/html" id="video-slide-template">
@@ -822,6 +888,39 @@
 
 <script>
   var galleryConfig = ;
+  
+  // Placing the function here , since images are not getting called when placed inside index.js : Have
+  // To figure out a better way than this.
+  
+  function updateImageSrc(image){
+		
+	  if (typeof image !== "undefined") {
+		  
+		    if(typeof image.original !== "undefined"){
+		    		return image.original;
+		
+		    }
+		    else if(window.matchMedia( "(min-width: 1280px)" ).matches){
+				return image.lg;
+			}
+			else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
+				
+				return image.md;
+				
+			}
+			else if (window.matchMedia( "(min-width: 768px)" ).matches) {
+				return image.sm;
+				
+			}
+			else if (window.matchMedia( "(min-width: 480px)" ).matches) {
+				return image.xs;
+				
+			}
+			else{
+				return image.xxs;
+			}
+	 	 }
+	}
 </script>
 
 							<div class="sg-code" style="display: none">
@@ -909,7 +1008,7 @@
     &lt;!-- /ko --&gt;
 &lt;/div&gt;
 &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
-  &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src: image, alt: title}&quot;&gt;
+  &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src:  updateImageSrc(image), alt: title}&quot;&gt;
 &lt;/script&gt;
 
 &lt;script type=&quot;text/html&quot; id=&quot;video-slide-template&quot;&gt;
@@ -926,6 +1025,39 @@
 
 &lt;script&gt;
   var galleryConfig = ;
+  
+  // Placing the function here , since images are not getting called when placed inside index.js : Have
+  // To figure out a better way than this.
+  
+  function updateImageSrc(image){
+		
+	  if (typeof image !== &quot;undefined&quot;) {
+		  
+		    if(typeof image.original !== &quot;undefined&quot;){
+		    		return image.original;
+		
+		    }
+		    else if(window.matchMedia( &quot;(min-width: 1280px)&quot; ).matches){
+				return image.lg;
+			}
+			else if (window.matchMedia( &quot;(min-width: 1024px)&quot; ).matches) {
+				
+				return image.md;
+				
+			}
+			else if (window.matchMedia( &quot;(min-width: 768px)&quot; ).matches) {
+				return image.sm;
+				
+			}
+			else if (window.matchMedia( &quot;(min-width: 480px)&quot; ).matches) {
+				return image.xs;
+				
+			}
+			else{
+				return image.xxs;
+			}
+	 	 }
+	}
 &lt;/script&gt;
 
 									</code>
@@ -979,10 +1111,10 @@
 			
 		}
 	</script>
-	<script id="pl-js-polyfill-insert-1470085497">
+	<script id="pl-js-polyfill-insert-1470236347">
 		(function() {
 			if (self != top) {
-				var cb = '1470085497';
+				var cb = '1470236347';
 				var js = [];
 				if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
 					js.push("styleguide/js/vendor/classlist-polyfill.js");
@@ -991,10 +1123,10 @@
 			}
 		})();
 	</script>
-	<script id="pl-js-insert-1470085497">
+	<script id="pl-js-insert-1470236347">
 		(function() {
 			if (self != top) {
-				var cb = '1470085497';
+				var cb = '1470236347';
 				var js = [ { "src": "styleguide/js/vendor/jwerty.js", "dep": [ "styleguide/js/postmessage.js", { "src": "data/annotations.js", "dep": [ "styleguide/js/annotations-pattern.js" ] }, "styleguide/js/code-pattern.js" ] } ];
 				scriptLoader.run(js,cb,'pl-js-insert');
 			}
