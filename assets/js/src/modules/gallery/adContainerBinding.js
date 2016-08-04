@@ -17,5 +17,11 @@ ko.bindingHandlers.adContainer = {
       ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
         $(document).trigger('slGallery:removedAd', data);
       });
+      
+     // Render the Interstitial ADs
+     var ad = adFactory.getAd("300x250");
+     ad.setParam("dcopt", "ist");
+     ad.write("ad-gallery_interstitial_ad");
+       
     }
 };

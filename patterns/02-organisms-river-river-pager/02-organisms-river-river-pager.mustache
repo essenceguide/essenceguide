@@ -1,0 +1,17 @@
+{{#river_pager}}
+  &lt;div class=&quot;search-footer&quot;&gt;
+    &lt;div class=&quot;search-footer__pages-nav&quot;&gt;
+      &lt;div class=&quot;search-footer__page-link-numbers&quot;&gt;
+        {{#pages}}
+          &lt;a class=&quot;search-footer__page-link {{page_link_class}}&quot; href=&quot;{{page_link}}&quot;&gt;{{page_number}}&lt;/a&gt;
+        {{/pages}}
+      &lt;/div&gt;
+      &lt;div class=&quot;search-footer__page-link-wrap search-footer__page-link-wrap--prev&quot;&gt;
+        &lt;a class=&quot;search-footer__page-link search-footer__page-link--prev&quot; href=&quot;{{prev_link}}&quot;&gt;Prev&lt;/a&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;search-footer__page-link-wrap search-footer__page-link-wrap--next&quot;&gt;
+        &lt;a class=&quot;search-footer__page-link search-footer__page-link--next&quot; href=&quot;{{prev_link}}&quot;&gt;Next&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+{{/river_pager}}

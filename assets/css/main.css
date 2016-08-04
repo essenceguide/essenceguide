@@ -6042,9 +6042,6 @@ blockquote,
       -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);
   margin: auto;
-  background: red;
-  height: 200px;
-  width: 200px;
   /*-------------------------------------------- */
   /** Variables */
   /*-------------------------------------------- */

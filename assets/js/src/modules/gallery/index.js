@@ -44,7 +44,6 @@ function updateEmail(title) {
 
 function updateSocialLinks(slide) {
   updateFacebook(slide.url);
-  updatePinterest(slide.url, slide.image);
   updateTwitter(slide.caption);
   updateEmail(slide.title);
   updatePinterestImage(slide);
@@ -53,37 +52,25 @@ function updateSocialLinks(slide) {
 //Update the image data in pinrest
 
 function updatePinterestImage(slide){
-
 	if (typeof slide.image !== "undefined") {
-
 		 if(typeof slide.image.original !== "undefined"){
-
-			 updatePinterest(slide.url, slide.image.original);
-
+			 updatePinterest(slide.url,slide.caption, slide.image.original);
 	       }
-
 		 else if(window.matchMedia( "(min-width: 1280px)" ).matches){
-
-				 updatePinterest(slide.url, slide.image.lg);
+				 updatePinterest(slide.url,slide.caption, slide.image.lg);
 			}
 			else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
-
-				 updatePinterest(slide.url, slide.image.md);
-
+				 updatePinterest(slide.url,slide.caption, slide.image.md);
 			}
 			else if (window.matchMedia( "(min-width: 768px)" ).matches) {
-
-				 updatePinterest(slide.url, slide.image.sm);
-
+				 updatePinterest(slide.url, slide.caption,slide.image.sm);
 			}
 			else if (window.matchMedia( "(min-width: 480px)" ).matches) {
-
-				 updatePinterest(slide.url, slide.image.xs);
-
+				 updatePinterest(slide.url,slide.caption, slide.image.xs);
 			}
 			else{
+				 updatePinterest(slide.url,slide.caption, slide.image.xss);
 
-				 updatePinterest(slide.url, slide.image.xss);
 			}
 	}
 }
@@ -127,6 +114,6 @@ function refreshADs(){
       }
     }
     // Refresh the ADs
-    adFactory.refreshAds(existing_ads);
+   adFactory.refreshAds(existing_ads);
 }
 
