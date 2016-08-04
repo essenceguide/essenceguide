@@ -1,23 +1,35 @@
 'use strict';
 
-var $ = require('jquery');
+var $ = require('jquery'),
+    config = require('../config');
+
 require('waypoints');
 require('waypointsSticky');
+
 
 module.exports = function (el) {
   var $el = $(el),
       topOffset = 65,
-      stickySidebar = new Waypoint.Sticky({
-        element: el,
-        offset: topOffset
-      }),
       $sidebarContainer = $el.closest('.page-container'),
       $articleBodyWrap = $('.article__body').last(),
       $sidebarHaltEl = ( ($articleBodyWrap.length) ? $articleBodyWrap : $sidebarContainer ),
-      sidebarHalt = new Waypoint({
+      mqlAboveTablet = window.matchMedia("(min-width:" + config.breakpoints.medium + "px)"),
+      stickySidebar,
+      sidebarHalt;
+
+  function createStickySidebar() {
+    return new Waypoint.Sticky({
+      element: el,
+      offset: topOffset,
+      continuous: false
+    });
+  }
+
+  function createSidebarHalt() {
+    return new Waypoint({
       element: $sidebarHaltEl,
       handler: function(direction) {
-        console.log(direction);
+
         if (direction === 'down') {
           var staticOffset = $el.offset().top;
           $el.addClass('force-unstick').css('top', staticOffset);
@@ -28,6 +40,26 @@ module.exports = function (el) {
 
         }
       },
-      offset: 'bottom-in-view'
-    });
+      offset: 'bottom-in-view',
+      continuous: false
+    })
+  }
+
+  function initSticky() {
+    stickySidebar = createStickySidebar();
+    sidebarHalt = createSidebarHalt();
+  }
+
+  // creates waypoints for the sticky sidebar functionality if we're above tablet
+  if (mqlAboveTablet.matches) initSticky();
+
+  mqlAboveTablet.addListener(function(mql) {
+    // removes the force-unstick class if it's there when we go to tablet
+    if (mql.matches) {
+      initSticky();
+    } else {
+      stickySidebar && stickySidebar.waypoint.destroy();
+      sidebarHalt && sidebarHalt.destroy();
+    }
+  });
 };

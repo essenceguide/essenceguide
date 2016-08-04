@@ -7,8 +7,8 @@ module.exports = {
   breakpoints: {
     xsmall: 480,
     small: 768,
-    medium: 992,
-    large: 1200,
-    xlarge: 1300
+    medium: 1024,
+    large: 1280,
+    xlarge: 1400
   }
 };

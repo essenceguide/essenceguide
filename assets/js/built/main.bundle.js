@@ -1969,9 +1969,9 @@ webpackJsonp([0],[
 	  breakpoints: {
 	    xsmall: 480,
 	    small: 768,
-	    medium: 992,
-	    large: 1200,
-	    xlarge: 1300
+	    medium: 1024,
+	    large: 1280,
+	    xlarge: 1400
 	  }
 	};
 
@@ -2248,24 +2248,36 @@ webpackJsonp([0],[
 
 	'use strict';
 	
-	var $ = __webpack_require__(2);
+	var $ = __webpack_require__(2),
+	    config = __webpack_require__(15);
+	
 	__webpack_require__(11);
 	__webpack_require__(20);
+	
 	
 	module.exports = function (el) {
 	  var $el = $(el),
 	      topOffset = 65,
-	      stickySidebar = new Waypoint.Sticky({
-	        element: el,
-	        offset: topOffset
-	      }),
 	      $sidebarContainer = $el.closest('.page-container'),
 	      $articleBodyWrap = $('.article__body').last(),
 	      $sidebarHaltEl = ( ($articleBodyWrap.length) ? $articleBodyWrap : $sidebarContainer ),
-	      sidebarHalt = new Waypoint({
-	      element: $sidebarHaltEl,
+	      mqlAboveTablet = window.matchMedia("(min-width:" + config.breakpoints.medium + "px)"),
+	      stickySidebar,
+	      sidebarHalt;
+	
+	  function createStickySidebar() {
+	    return new Waypoint.Sticky({
+	      element: el,
+	      offset: topOffset,
+	      continuous: false
+	    });
+	  }
+	
+	  function createSidebarHalt() {
+	    return new Waypoint({
+	      element: $sidebarHaltEl[0],
 	      handler: function(direction) {
-	        console.log(direction);
+	
 	        if (direction === 'down') {
 	          var staticOffset = $el.offset().top;
 	          $el.addClass('force-unstick').css('top', staticOffset);
@@ -2276,8 +2288,29 @@ webpackJsonp([0],[
 	
 	        }
 	      },
-	      offset: 'bottom-in-view'
-	    });
+	      offset: 'bottom-in-view',
+	      continuous: false
+	    })
+	  }
+	
+	  function initSticky() {
+	    stickySidebar = createStickySidebar();
+	    sidebarHalt = createSidebarHalt();
+	  }
+	
+	  // creates waypoints for the sticky sidebar functionality if we're above tablet
+	  if (mqlAboveTablet.matches) initSticky();
+	
+	  mqlAboveTablet.addListener(function(mql) {
+	    // removes the force-unstick class if it's there when we go to tablet
+	    if (mql.matches) {
+	      initSticky();
+	    } else {
+	      console.log(stickySidebar);
+	      stickySidebar && stickySidebar.destroy();
+	      sidebarHalt && sidebarHalt.destroy();
+	    }
+	  });
 	};
 
 /***/ },
