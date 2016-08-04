@@ -1239,7 +1239,22 @@ img {
     padding-right: 1.4784946237%; }
     .sidebar--is-sw {
       width: 300px;
-      padding: 0; } }
+      padding: 0; }
+  .sticky-wrapper {
+    position: static;
+    box-sizing: border-box;
+    width: 25%;
+    float: left;
+    padding-left: 1.4784946237%;
+    padding-right: 1.4784946237%;
+    width: 300px;
+    padding: 0; }
+    .sticky-wrapper .stuck {
+      position: fixed;
+      top: 65px; }
+      .sticky-wrapper .stuck.force-unstick {
+        position: absolute;
+        top: auto; } }
 
 .content-sidebar-lockup:after {
   clear: both;
