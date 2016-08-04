@@ -1251,7 +1251,8 @@ img {
     padding: 0; }
     .sticky-wrapper .stuck {
       position: fixed;
-      top: 65px; }
+      top: 65px;
+      width: 300px; }
       .sticky-wrapper .stuck.force-unstick {
         position: absolute;
         top: auto; } }
