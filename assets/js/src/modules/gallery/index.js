@@ -3,13 +3,15 @@
 var $ = require('jquery'),
     ko = require('knockout'),
     striptags = require('striptags'),
+    ResponsiveImages = require('./responsiveImages'),
     GalleryViewModel = require('./galleryViewModel');
+    
 
 
 module.exports = function(el) {
-    var configVar = $(el).data('config'),
-    galleryViewModel = new GalleryViewModel(window[configVar]);
-
+     var configVar 			= $(el).data('config'),
+     responsiveSlides    =  new ResponsiveImages(window[configVar]),
+     galleryViewModel = new GalleryViewModel(responsiveSlides.alterImage());
 
     galleryViewModel.currentSlide.subscribe(function(){
       updateSocialLinks(galleryViewModel.currentSlide());
@@ -46,35 +48,8 @@ function updateSocialLinks(slide) {
   updateFacebook(slide.url);
   updateTwitter(slide.caption);
   updateEmail(slide.title);
-  updatePinterestImage(slide);
+  updatePinterest(slide.url,slide.caption,slide.image);
 }
-
-//Update the image data in pinrest
-
-function updatePinterestImage(slide){
-	if (typeof slide.image !== "undefined") {
-		 if(typeof slide.image.original !== "undefined"){
-			 updatePinterest(slide.url,slide.caption, slide.image.original);
-	       }
-		 else if(window.matchMedia( "(min-width: 1280px)" ).matches){
-				 updatePinterest(slide.url,slide.caption, slide.image.lg);
-			}
-			else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
-				 updatePinterest(slide.url,slide.caption, slide.image.md);
-			}
-			else if (window.matchMedia( "(min-width: 768px)" ).matches) {
-				 updatePinterest(slide.url, slide.caption,slide.image.sm);
-			}
-			else if (window.matchMedia( "(min-width: 480px)" ).matches) {
-				 updatePinterest(slide.url,slide.caption, slide.image.xs);
-			}
-			else{
-				 updatePinterest(slide.url,slide.caption, slide.image.xss);
-
-			}
-	}
-}
-
 
 function outbrainRefresh(){
   if (typeof(OBR) !== "undefined" && typeof(OBR.extern) !== "undefined"
@@ -116,4 +91,3 @@ function refreshADs(){
     // Refresh the ADs
    adFactory.refreshAds(existing_ads);
 }
-
