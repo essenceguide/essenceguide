@@ -154,14 +154,14 @@
                       Here is some caption content, yay!
                   &lt;/div&gt;
                   &lt;!-- ko if: imageCredit --&gt;
-                  &lt;div class=&quot;gallery-caption__credit&quot;&gt;Photo by &lt;span data-bind=&quot;text: imageCredit&quot;&gt;Dan Colonna&lt;/span&gt;&lt;/div&gt;
+                  &lt;div class=&quot;gallery-caption__credit&quot;&gt;Photo by &lt;span data-bind=&quot;html: imageCredit&quot;&gt;Dan Colonna&lt;/span&gt;&lt;/div&gt;
                   &lt;!-- /ko --&gt;
                 &lt;/div&gt;
               &lt;/div&gt;
               &lt;!-- /ko --&gt;
           &lt;/div&gt;
           &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
-            &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src:  updateImageSrc(image), alt: title}&quot;&gt;
+            &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src:  image, alt: title}&quot;&gt;
           &lt;/script&gt;
           
           &lt;script type=&quot;text/html&quot; id=&quot;video-slide-template&quot;&gt;
@@ -178,39 +178,6 @@
           
           &lt;script&gt;
             var galleryConfig = ;
-            
-            // Placing the function here , since images are not getting called when placed inside index.js : Have
-            // To figure out a better way than this.
-            
-            function updateImageSrc(image){
-          		
-          	  if (typeof image !== &quot;undefined&quot;) {
-          		  
-          		    if(typeof image.original !== &quot;undefined&quot;){
-          		    		return image.original;
-          		
-          		    }
-          		    else if(window.matchMedia( &quot;(min-width: 1280px)&quot; ).matches){
-          				return image.lg;
-          			}
-          			else if (window.matchMedia( &quot;(min-width: 1024px)&quot; ).matches) {
-          				
-          				return image.md;
-          				
-          			}
-          			else if (window.matchMedia( &quot;(min-width: 768px)&quot; ).matches) {
-          				return image.sm;
-          				
-          			}
-          			else if (window.matchMedia( &quot;(min-width: 480px)&quot; ).matches) {
-          				return image.xs;
-          				
-          			}
-          			else{
-          				return image.xxs;
-          			}
-          	 	 }
-          	}
           &lt;/script&gt;
     
     

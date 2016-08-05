@@ -27,7 +27,7 @@ module.exports = function (el) {
 
   function createSidebarHalt() {
     return new Waypoint({
-      element: $sidebarHaltEl,
+      element: $sidebarHaltEl[0],
       handler: function(direction) {
 
         if (direction === 'down') {
@@ -58,7 +58,8 @@ module.exports = function (el) {
     if (mql.matches) {
       initSticky();
     } else {
-      stickySidebar && stickySidebar.waypoint.destroy();
+      console.log(stickySidebar);
+      stickySidebar && stickySidebar.destroy();
       sidebarHalt && sidebarHalt.destroy();
     }
   });
