@@ -3,15 +3,11 @@
 var $ = require('jquery'),
     ko = require('knockout'),
     striptags = require('striptags'),
-    ResponsiveImages = require('./responsiveImages'),
     GalleryViewModel = require('./galleryViewModel');
-    
-
 
 module.exports = function(el) {
-     var configVar 			= $(el).data('config'),
-     responsiveSlides    =  new ResponsiveImages(window[configVar]),
-     galleryViewModel = new GalleryViewModel(responsiveSlides.alterImage());
+     var configVar = $(el).data('config'),
+     galleryViewModel = new GalleryViewModel(window[configVar]);
 
     galleryViewModel.currentSlide.subscribe(function(){
       updateSocialLinks(galleryViewModel.currentSlide());

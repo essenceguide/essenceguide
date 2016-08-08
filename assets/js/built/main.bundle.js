@@ -2366,15 +2366,11 @@ webpackJsonp([0],[
 	var $ = __webpack_require__(2),
 	    ko = __webpack_require__(24),
 	    striptags = __webpack_require__(27),
-	    ResponsiveImages = __webpack_require__(28),
-	    GalleryViewModel = __webpack_require__(33);
-	    
-	
+	    GalleryViewModel = __webpack_require__(28);
 	
 	module.exports = function(el) {
-	     var configVar 			= $(el).data('config'),
-	     responsiveSlides    =  new ResponsiveImages(window[configVar]),
-	     galleryViewModel = new GalleryViewModel(responsiveSlides.alterImage());
+	     var configVar = $(el).data('config'),
+	     galleryViewModel = new GalleryViewModel(window[configVar]);
 	
 	    galleryViewModel.currentSlide.subscribe(function(){
 	      updateSocialLinks(galleryViewModel.currentSlide());
@@ -8623,138 +8619,192 @@ webpackJsonp([0],[
 
 	'use strict'
 	
+	__webpack_require__(29);
+	__webpack_require__(31);
 	
 	var $ = __webpack_require__(2),
-	    ko = __webpack_require__(24);
+	    ko = __webpack_require__(24),
+	    _ = __webpack_require__(8),
+	    hammer = __webpack_require__(32),
+	    Slide = __webpack_require__(33),
+	    prefetchImages = __webpack_require__(34);
 	
-	var BaseGalleryViewModel = __webpack_require__(29);
+	var BaseGalleryViewModel = __webpack_require__(35);
 	
-	module.exports = ResponsiveImages;
+	module.exports = GalleryViewModel;
 	
-	function ResponsiveImages(config) {
-		
-		 // Sets slides from gallery Config in template
-		  this.config = config;
-		  // replace repsonsive images
-		  this.alterImage = ko.pureComputed(function () {
-			  $.each(config.slides, function() {
-				  
-				  if (typeof this.imagesrc !== "undefined") {
-					  
-					    if(typeof this.imagesrc.original !== "undefined"){
-					    		this.image = this.imagesrc.original;
-					
-					    }
-					    else if(window.matchMedia( "(min-width: 1280px)" ).matches){
-					    	this.image = this.imagesrc.lg;
-						}
-						else if (window.matchMedia( "(min-width: 1024px)" ).matches) {
-						 	this.image = this.imagesrc.md;
-						}
-						else if (window.matchMedia( "(min-width: 768px)" ).matches) {
-						 	this.image = this.imagesrc.sm;
-						}
-						else if (window.matchMedia( "(min-width: 480px)" ).matches) {
-						 	this.image = this.imagesrc.xs;
-						}
-						else{
-						 	this.image = this.imagesrc.xxs;
-						}
-				 	 }
-				  
-				});
-		  return config;
-		  }, this);
-		
+	function GalleryViewModel(config) {
+	  BaseGalleryViewModel.call(this);
+	
+	  // Sets slides from gallery Config in template
+	  this.config = config;
+	
+	  this.slides(config.slides.map(function(slideData) {
+	    return new Slide(slideData);
+	  }));
+	
+	  this.totalSlideCount(config.galleryTotalSlideCount);
+	  this.currentSlideIndex(config.initialSlideIndex || 0);
+	
+	
+	  // create array of slides without ads so we can track current slide number to
+	  // display in gallery without it including ad slides.
+	  this.slidesWithoutAds = _.reject(this.slides(), {type: 'ad'});
+	
+	  this.currentSlideNum = ko.pureComputed(function () {
+	      return _.indexOf(this.slides(), this.currentSlide()) + 1;
+	  }, this);
+	
+	  this.galleryUrl = ko.observable(config.galleryUrl);
+	  this.title = ko.observable(config.galleryTitle);
+	  this.description = ko.observable(config.galleryDescription);
+	
+	  // is the current slide an ad?
+	  this.isNotAdSlide = ko.pureComputed(function () {
+	      return this.currentSlide().type != 'ad';
+	  }, this);
+	
+	  this.slideMediaType = ko.pureComputed(function() {
+	    if (!this.currentSlide()) return;
+	
+	    // TODO: UPDATE WITH CORRECT NAMING CONVENTION
+	    if (this.currentSlide().type == 'video') {
+	      return 'gallery__media--video';
+	    } else if (this.currentSlide().type == 'image') {
+	      return 'gallery__media--image'
+	    } else {
+	      return 'gallery__media--ad'
+	    }
+	
+	  }, this);
+	
+	  this.gotoNextSlide = function() {
+	    // remove title card if it is displayed when user goes to next slide
+	    if (this.isLastSlide() && config.nextContentUrl) {
+	      // navigate to next gallery url
+	      window.location = config.nextContentUrl;
+	    } else {
+	      BaseGalleryViewModel.prototype.gotoNextSlide.call(this);
+	    }
+	  };
+	
+	  this.imageCredit = function() {
+	    if ( this.currentSlide().imageCredit) {
+	      return this.currentSlide().imageCredit;
+	    }
+	  }
+	
+	  // update template based on slide type
+	  this.templateType = function(slide) {
+	    if (slide.type == 'image') {
+	      return 'image-slide-template';
+	    } else if (slide.type == 'video') {
+	      return 'video-slide-template';
+	    } else if (slide.type == 'ad') {
+	      return 'ad-slide-template';
+	    }
+	  };
+	
+	  this.updatedImageSrc = ko.pureComputed(function() {
+	    return findCorrectImage(this.currentSlide());
+	  });
+	
+	
+	  // prefetch the next and previous images on the gallery
+	  this.prefetchImages = function() {
+	    var slideCount = this.slides().length,
+	        currentIndex = this.currentSlideNum() - 1,
+	        prefetchCount = 1;
+	
+	    // gather images to the left of the current slide to preload
+	    var leftSlides = this.slidesWithoutAds.slice(Math.max(currentIndex - prefetchCount, 0), currentIndex);
+	
+	    // gather image to the right of the current slide to preload
+	    var rightSlides = this.slidesWithoutAds.slice(currentIndex + 1, Math.min(currentIndex + (prefetchCount + 1), slideCount));
+	
+	    var imagesToPrefetch = leftSlides.concat(rightSlides).map(function(slide) {
+	      return slide.image;
+	    });
+	
+	    prefetchImages.apply(null, imagesToPrefetch);
+	  }
+	
+	  ko.computed(function(){
+	    // depends on currentIndex changing
+	    this.prefetchImages();
+	  }, this);
+	
+	  if (config.updateHistory) {
+	    __webpack_require__(38).call(this);
+	  }
 	}
 	
-	ResponsiveImages.prototype = Object.create(BaseGalleryViewModel.prototype);
+	GalleryViewModel.prototype = Object.create(BaseGalleryViewModel.prototype);
+
 
 /***/ },
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ko = __webpack_require__(24);
-	var $ = __webpack_require__(2);
-	__webpack_require__(30);
-	__webpack_require__(32);
+	'use strict';
 	
-	module.exports = BaseGalleryViewModel;
+	var ko = __webpack_require__(24),
+			hasOverflow = __webpack_require__(30);
 	
-	function BaseGalleryViewModel(slides) {
-	  this.slides = ko.observableArray(slides || []);
-	  this.totalSlideCount = ko.observable();
+	ko.bindingHandlers.overflowing = {
+		init: function(el, valueAccessor) {
+			var observable = valueAccessor();
 	
-	  this.currentSlideIndex = ko.observable(0);
-	  this.currentSlide = ko.computed(function() {
-	    return this.slides()[this.currentSlideIndex()];
-	  }, this);
-	
-	  this.currentSlideNum = ko.computed(function() {
-	    return this.currentSlideIndex() + 1;
-	  }, this);
-	}
-	
-	BaseGalleryViewModel.prototype.isFirstSlide = function() {
-	  return this.currentSlideIndex() == 0;
-	}
-	
-	BaseGalleryViewModel.prototype.gotoPrevSlide = function() {
-	  if (this.isFirstSlide()) return;
-	
-	  this.currentSlideIndex( this.currentSlideIndex() - 1 );
-	  this.announceSlideBecameVisible();
-	}
-	
-	BaseGalleryViewModel.prototype.isLastSlide = function() {
-	  return this.currentSlideIndex() == this.slides().length - 1;
-	}
-	
-	BaseGalleryViewModel.prototype.gotoNextSlide = function() {
-	  if (this.isLastSlide()) {
-	    return
-	  };
-	  this.currentSlideIndex ( this.currentSlideIndex() + 1 );
-	  this.announceSlideBecameVisible();
-	}
-	
-	BaseGalleryViewModel.prototype.announceSlideBecameVisible = function() {
-	  $(document).trigger('slGallery:slideView', [this]);
-	}
-
+			observable(hasOverflow(el));
+		}
+	};
 
 /***/ },
 /* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var $ = __webpack_require__(2);
+	
 	'use strict';
 	
-	var ko = __webpack_require__(24),
-	  Hammer = __webpack_require__(31);
-	
-	makeSwipeBinding('swipe');
-	makeSwipeBinding('swipeLeft');
-	makeSwipeBinding('swipeRight');
-	
-	function makeSwipeBinding(swipeEvent) {
-	  ko.bindingHandlers[swipeEvent] = {
-	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-	      bindHammerEvent(element, swipeEvent.toLowerCase(), valueAccessor(), bindingContext.$data);
-	    }
-	  };
+	module.exports = function(el) {
+	  return $(el).outerHeight(true) == $(el).parent().height() || $(el).height() > $(el).parent().height();
 	}
-	
-	function bindHammerEvent(element, event, handler, viewModel) {
-	  delete Hammer.defaults.cssProps.userSelect;
-	  var hammer = new Hammer(element);
-	  hammer.on(event, function(e) {
-	    handler.call(viewModel, e);
-	  });
-	};
-
 
 /***/ },
 /* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var ko = __webpack_require__(24),
+	    $ = __webpack_require__(2);
+	
+	ko.bindingHandlers.adContainer = {
+	
+	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+	      var data = {
+	        id: element.id,
+	        adData: bindingContext.$data,
+	        galleryData: bindingContext.$root.config
+	      };
+	
+	      $(document).trigger('slGallery:displayAd', data);
+	
+	      ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
+	        $(document).trigger('slGallery:removedAd', data);
+	      });
+	
+	     // Render the Interstitial ADs
+	     var ad = adFactory.getAd("300x250");
+	     ad.setParam("dcopt", "ist");
+	     ad.write("ad-gallery_interstitial_ad");
+	
+	    }
+	};
+
+/***/ },
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/*! Hammer.JS - v2.0.7 - 2016-04-22
@@ -11403,196 +11453,64 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 32 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var ko = __webpack_require__(24);
-	
-	makeKeyPressBinding('leftArrowPress', 37);
-	makeKeyPressBinding('rightArrowPress', 39);
-	
-	function makeKeyPressBinding(bindingName, keyCode, context) {
-	  ko.bindingHandlers[bindingName] = {
-	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-	      var handler = valueAccessor();
-	
-	      (context || document).addEventListener('keyup', function(e) {
-	        if (e.keyCode != keyCode) return;
-	
-	        handler.call(bindingContext.$data, e);
-	      });
-	    }
-	  }
-	}
-
-/***/ },
 /* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict'
+	'use strict';
 	
-	__webpack_require__(34);
-	__webpack_require__(36);
+	var $ = __webpack_require__(2);
 	
-	var $ = __webpack_require__(2),
-	    ko = __webpack_require__(24),
-	    _ = __webpack_require__(8),
-	    hammer = __webpack_require__(31),
-	    prefetchImages = __webpack_require__(37);
+	function Slide(slideData) {
+	  $.extend(this, slideData);
 	
-	var BaseGalleryViewModel = __webpack_require__(29);
+	  if (slideData.type == 'ad') return this;
 	
-	module.exports = GalleryViewModel;
+	  var size = this.getImageSize(this);
+	  this.image = size.src;
+	  this.width = size.width;
+	  this.height = size.height;
+	};
 	
-	function GalleryViewModel(config) {
-	  BaseGalleryViewModel.call(this);
+	Slide.prototype.getImageSize = function(slide) {
 	
-	  // Sets slides from gallery Config in template
-	  this.config = config;
+	  if (!slide.imagesrc) return;
 	
-	  this.slides(config.slides);
-	  this.totalSlideCount(config.galleryTotalSlideCount);
-	  this.currentSlideIndex(config.initialSlideIndex || 0);
-	
-	
-	  // create array of slides without ads so we can track current slide number to
-	  // display in gallery without it including ad slides.
-	  this.slidesWithoutAds = _.reject(this.slides(), {type: 'ad'});
-	
-	  this.currentSlideNum = ko.pureComputed(function () {
-	      return _.indexOf(this.slidesWithoutAds, this.currentSlide()) + 1;
-	  }, this);
-	
-	  this.galleryUrl = ko.observable(config.galleryUrl);
-	  this.title = ko.observable(config.galleryTitle);
-	  this.description = ko.observable(config.galleryDescription);
-	
-	  // prefetch the next slide image
-	  this.currentSlide.subscribe(function(newSlide) {
-	    if (!this.isLastSlide()) {
-	      prefetchImages(this.slides()[this.currentSlideIndex() + 1].image);
+	  var breakpoints = [
+	    {
+	      mq: "(min-width: 1280px)",
+	      src: slide.imagesrc.lg,
+	    },
+	    {
+	      mq: "(min-width: 1024px)",
+	      src: slide.imagesrc.md,
+	    },
+	    {
+	      mq: "(min-width: 768px)",
+	      src: slide.imagesrc.sm,
+	    },
+	    {
+	      mq: "(min-width: 480px)",
+	      src: slide.imagesrc.xs,
+	    },
+	    {
+	      mq: "(min-width: 0px)",
+	      src: slide.imagesrc.xxs
 	    }
-	  }, this);
+	  ];
 	
-	  // is the current slide an ad?
-	  this.isNotAdSlide = ko.pureComputed(function () {
-	      return this.currentSlide().type != 'ad';
-	  }, this);
+	  if (typeof slide.imagesrc.original !== "undefined") return slide.image.original;
 	
-	  this.slideMediaType = ko.pureComputed(function() {
-	    if (!this.currentSlide()) return;
-	
-	    // TODO: UPDATE WITH CORRECT NAMING CONVENTION
-	    if (this.currentSlide().type == 'video') {
-	      return 'gallery__media--video';
-	    } else if (this.currentSlide().type == 'image') {
-	      return 'gallery__media--image'
-	    } else {
-	      return 'gallery__media--ad'
+	  for (var i = 0; i < breakpoints.length; i++) {
+	    if ((window.matchMedia( breakpoints[i].mq ).matches)) {
+	      return breakpoints[i].src;
 	    }
-	
-	  }, this);
-	
-	  this.gotoNextSlide = function() {
-	    // remove title card if it is displayed when user goes to next slide
-	    if (this.isLastSlide() && config.nextContentUrl) {
-	      // navigate to next gallery url
-	      window.location = config.nextContentUrl;
-	    } else {
-	      BaseGalleryViewModel.prototype.gotoNextSlide.call(this);
-	    }
-	  };
-	
-	  this.imageCredit = function() {
-	    if ( this.currentSlide().imageCredit) {
-	      return this.currentSlide().imageCredit;
-	    }
-	  }
-	
-	  // update template based on slide type
-	  this.templateType = function(slide) {
-	    if (slide.type == 'image') {
-	      return 'image-slide-template';
-	    } else if (slide.type == 'video') {
-	      return 'video-slide-template';
-	    } else if (slide.type == 'ad') {
-	      return 'ad-slide-template';
-	    }
-	  };
-	
-	  if (config.updateHistory) {
-	    __webpack_require__(38).call(this);
 	  }
 	}
 	
-	GalleryViewModel.prototype = Object.create(BaseGalleryViewModel.prototype);
-
+	module.exports = Slide;
 
 /***/ },
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var ko = __webpack_require__(24),
-			hasOverflow = __webpack_require__(35);
-	
-	ko.bindingHandlers.overflowing = {
-		init: function(el, valueAccessor) {
-			var observable = valueAccessor();
-	
-			observable(hasOverflow(el));
-		}
-	};
-
-/***/ },
-/* 35 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var $ = __webpack_require__(2);
-	
-	'use strict';
-	
-	module.exports = function(el) {
-	  return $(el).outerHeight(true) == $(el).parent().height() || $(el).height() > $(el).parent().height();
-	}
-
-/***/ },
-/* 36 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	var ko = __webpack_require__(24),
-	    $ = __webpack_require__(2);
-	
-	ko.bindingHandlers.adContainer = {
-	
-	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
-	      var data = {
-	        id: element.id,
-	        adData: bindingContext.$data,
-	        galleryData: bindingContext.$root.config
-	      };
-	
-	      $(document).trigger('slGallery:displayAd', data);
-	
-	      ko.utils.domNodeDisposal.addDisposeCallback(element, function() {
-	        $(document).trigger('slGallery:removedAd', data);
-	      });
-	      
-	     // Render the Interstitial ADs
-	     var ad = adFactory.getAd("300x250");
-	     ad.setParam("dcopt", "ist");
-	     ad.write("ad-gallery_interstitial_ad");
-	       
-	    }
-	};
-
-/***/ },
-/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -11637,6 +11555,114 @@ webpackJsonp([0],[
 	  return prefetchedImages[url];
 	}
 
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var ko = __webpack_require__(24);
+	var $ = __webpack_require__(2);
+	__webpack_require__(36);
+	__webpack_require__(37);
+	
+	module.exports = BaseGalleryViewModel;
+	
+	function BaseGalleryViewModel(slides) {
+	  this.slides = ko.observableArray(slides || []);
+	  this.totalSlideCount = ko.observable();
+	
+	  this.currentSlideIndex = ko.observable(0);
+	  this.currentSlide = ko.computed(function() {
+	    return this.slides()[this.currentSlideIndex()];
+	  }, this);
+	
+	  this.currentSlideNum = ko.computed(function() {
+	    return this.currentSlideIndex() + 1;
+	  }, this);
+	}
+	
+	BaseGalleryViewModel.prototype.isFirstSlide = function() {
+	  return this.currentSlideIndex() == 0;
+	}
+	
+	BaseGalleryViewModel.prototype.gotoPrevSlide = function() {
+	  if (this.isFirstSlide()) return;
+	
+	  this.currentSlideIndex( this.currentSlideIndex() - 1 );
+	  this.announceSlideBecameVisible();
+	}
+	
+	BaseGalleryViewModel.prototype.isLastSlide = function() {
+	  return this.currentSlideIndex() == this.slides().length - 1;
+	}
+	
+	BaseGalleryViewModel.prototype.gotoNextSlide = function() {
+	  if (this.isLastSlide()) {
+	    return
+	  };
+	  this.currentSlideIndex ( this.currentSlideIndex() + 1 );
+	  this.announceSlideBecameVisible();
+	}
+	
+	BaseGalleryViewModel.prototype.announceSlideBecameVisible = function() {
+	  $(document).trigger('slGallery:slideView', [this]);
+	}
+
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var ko = __webpack_require__(24),
+	  Hammer = __webpack_require__(32);
+	
+	makeSwipeBinding('swipe');
+	makeSwipeBinding('swipeLeft');
+	makeSwipeBinding('swipeRight');
+	
+	function makeSwipeBinding(swipeEvent) {
+	  ko.bindingHandlers[swipeEvent] = {
+	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+	      bindHammerEvent(element, swipeEvent.toLowerCase(), valueAccessor(), bindingContext.$data);
+	    }
+	  };
+	}
+	
+	function bindHammerEvent(element, event, handler, viewModel) {
+	  delete Hammer.defaults.cssProps.userSelect;
+	  var hammer = new Hammer(element);
+	  hammer.on(event, function(e) {
+	    handler.call(viewModel, e);
+	  });
+	};
+
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var ko = __webpack_require__(24);
+	
+	makeKeyPressBinding('leftArrowPress', 37);
+	makeKeyPressBinding('rightArrowPress', 39);
+	
+	function makeKeyPressBinding(bindingName, keyCode, context) {
+	  ko.bindingHandlers[bindingName] = {
+	    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+	      var handler = valueAccessor();
+	
+	      (context || document).addEventListener('keyup', function(e) {
+	        if (e.keyCode != keyCode) return;
+	
+	        handler.call(bindingContext.$data, e);
+	      });
+	    }
+	  }
+	}
 
 /***/ },
 /* 38 */

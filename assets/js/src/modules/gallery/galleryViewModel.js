@@ -7,6 +7,7 @@ var $ = require('jquery'),
     ko = require('knockout'),
     _ = require('underscore'),
     hammer = require('hammerjs'),
+    Slide = require('./slide'),
     prefetchImages = require('../../lib/prefetchImages');
 
 var BaseGalleryViewModel = require('../../modules/_baseGallery/baseGalleryViewModel');
@@ -19,7 +20,10 @@ function GalleryViewModel(config) {
   // Sets slides from gallery Config in template
   this.config = config;
 
-  this.slides(config.slides);
+  this.slides(config.slides.map(function(slideData) {
+    return new Slide(slideData);
+  }));
+
   this.totalSlideCount(config.galleryTotalSlideCount);
   this.currentSlideIndex(config.initialSlideIndex || 0);
 
@@ -29,19 +33,12 @@ function GalleryViewModel(config) {
   this.slidesWithoutAds = _.reject(this.slides(), {type: 'ad'});
 
   this.currentSlideNum = ko.pureComputed(function () {
-      return _.indexOf(this.slidesWithoutAds, this.currentSlide()) + 1;
+      return _.indexOf(this.slides(), this.currentSlide()) + 1;
   }, this);
 
   this.galleryUrl = ko.observable(config.galleryUrl);
   this.title = ko.observable(config.galleryTitle);
   this.description = ko.observable(config.galleryDescription);
-
-  // prefetch the next slide image
-  this.currentSlide.subscribe(function(newSlide) {
-    if (!this.isLastSlide()) {
-      prefetchImages(this.slides()[this.currentSlideIndex() + 1].image);
-    }
-  }, this);
 
   // is the current slide an ad?
   this.isNotAdSlide = ko.pureComputed(function () {
@@ -88,6 +85,35 @@ function GalleryViewModel(config) {
       return 'ad-slide-template';
     }
   };
+
+  this.updatedImageSrc = ko.pureComputed(function() {
+    return findCorrectImage(this.currentSlide());
+  });
+
+
+  // prefetch the next and previous images on the gallery
+  this.prefetchImages = function() {
+    var slideCount = this.slides().length,
+        currentIndex = this.currentSlideNum() - 1,
+        prefetchCount = 1;
+
+    // gather images to the left of the current slide to preload
+    var leftSlides = this.slidesWithoutAds.slice(Math.max(currentIndex - prefetchCount, 0), currentIndex);
+
+    // gather image to the right of the current slide to preload
+    var rightSlides = this.slidesWithoutAds.slice(currentIndex + 1, Math.min(currentIndex + (prefetchCount + 1), slideCount));
+
+    var imagesToPrefetch = leftSlides.concat(rightSlides).map(function(slide) {
+      return slide.image;
+    });
+
+    prefetchImages.apply(null, imagesToPrefetch);
+  }
+
+  ko.computed(function(){
+    // depends on currentIndex changing
+    this.prefetchImages();
+  }, this);
 
   if (config.updateHistory) {
     require('./updateHistoryBehavior').call(this);
