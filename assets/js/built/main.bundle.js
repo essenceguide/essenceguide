@@ -2399,14 +2399,14 @@ webpackJsonp([0],[
 		$('.social-share__item--twitter').attr('href', 'http://twitter.com/share?text=' + encodeURI( striptags(caption) ) );
 	}
 	
-	function updateEmail(title) {
-		$('.social-share__item--email').attr('href', 'mailto:?Subject=' + encodeURI( striptags(title) ) );
+	function updateEmail(mailSetting) {
+		$('.social-share__item--email').attr('href', 'mailto:?Subject=' + encodeURI( striptags(mailSetting) ) );
 	}
 	
 	function updateSocialLinks(slide) {
 	  updateFacebook(slide.url);
 	  updateTwitter(slide.caption);
-	  updateEmail(slide.title);
+	  updateEmail(slide.mailSetting);
 	  updatePinterest(slide.url,slide.caption,slide.image);
 	}
 	
@@ -8664,6 +8664,11 @@ webpackJsonp([0],[
 	      return this.currentSlide().type != 'ad';
 	  }, this);
 	
+	  // is the current slide an ob?
+	  this.isNotObSlide = ko.pureComputed(function () {
+	      return this.currentSlide().type != 'ob';
+	  }, this);
+	
 	  this.slideMediaType = ko.pureComputed(function() {
 	    if (!this.currentSlide()) return;
 	
@@ -8672,6 +8677,8 @@ webpackJsonp([0],[
 	      return 'gallery__media--video';
 	    } else if (this.currentSlide().type == 'image') {
 	      return 'gallery__media--image'
+	    } else if (this.currentSlide().type == 'ob') {
+	      return 'gallery__media--ob'
 	    } else {
 	      return 'gallery__media--ad'
 	    }
@@ -8700,6 +8707,8 @@ webpackJsonp([0],[
 	      return 'image-slide-template';
 	    } else if (slide.type == 'video') {
 	      return 'video-slide-template';
+	    } else if (slide.type == 'ob') {
+	      return 'ob-slide-template';
 	    } else if (slide.type == 'ad') {
 	      return 'ad-slide-template';
 	    }
@@ -8798,6 +8807,7 @@ webpackJsonp([0],[
 	     // Render the Interstitial ADs
 	     var ad = adFactory.getAd("300x250");
 	     ad.setParam("dcopt", "ist");
+	     ad.setParam("position", "3");
 	     ad.write("ad-gallery_interstitial_ad");
 	
 	    }
@@ -11463,42 +11473,49 @@ webpackJsonp([0],[
 	function Slide(slideData) {
 	  $.extend(this, slideData);
 	
-	  if (slideData.type == 'ad') return this;
+	  if (slideData.type !== 'image') return this;
 	
 	  var size = this.getImageSize(this);
 	  this.image = size.src;
 	  this.width = size.width;
 	  this.height = size.height;
+	
 	};
 	
 	Slide.prototype.getImageSize = function(slide) {
 	
 	  if (!slide.imagesrc) return;
 	
+	  if (slide.imagesrc.original) {
+	    return {
+	      src: slide.imagesrc.original,
+	      width: 'auto',
+	      height: 'auto'
+	    }
+	  }
+	
 	  var breakpoints = [
 	    {
-	      mq: "(min-width: 1280px)",
+	      mq: '(min-width: 1280px)',
 	      src: slide.imagesrc.lg,
 	    },
 	    {
-	      mq: "(min-width: 1024px)",
+	      mq: '(min-width: 1024px)',
 	      src: slide.imagesrc.md,
 	    },
 	    {
-	      mq: "(min-width: 768px)",
+	      mq: '(min-width: 768px)',
 	      src: slide.imagesrc.sm,
 	    },
 	    {
-	      mq: "(min-width: 480px)",
+	      mq: '(min-width: 480px)',
 	      src: slide.imagesrc.xs,
 	    },
 	    {
-	      mq: "(min-width: 0px)",
+	      mq: '(min-width: 0px)',
 	      src: slide.imagesrc.xxs
 	    }
 	  ];
-	
-	  if (typeof slide.imagesrc.original !== "undefined") return slide.image.original;
 	
 	  for (var i = 0; i < breakpoints.length; i++) {
 	    if ((window.matchMedia( breakpoints[i].mq ).matches)) {

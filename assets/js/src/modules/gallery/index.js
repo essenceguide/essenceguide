@@ -36,14 +36,14 @@ function updateTwitter(caption) {
 	$('.social-share__item--twitter').attr('href', 'http://twitter.com/share?text=' + encodeURI( striptags(caption) ) );
 }
 
-function updateEmail(title) {
-	$('.social-share__item--email').attr('href', 'mailto:?Subject=' + encodeURI( striptags(title) ) );
+function updateEmail(mailSetting) {
+	$('.social-share__item--email').attr('href', 'mailto:?Subject=' + encodeURI( striptags(mailSetting) ) );
 }
 
 function updateSocialLinks(slide) {
   updateFacebook(slide.url);
   updateTwitter(slide.caption);
-  updateEmail(slide.title);
+  updateEmail(slide.mailSetting);
   updatePinterest(slide.url,slide.caption,slide.image);
 }
 

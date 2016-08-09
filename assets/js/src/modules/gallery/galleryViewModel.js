@@ -45,6 +45,11 @@ function GalleryViewModel(config) {
       return this.currentSlide().type != 'ad';
   }, this);
 
+  // is the current slide an ob?
+  this.isNotObSlide = ko.pureComputed(function () {
+      return this.currentSlide().type != 'ob';
+  }, this);
+
   this.slideMediaType = ko.pureComputed(function() {
     if (!this.currentSlide()) return;
 
@@ -53,6 +58,8 @@ function GalleryViewModel(config) {
       return 'gallery__media--video';
     } else if (this.currentSlide().type == 'image') {
       return 'gallery__media--image'
+    } else if (this.currentSlide().type == 'ob') {
+      return 'gallery__media--ob'
     } else {
       return 'gallery__media--ad'
     }
@@ -81,6 +88,8 @@ function GalleryViewModel(config) {
       return 'image-slide-template';
     } else if (slide.type == 'video') {
       return 'video-slide-template';
+    } else if (slide.type == 'ob') {
+      return 'ob-slide-template';
     } else if (slide.type == 'ad') {
       return 'ad-slide-template';
     }

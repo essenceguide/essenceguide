@@ -30,18 +30,26 @@
                 {{&gt; organisms-gallery-ad }}
               {{/ad}}
 
+              {{#ob}}
+               {{&gt; organisms-gallery-outbrain }}
+              {{/ob}}
+
             {{/slide}}
       &lt;/div&gt;
 
       &lt;!-- ko if: isNotAdSlide --&gt;
-        {{&gt; molecules-social-share }}
+        &lt;!-- ko if: isNotObSlide --&gt;
+            {{&gt; molecules-social-share }}
+        &lt;!-- /ko --&gt;
       &lt;!-- /ko --&gt;
 
 
     &lt;/div&gt;
 
     &lt;!-- ko if: isNotAdSlide --&gt;
-    {{&gt; organisms-gallery-meta }}
+        &lt;!-- ko if: isNotObSlide --&gt;
+            {{&gt; organisms-gallery-meta }}
+        &lt;!-- /ko --&gt;
     &lt;!-- /ko --&gt;
 &lt;/div&gt;
 &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
@@ -57,6 +65,13 @@
     &lt;div id=&quot;gallery__ad-container&quot; data-bind=&quot;adContainer&quot;&gt;
       &lt;div  class=&quot;ad-placeholder ad-refresh&quot; id=&quot;ad-gallery_interstitial_ad&quot; data-id=&quot;gallery_interstitial_ad&quot; data-type=&quot;regular&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/script&gt;
+
+&lt;script type=&quot;text/html&quot; id=&quot;ob-slide-template&quot;&gt;
+  &lt;div&gt;
+   &lt;div class=&quot;OUTBRAIN&quot; data-src=&quot;&quot; data-widget-id=&quot;&quot; data-ob-template=&quot;&quot; data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;&lt;/div&gt;
+   &lt;script type=&quot;text/javascript&quot; src=&quot;http://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;
   &lt;/div&gt;
 &lt;/script&gt;
 

@@ -21,6 +21,7 @@ ko.bindingHandlers.adContainer = {
      // Render the Interstitial ADs
      var ad = adFactory.getAd("300x250");
      ad.setParam("dcopt", "ist");
+     ad.setParam("position", "3");
      ad.write("ad-gallery_interstitial_ad");
 
     }
