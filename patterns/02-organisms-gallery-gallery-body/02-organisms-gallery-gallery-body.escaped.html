@@ -3,7 +3,6 @@
 
       
 
-      
       &lt;div class=&quot;gallery&quot; 
            data-config=&quot;galleryConfig&quot;
            data-bind=&quot;swipeLeft: gotoNextSlide,
@@ -11,74 +10,68 @@
                       leftArrowPress: gotoPrevSlide,
                       rightArrowPress: gotoNextSlide&quot;&gt;
       
-          &lt;div class=&quot;gallery__slide&quot;&gt;
-            &lt;div class=&quot;gallery-controls&quot;&gt;
-              &lt;a href=&quot;http://previous.com&quot; class=&quot;gallery-controls__btn gallery-controls__btn--prev&quot; data-bind=&quot;click: gotoPrevSlide, clickBubble: false&quot;&gt;
-                &lt;svg class=&quot;gallery-controls__btn-icon gallery-controls__btn-icon--prev&quot;&gt;
-                  &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-gallery-arrow-prev&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-              &lt;a href=&quot;http://previous.com&quot; class=&quot;gallery-controls__btn gallery-controls__btn--next&quot; data-bind=&quot;click: gotoNextSlide, clickBubble: false&quot;&gt;
-                &lt;svg class=&quot;gallery-controls__btn-icon gallery-controls__btn-icon--next&quot;&gt;
-                  &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-gallery-arrow-next&quot;&gt;&lt;/use&gt;
-                &lt;/svg&gt;
-              &lt;/a&gt;
-            &lt;/div&gt;
+        &lt;div class=&quot;gallery__slide&quot;&gt;
+        &lt;div class=&quot;gallery-controls&quot;&gt;
+          &lt;a href=&quot;http://previous.com&quot; class=&quot;gallery-controls__btn gallery-controls__btn--prev&quot; data-bind=&quot;click: gotoPrevSlide, clickBubble: false&quot;&gt;
+            &lt;svg class=&quot;gallery-controls__btn-icon gallery-controls__btn-icon--prev&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-gallery-arrow-prev&quot;&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href=&quot;http://previous.com&quot; class=&quot;gallery-controls__btn gallery-controls__btn--next&quot; data-bind=&quot;click: gotoNextSlide, clickBubble: false&quot;&gt;
+            &lt;svg class=&quot;gallery-controls__btn-icon gallery-controls__btn-icon--next&quot;&gt;
+              &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-gallery-arrow-next&quot;&gt;&lt;/use&gt;
+            &lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
       
-            &lt;div class=&quot;gallery__media&quot;
-                 data-bind=&quot;template: {
-                  if: currentSlide,
-                  name: templateType,
-                  data: currentSlide()}, css: slideMediaType&quot;&gt;
-      
-      
-                      &lt;img class=&quot;gallery__image&quot; src=&quot;http://placehold.it/300x300&quot; alt=&quot;This is some alt text&quot; data-pin-no-hover=&quot;true&quot; &gt;      
+          &lt;div class=&quot;gallery__media&quot;
+             data-bind=&quot;template: {
+              if: currentSlide,
+              name: templateType,
+              data: currentSlide()}, css: slideMediaType&quot;&gt;
       
       
+                  &lt;img class=&quot;gallery__image&quot; src=&quot;http://placehold.it/300x300&quot; alt=&quot;This is some alt text&quot; data-pin-no-hover=&quot;true&quot; &gt;      
       
-            &lt;/div&gt;
-      
-            &lt;!-- ko if: isNotAdSlide --&gt;
-              &lt;!-- ko if: isNotObSlide --&gt;
-                  
-                  &lt;div class=&quot;social-share &quot;&gt;
-                      &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
-                        &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
-                           &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                        &lt;/svg&gt;
-                      &lt;/a&gt;
-                      &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
-                        &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
-                           &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                        &lt;/svg&gt;
-                      &lt;/a&gt;
-                  &lt;/div&gt;
-              &lt;!-- /ko --&gt;
-            &lt;!-- /ko --&gt;
       
       
           &lt;/div&gt;
       
-          &lt;!-- ko if: isNotAdSlide --&gt;
-              &lt;!-- ko if: isNotObSlide --&gt;
-                  
-                  &lt;div class=&quot;gallery-meta&quot; data-bind=&quot;with: currentSlide&quot;&gt;
-                    &lt;div class=&quot;gallery-meta__header&quot;&gt;
-                      &lt;h2 class=&quot;gallery__slide-title&quot; data-bind=&quot;html: title&quot;&gt;This is a slide title!&lt;/h2&gt;
-                      &lt;div class=&quot;gallery-counter&quot;&gt;
-                        &lt;span data-bind=&quot;text: $parent.currentSlideNum&quot;&gt;1&lt;/span&gt;/&lt;span data-bind=&quot;text: $parent.totalSlideCount&quot;&gt;23&lt;/span&gt;
-                      &lt;/div&gt;
-                    &lt;/div&gt;
-                    &lt;div class=&quot;gallery-caption&quot;&gt;
-                      &lt;div class=&quot;gallery-caption__content&quot; data-bind=&quot;html: caption&quot;&gt;
-                          Here is some caption content, yay!
-                      &lt;/div&gt;
-                      &lt;!-- ko if: imageCredit --&gt;
-                      &lt;div class=&quot;gallery-caption__credit&quot;&gt;Photo by &lt;span data-bind=&quot;html: imageCredit&quot;&gt;Dan Colonna&lt;/span&gt;&lt;/div&gt;
-                      &lt;!-- /ko --&gt;
-                    &lt;/div&gt;
-                  &lt;/div&gt;
-              &lt;!-- /ko --&gt;
+          &lt;!-- ko if: isNotObSlide --&gt;
+            
+            &lt;div class=&quot;social-share &quot;&gt;
+                &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
+                  &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                     &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                  &lt;/svg&gt;
+                &lt;/a&gt;
+                &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
+                  &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                     &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                  &lt;/svg&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
           &lt;!-- /ko --&gt;
+      
+        &lt;/div&gt;
+        &lt;!-- ko if: isNotObSlide --&gt;
+          &lt;div class=&quot;gallery-meta&quot; data-bind=&quot;with: currentSlide&quot;&gt;
+            &lt;div class=&quot;gallery-meta__header&quot;&gt;
+              &lt;h2 class=&quot;gallery__slide-title&quot; data-bind=&quot;html: title&quot;&gt;This is a slide title!&lt;/h2&gt;
+              &lt;div class=&quot;gallery-counter&quot;&gt;
+                &lt;span data-bind=&quot;text: $parent.currentSlideNum&quot;&gt;1&lt;/span&gt;/&lt;span data-bind=&quot;text: $parent.totalSlideCount&quot;&gt;23&lt;/span&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;gallery-caption&quot;&gt;
+              &lt;div class=&quot;gallery-caption__content&quot; data-bind=&quot;html: caption&quot;&gt;
+                  Here is some caption content, yay!
+              &lt;/div&gt;
+              &lt;!-- ko if: imageCredit --&gt;
+              &lt;div class=&quot;gallery-caption__credit&quot;&gt;Photo by &lt;span data-bind=&quot;html: imageCredit&quot;&gt;Dan Colonna&lt;/span&gt;&lt;/div&gt;
+              &lt;!-- /ko --&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;!-- /ko --&gt;
       &lt;/div&gt;
+      
       &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
         &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src: image, alt: title, width: width, height: height}&quot;&gt;
       &lt;/script&gt;
@@ -96,10 +89,14 @@
       &lt;/script&gt;
       
       &lt;script type=&quot;text/html&quot; id=&quot;ob-slide-template&quot;&gt;
-        &lt;div&gt;
-         &lt;div class=&quot;OUTBRAIN&quot; data-src=&quot;&quot; data-widget-id=&quot;&quot; data-ob-template=&quot;&quot; data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;&lt;/div&gt;
+         &lt;div class=&quot;OUTBRAIN&quot;
+              data-src=&quot;&quot;
+              data-widget-id=&quot;&quot;
+              data-ob-template=&quot;&quot;
+              data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;
+      
+         &lt;/div&gt;
          &lt;script type=&quot;text/javascript&quot; src=&quot;http://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;
-        &lt;/div&gt;
       &lt;/script&gt;
       
       &lt;script&gt;
@@ -111,7 +108,6 @@
 
       
 
-      
 
 
       
@@ -167,7 +163,6 @@
 
       
 
-      
 
 
 

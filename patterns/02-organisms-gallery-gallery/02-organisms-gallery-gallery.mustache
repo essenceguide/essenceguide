@@ -1,4 +1,3 @@
-
 {{#gallery}}
 &lt;div class=&quot;gallery&quot; {{^is_local_dev?}}data-js-component=&quot;gallery&quot;{{/is_local_dev?}}
      data-config=&quot;galleryConfig&quot;
@@ -7,51 +6,46 @@
                 leftArrowPress: gotoPrevSlide,
                 rightArrowPress: gotoNextSlide&quot;&gt;
 
-    &lt;div class=&quot;gallery__slide&quot;&gt;
-      {{&gt; organisms-gallery-controls }}
+  &lt;div class=&quot;gallery__slide&quot;&gt;
+  {{&gt; organisms-gallery-controls }}
 
-      &lt;div class=&quot;gallery__media&quot;
-           data-bind=&quot;template: {
-            if: currentSlide,
-            name: templateType,
-            data: currentSlide()}, css: slideMediaType&quot;&gt;
+    &lt;div class=&quot;gallery__media&quot;
+       data-bind=&quot;template: {
+        if: currentSlide,
+        name: templateType,
+        data: currentSlide()}, css: slideMediaType&quot;&gt;
 
-            {{#slide}}
+        {{#slide}}
 
-              {{#image}}
-                {{&gt; organisms-gallery-image }}
-              {{/image}}
+          {{#image}}
+            {{&gt; organisms-gallery-image }}
+          {{/image}}
 
-              {{#video}}
-                {{&gt; organisms-gallery-video }}
-              {{/video}}
+          {{#video}}
+            {{&gt; organisms-gallery-video }}
+          {{/video}}
 
-              {{#ad}}
-                {{&gt; organisms-gallery-ad }}
-              {{/ad}}
+          {{#ad}}
+            {{&gt; organisms-gallery-ad }}
+          {{/ad}}
 
-              {{#ob}}
-               {{&gt; organisms-gallery-outbrain }}
-              {{/ob}}
+          {{#ob}}
+           {{&gt; organisms-gallery-outbrain }}
+          {{/ob}}
 
-            {{/slide}}
-      &lt;/div&gt;
-
-      &lt;!-- ko if: isNotAdSlide --&gt;
-        &lt;!-- ko if: isNotObSlide --&gt;
-            {{&gt; molecules-social-share }}
-        &lt;!-- /ko --&gt;
-      &lt;!-- /ko --&gt;
-
-
+        {{/slide}}
     &lt;/div&gt;
 
-    &lt;!-- ko if: isNotAdSlide --&gt;
-        &lt;!-- ko if: isNotObSlide --&gt;
-            {{&gt; organisms-gallery-meta }}
-        &lt;!-- /ko --&gt;
+    &lt;!-- ko if: isNotObSlide --&gt;
+      {{&gt; molecules-social-share }}
     &lt;!-- /ko --&gt;
+
+  &lt;/div&gt;
+  &lt;!-- ko if: isNotObSlide --&gt;
+    {{&gt; organisms-gallery-meta }}
+  &lt;!-- /ko --&gt;
 &lt;/div&gt;
+
 &lt;script type=&quot;text/html&quot; id=&quot;image-slide-template&quot;&gt;
   &lt;img class=&quot;gallery__image&quot; src=&quot;&quot; alt=&quot;&quot; data-pin-no-hover=&quot;true&quot;  data-bind=&quot;attr: {src: image, alt: title, width: width, height: height}&quot;&gt;
 &lt;/script&gt;
@@ -69,10 +63,14 @@
 &lt;/script&gt;
 
 &lt;script type=&quot;text/html&quot; id=&quot;ob-slide-template&quot;&gt;
-  &lt;div&gt;
-   &lt;div class=&quot;OUTBRAIN&quot; data-src=&quot;&quot; data-widget-id=&quot;&quot; data-ob-template=&quot;&quot; data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;&lt;/div&gt;
+   &lt;div class=&quot;OUTBRAIN&quot;
+        data-src=&quot;&quot;
+        data-widget-id=&quot;&quot;
+        data-ob-template=&quot;&quot;
+        data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;
+
+   &lt;/div&gt;
    &lt;script type=&quot;text/javascript&quot; src=&quot;http://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;
-  &lt;/div&gt;
 &lt;/script&gt;
 
 &lt;script&gt;
