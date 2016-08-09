@@ -32,7 +32,7 @@
 
     &lt;/div&gt;
 
-    &lt;!-- ko if: isNotObSlide --&gt;
+    &lt;!-- ko if: currentSlide().type === 'image' --&gt;
       
       &lt;div class=&quot;social-share &quot;&gt;
           &lt;a href=&quot;foo.com&quot; class=&quot;social-share__item social-share__item--facebook &quot;&gt;
@@ -47,7 +47,7 @@
     &lt;!-- /ko --&gt;
 
   &lt;/div&gt;
-  &lt;!-- ko if: isNotObSlide --&gt;
+  &lt;!-- ko if: currentSlide().type === 'image' --&gt;
     &lt;div class=&quot;gallery-meta&quot; data-bind=&quot;with: currentSlide&quot;&gt;
       &lt;div class=&quot;gallery-meta__header&quot;&gt;
         &lt;h2 class=&quot;gallery__slide-title&quot; data-bind=&quot;html: title&quot;&gt;This is a slide title!&lt;/h2&gt;
@@ -88,7 +88,7 @@
         data-src=&quot;&quot;
         data-widget-id=&quot;&quot;
         data-ob-template=&quot;&quot;
-        data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt;
+        data-bind=&quot;attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}&quot;&gt; }}
 
    &lt;/div&gt;
    &lt;script type=&quot;text/javascript&quot; src=&quot;http://widgets.outbrain.com/outbrain.js&quot;&gt;&lt;/script&gt;

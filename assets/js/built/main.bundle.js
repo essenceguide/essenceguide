@@ -2374,9 +2374,16 @@ webpackJsonp([0],[
 	
 	    galleryViewModel.currentSlide.subscribe(function(){
 	      updateSocialLinks(galleryViewModel.currentSlide());
-	      outbrainRefresh();
-	      refreshADs();
-	      refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+	
+	      try {
+	        outbrainRefresh();
+	        refreshADs();
+	        refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+	      }
+	
+	      catch(err) {
+	        // handles if ads don't load properly
+	      }
 	    });
 	
 	    ko.applyBindings(galleryViewModel, el);
@@ -8652,32 +8659,35 @@ webpackJsonp([0],[
 	  this.slidesWithoutAds = _.reject(this.slides(), {type: 'ad'});
 	
 	  this.currentSlideNum = ko.pureComputed(function () {
-	      return _.indexOf(this.slides(), this.currentSlide()) + 1;
+	      return _.indexOf(this.slidesWithoutAds, this.currentSlide()) + 1;
 	  }, this);
 	
 	  this.galleryUrl = ko.observable(config.galleryUrl);
 	  this.title = ko.observable(config.galleryTitle);
 	  this.description = ko.observable(config.galleryDescription);
+	  this.currentSlideType = ko.pureComputed(function() {
+	    return this.currentSlide().type;
+	  }, this);
 	
 	  // is the current slide an ad?
 	  this.isNotAdSlide = ko.pureComputed(function () {
-	      return this.currentSlide().type != 'ad';
+	      return this.currentSlide().type !== 'ad';
 	  }, this);
 	
 	  // is the current slide an ob?
 	  this.isNotObSlide = ko.pureComputed(function () {
-	      return this.currentSlide().type != 'ob';
+	      return this.currentSlide().type !== 'ob';
 	  }, this);
 	
 	  this.slideMediaType = ko.pureComputed(function() {
 	    if (!this.currentSlide()) return;
 	
 	    // TODO: UPDATE WITH CORRECT NAMING CONVENTION
-	    if (this.currentSlide().type == 'video') {
+	    if (this.currentSlideType() == 'video') {
 	      return 'gallery__media--video';
-	    } else if (this.currentSlide().type == 'image') {
+	    } else if (this.currentSlideType() == 'image') {
 	      return 'gallery__media--image'
-	    } else if (this.currentSlide().type == 'ob') {
+	    } else if (this.currentSlideType() == 'ob') {
 	      return 'gallery__media--ob'
 	    } else {
 	      return 'gallery__media--ad'
@@ -8805,11 +8815,16 @@ webpackJsonp([0],[
 	      });
 	
 	     // Render the Interstitial ADs
-	     var ad = adFactory.getAd("300x250");
-	     ad.setParam("dcopt", "ist");
-	     ad.setParam("position", "3");
-	     ad.write("ad-gallery_interstitial_ad");
+	     try {
+	       var ad = adFactory.getAd("300x250");
+	       ad.setParam("dcopt", "ist");
+	       ad.setParam("position", "3");
+	       ad.write("ad-gallery_interstitial_ad");
+	     }
 	
+	     catch(err) {
+	      // wrapping in try for local dev
+	     }
 	    }
 	};
 

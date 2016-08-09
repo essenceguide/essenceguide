@@ -5900,7 +5900,8 @@ blockquote,
   .gallery__slide {
     position: relative;
     background-color: #F5F5F4;
-    text-align: center; }
+    text-align: center;
+    overflow: hidden; }
   .gallery-controls {
     position: absolute;
     top: 60px; }

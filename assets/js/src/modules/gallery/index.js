@@ -11,9 +11,16 @@ module.exports = function(el) {
 
     galleryViewModel.currentSlide.subscribe(function(){
       updateSocialLinks(galleryViewModel.currentSlide());
-      outbrainRefresh();
-      refreshADs();
-      refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+
+      try {
+        outbrainRefresh();
+        refreshADs();
+        refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
+      }
+
+      catch(err) {
+        // handles if ads don't load properly
+      }
     });
 
     ko.applyBindings(galleryViewModel, el);

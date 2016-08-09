@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width" />
 
-		<link rel="stylesheet" href="../../assets/css/main.css?1470771106" media="all" />
+		<link rel="stylesheet" href="../../assets/css/main.css?1470775505" media="all" />
     <script src="../../assets/js/lib/modernizr.min.js"></script>
 
 
@@ -17,8 +17,8 @@
 		<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
 		<meta http-equiv="pragma" content="no-cache" />
 		
-		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1470771106" media="all">
-		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1470771106" media="all" />
+		<link rel="stylesheet" href="../../styleguide/css/styleguide.css?1470775505" media="all">
+		<link rel="stylesheet" href="../../styleguide/css/styleguide-specific.css?1470775505" media="all" />
 		
 
 		<!-- End Pattern Lab -->
@@ -751,7 +751,7 @@
                 
                     </div>
                 
-                    <!-- ko if: isNotObSlide -->
+                    <!-- ko if: currentSlide().type === 'image' -->
                       
                       <div class="social-share ">
                           <a href="foo.com" class="social-share__item social-share__item--facebook ">
@@ -766,7 +766,7 @@
                     <!-- /ko -->
                 
                   </div>
-                  <!-- ko if: isNotObSlide -->
+                  <!-- ko if: currentSlide().type === 'image' -->
                     <div class="gallery-meta" data-bind="with: currentSlide">
                       <div class="gallery-meta__header">
                         <h2 class="gallery__slide-title" data-bind="html: title">This is a slide title!</h2>
@@ -807,14 +807,14 @@
                         data-src=""
                         data-widget-id=""
                         data-ob-template=""
-                        data-bind="attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}">
+                        data-bind="attr: {'data-src': outbrainSourceURL, 'data-widget-id': outbrainWidgetID, 'data-ob-template': outbrainTemplate}"> }}
                 
                    </div>
                    <script type="text/javascript" src="http://widgets.outbrain.com/outbrain.js"></script>
                 </script>
                 
                 <script>
-                  var galleryConfig = {"galleryTitle": "Michelle Obama's Latest Travel Adventures","galleryDescription": "We love to live vicariously through Michelle Obama as she travels the globe, spreading initiatives like Let Girls Learn'. In the past month First Lady O has been spotted in Liberia, Spain and Morocco, chatting with princesses and changing the world with presidents. Check out her whirlwind trip here!","galleryId": "971748","galleryUrl": "http://www.google.com","galleryTotalSlideCount": 6,"initialSlideIndex": 0,"isTitleCard": true,"updateHistory": true,"nextContentUrl": "http://www.yahoo.com","slides": [{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pizza",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 1",  "altText": "Michelle Obama 1",  "title": "Michelle Obama 1",  "caption": "test caption 1",  "imageCredit": "getty images",  "url": "slide-1"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pasta",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 2",  "altText": "Michelle Obama 2",  "title": "Michelle Obama 2",  "caption": "test caption 2",  "imageCredit": "getty images",  "url": "slide-2"},{  "type": "ad"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=porkchops",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 3",  "altText": "Michelle Obama 3",  "title": "Michelle Obama 3",  "caption": "test caption 3",  "imageCredit": "getty images",  "url": "slide-3"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=prunes",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 4",  "altText": "Michelle Obama 4",  "title": "Michelle Obama 4",  "caption": "test caption 4",  "imageCredit": "getty images",  "url": "slide-4"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pie",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 5",  "altText": "Michelle Obama 5",  "title": "Michelle Obama 5",  "caption": "test caption 5",  "imageCredit": "getty images",  "url": "slide-5"}]};
+                  var galleryConfig = {"galleryTitle": "Michelle Obama's Latest Travel Adventures","galleryDescription": "We love to live vicariously through Michelle Obama as she travels the globe, spreading initiatives like Let Girls Learn'. In the past month First Lady O has been spotted in Liberia, Spain and Morocco, chatting with princesses and changing the world with presidents. Check out her whirlwind trip here!","galleryId": "971748","galleryUrl": "http://www.google.com","galleryTotalSlideCount": 5,"initialSlideIndex": 0,"isTitleCard": true,"updateHistory": true,"nextContentUrl": "http://www.yahoo.com","slides": [{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pizza",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 1",  "altText": "Michelle Obama 1",  "title": "Michelle Obama 1",  "caption": "test caption 1",  "imageCredit": "getty images",  "url": "slide-1"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pasta",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 2",  "altText": "Michelle Obama 2",  "title": "Michelle Obama 2",  "caption": "test caption 2",  "imageCredit": "getty images",  "url": "slide-2"},{  "type": "ad"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=porkchops",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 3",  "altText": "Michelle Obama 3",  "title": "Michelle Obama 3",  "caption": "test caption 3",  "imageCredit": "getty images",  "url": "slide-3"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=prunes",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 4",  "altText": "Michelle Obama 4",  "title": "Michelle Obama 4",  "caption": "test caption 4",  "imageCredit": "getty images",  "url": "slide-4"},{  "type": "image",  "image": "",  "imagesrc": {    "lg": {      "src": "http://placehold.it/450x250?text=pie",      "width": "450",      "height": "250"    },    "md": {      "src": "http://placehold.it/350x150",      "width": "450",      "height": "150"    },    "sm": {      "src": "http://placehold.it/300x100",      "width": "300",      "height": "100"    },    "xs": {      "src": "http://placehold.it/250x100",      "width": "250",      "height": "100"    },    "xs": {      "src": "http://placehold.it/200x75",      "width": "200",      "height": "75"    }  },  "browserTitle": "Michelle Obama 5",  "altText": "Michelle Obama 5",  "title": "Michelle Obama 5",  "caption": "test caption 5",  "imageCredit": "getty images",  "url": "slide-5"}]};
                 </script>
           
           
@@ -1246,10 +1246,10 @@
 			
 		}
 	</script>
-	<script id="pl-js-polyfill-insert-1470771106">
+	<script id="pl-js-polyfill-insert-1470775505">
 		(function() {
 			if (self != top) {
-				var cb = '1470771106';
+				var cb = '1470775505';
 				var js = [];
 				if (typeof document !== "undefined" && !("classList" in document.documentElement)) {
 					js.push("styleguide/js/vendor/classlist-polyfill.js");
@@ -1258,10 +1258,10 @@
 			}
 		})();
 	</script>
-	<script id="pl-js-insert-1470771106">
+	<script id="pl-js-insert-1470775505">
 		(function() {
 			if (self != top) {
-				var cb = '1470771106';
+				var cb = '1470775505';
 				var js = [ { "src": "styleguide/js/vendor/jwerty.js", "dep": [ "styleguide/js/postmessage.js", { "src": "data/annotations.js", "dep": [ "styleguide/js/annotations-pattern.js" ] }, "styleguide/js/code-pattern.js" ] } ];
 				scriptLoader.run(js,cb,'pl-js-insert');
 			}
