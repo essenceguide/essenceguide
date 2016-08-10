@@ -7,6 +7,9 @@
       {{^is_ad?}}
       {{^is_sponsored?}}
       &lt;div class=&quot;content-list__item__wrap&quot;&gt;
+      {{#is_nativo_ad?}}
+        {{{sponsored_content_html}}}
+      {{/is_nativo_ad?}}
         &lt;div class=&quot;content-list__item-info&quot;&gt;
           {{#category}}
           &lt;div class=&quot;content-list__item-category&quot;&gt;{{ category }}&lt;/div&gt;

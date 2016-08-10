@@ -12,19 +12,17 @@ function Slide(slideData) {
   this.width = size.width;
   this.height = size.height;
 
+  if (this.width == this.height) {
+    this.orientationClass = 'gallery__image--square';
+  } else {
+    this.orientationClass = (this.width < this.height) ? 'gallery__image--portrait' : 'gallery__image--landscape'
+  }
+
 };
 
 Slide.prototype.getImageSize = function(slide) {
 
   if (!slide.imagesrc) return;
-
-  if (slide.imagesrc.original) {
-    return {
-      src: slide.imagesrc.original,
-      width: 'auto',
-      height: 'auto'
-    }
-  }
 
   var breakpoints = [
     {

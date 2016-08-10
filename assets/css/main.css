@@ -1152,7 +1152,8 @@ strong {
   font-weight: 700; }
 
 svg {
-  fill: currentColor; }
+  fill: currentColor;
+  height: 0; }
 
 img,
 object,
@@ -5881,22 +5882,7 @@ blockquote,
  */
 .gallery {
   position: relative;
-  margin-bottom: 25px;
-  /*-------------------------------------------- */
-  /** Variables */
-  /*-------------------------------------------- */
-  /*-------------------------------------------- */
-  /** Styles */
-  /*-------------------------------------------- */
-  /*-------------------------------------------- */
-  /** Modifiers */
-  /*-------------------------------------------- */
-  /*-------------------------------------------- */
-  /** Elements */
-  /*-------------------------------------------- */
-  /*-------------------------------------------- */
-  /** Media Queries */
-  /*-------------------------------------------- */ }
+  margin-bottom: 25px; }
   .gallery__slide {
     position: relative;
     background-color: #F5F5F4;
@@ -5952,6 +5938,18 @@ blockquote,
       opacity: 0;
       visibility: hidden;
       transition: visibility 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94); } }
+  .gallery__image {
+    max-width: 100%;
+    max-height: 100%; }
+    .gallery__image--portrait {
+      width: auto;
+      height: 100%; }
+    .gallery__image--landscape {
+      width: 100%;
+      height: auto; }
+    .gallery__image--square {
+      width: auto;
+      height: auto; }
   .gallery__body .ad-outbrain__title {
     text-align: left;
     margin-bottom: 10px; }
