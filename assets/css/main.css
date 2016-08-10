@@ -5671,7 +5671,7 @@ blockquote,
       text-decoration: underline; }
 
 .videos-slider {
-  margin-bottom: 50px; }
+  margin-bottom: 20px; }
   .videos-slider:after {
     clear: both;
     content: "";
@@ -5827,6 +5827,10 @@ blockquote,
   .videos-slider .page-container {
     padding-left: 0;
     padding-right: 0; }
+  .videos-slider p {
+    font-family: "proxima-nova",sans-serif;
+    font-weight: 300;
+    font-size: 1.5em; }
 
 /**
  * Block: gallery-controls

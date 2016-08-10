@@ -27,11 +27,14 @@ Slide.prototype.getImageSize = function(slide) {
   if (!slide.imagesrc) return;
 
   if (slide.imagesrc.original) {
+
+    var originalImgData = slide.imagesrc.original;
+
     return {
-      src: slide.original.src,
-      width: slide.original.width,
-      height: slide.original.height,
-      orientationClass: getOrientation(slide.original.width, slide.original.height)
+      src: originalImgData.src,
+      width: originalImgData.width,
+      height: originalImgData.height,
+      orientationClass: getOrientation(originalImgData.width, originalImgData.height)
     }
   }
 
