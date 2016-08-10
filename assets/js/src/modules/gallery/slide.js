@@ -11,18 +11,29 @@ function Slide(slideData) {
   this.image = size.src;
   this.width = size.width;
   this.height = size.height;
+  this.orientationClass = getOrientation(this.width, this.height);
 
-  if (this.width == this.height) {
-    this.orientationClass = 'gallery__image--square';
-  } else {
-    this.orientationClass = (this.width < this.height) ? 'gallery__image--portrait' : 'gallery__image--landscape'
-  }
+}
 
-};
+function getOrientation(width, height) {
+
+  if (width == height) return 'gallery__image--square';
+
+  return (width < height) ? 'gallery__image--portrait' : 'gallery__image--landscape';
+}
 
 Slide.prototype.getImageSize = function(slide) {
 
   if (!slide.imagesrc) return;
+
+  if (slide.imagesrc.original) {
+    return {
+      src: slide.original.src,
+      width: slide.original.width,
+      height: slide.original.height,
+      orientationClass: getOrientation(slide.original.width, slide.original.height)
+    }
+  }
 
   var breakpoints = [
     {
