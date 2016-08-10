@@ -1867,6 +1867,23 @@ img {
   .article__expand-body {
     display: none;
     margin-bottom: 20px; }
+  .article-image > img {
+    width: 100%; }
+  .article-image__wrap {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    display: inline-block; }
+    .article-image__wrap:not(:last-child) {
+      margin: 0 auto 25px; }
+    .article-image__wrap .social-share {
+      position: absolute;
+      opacity: 0;
+      right: 5px;
+      bottom: 5px;
+      transition: opacity 0.15s; }
+    .article-image__wrap:hover .social-share {
+      opacity: 1; }
   @media (max-width: 767px) {
     .article__body {
       overflow-y: hidden;

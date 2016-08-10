@@ -6,4 +6,14 @@
   {{#text}}
     &lt;p {{#has_tombstone?}}class=&quot;article-tombstone&quot;{{/has_tombstone?}}&gt;{{{text}}}&lt;/p&gt;
   {{/text}}
+
+  {{#image}}
+    &lt;div class=&quot;article-image__wrap&quot; data-js-component=&quot;createPinterestShare&quot;&gt;
+      {{{image}}}
+      {{#social_share}}
+        {{&gt;molecules-social-share}}
+      {{/social_share}}
+    &lt;/div&gt;
+  {{/image}}
+
 {{/article_text}}
