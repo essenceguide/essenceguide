@@ -39,8 +39,8 @@ function updatePinterest(url, caption, media) {
       + '&media=' + encodeURI(media));
 }
 
-function updateTwitter(caption) {
-	$('.social-share__item--twitter').attr('href', 'http://twitter.com/share?text=' + encodeURI( striptags(caption) ) );
+function updateTwitter(url,title) {
+	$('.social-share__item--twitter').attr('href', 'http://twitter.com/intent/tweet?url=' + encodeURI(url) + '&text=' + encodeURI( striptags(title) ) + '&via=EssenceMag');
 }
 
 function updateEmail(mailSetting) {
@@ -49,7 +49,7 @@ function updateEmail(mailSetting) {
 
 function updateSocialLinks(slide) {
   updateFacebook(slide.url);
-  updateTwitter(slide.caption);
+  updateTwitter(slide.url,slide.title);
   updateEmail(slide.mailSetting);
   updatePinterest(slide.url,slide.caption,slide.image);
 }

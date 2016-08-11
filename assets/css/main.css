@@ -1152,8 +1152,7 @@ strong {
   font-weight: 700; }
 
 svg {
-  fill: currentColor;
-  height: 0; }
+  fill: currentColor; }
 
 img,
 object,

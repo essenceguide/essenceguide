@@ -25,6 +25,7 @@ componentRegistry.registerComponent('stickySidebar', require('./modules/stickySi
 
 componentRegistry.registerComponent('articleExpand', require('./modules/article/articleExpand'));
 componentRegistry.registerComponent('articleShareHeader', require('./modules/article/articleShareHeader'));
+componentRegistry.registerComponent('createPinterestShare', require('./modules/article/createPinterestShare'));
 componentRegistry.registerComponent('gallery', require('./modules/gallery'));
 
 componentRegistry.initComponents();
