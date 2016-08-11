@@ -9,10 +9,12 @@
 
   {{#image}}
     &lt;div class=&quot;article-image__wrap&quot; data-js-component=&quot;createPinterestShare&quot;&gt;
-      {{{image}}}
-      {{#social_share}}
-        {{&gt;molecules-social-share}}
-      {{/social_share}}
+      &lt;div class=&quot;article-image__wrap-interior&quot;&gt;
+        {{{image}}}
+        {{#social_share}}
+          {{&gt;molecules-social-share}}
+        {{/social_share}}
+      &lt;/div&gt;
     &lt;/div&gt;
   {{/image}}
 

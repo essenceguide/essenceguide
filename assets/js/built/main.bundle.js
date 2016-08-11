@@ -2730,7 +2730,6 @@ webpackJsonp([0],[
 	    var ad_slots = [
 	      'ad-ad_728x90_1',
 	      'ad-ad_galery_300x250_1',
-	      'ad-ad_galery_300x250_2',
 	    ];
 	
 	    var existing_ads = [];
