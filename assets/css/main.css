@@ -6217,7 +6217,8 @@ ul.primary {
   height: 110px;
   background-color: #800A57;
   background-size: cover;
-  background-position: center center; }
+  background-position: center center;
+  width: 100%; }
   .channel-mantle__title {
     font-family: "abril-display", serif;
     font-weight: 900;
