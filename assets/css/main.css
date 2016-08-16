@@ -5730,7 +5730,7 @@ ul.primary {
     display: table; }
   .videos-slider__featured {
     width: 100%;
-    height: 475px;
+    height: 337px;
     clear: both;
     float: none;
     position: relative;
@@ -5769,6 +5769,9 @@ ul.primary {
       left: 0;
       bottom: 0;
       z-index: 10; }
+    @media (min-width: 768px) {
+      .videos-slider__featured {
+        height: 450px; } }
     @media (min-width: 1024px) {
       .videos-slider__featured {
         width: 73.0158730159%;
