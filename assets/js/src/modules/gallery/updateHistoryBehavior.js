@@ -19,7 +19,14 @@ module.exports = function() {
   // update browser history/url when current slide changes
   ko.computed(function() {
     if (this.currentSlide() && this.currentSlide().url) {
-      History.pushState({slug: this.currentSlide().url}, this.currentSlide().browserTitle, this.currentSlide().url);
+    	var slideUrl = this.currentSlide().url;
+    	
+    	if (location.search) {
+    		
+    		var slideUrl = this.currentSlide().url+location.search;
+    		
+    	}
+      History.pushState({slug: this.currentSlide().url}, this.currentSlide().browserTitle, slideUrl);
     }
   }, this);
 };

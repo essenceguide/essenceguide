@@ -13,7 +13,7 @@ module.exports = function(el) {
       updateSocialLinks(galleryViewModel.currentSlide());
 
       try {
-        outbrainRefresh();
+        outbrainRefresh(galleryViewModel.currentSlide());
         refreshADs();
         refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
       }
@@ -29,8 +29,18 @@ module.exports = function(el) {
 
 }
 
-function updateFacebook(url) {
-	$('.social-share__item--facebook').attr('href', 'http://www.facebook.com/sharer.php?u=' + encodeURI(url));
+ko.bindingHandlers.renderOutbrain = {
+    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+        var ref;
+        if (typeof(OBR) !== "undefined" && typeof(OBR.extern) !== "undefined" 
+            && (ref = window.OBR) != null) {
+                ref.extern.reloadWidget();
+        }
+    }
+};
+
+function updateFacebook(url,title,media) {
+  $('.social-share__item--facebook').attr('href', 'http://www.facebook.com/sharer.php?u=' + encodeURI(url) + '&p=' + encodeURI( striptags(title) ) + '&picture=' + encodeURI(media));
 }
 
 function updatePinterest(url, caption, media) {
@@ -39,8 +49,8 @@ function updatePinterest(url, caption, media) {
       + '&media=' + encodeURI(media));
 }
 
-function updateTwitter(caption) {
-	$('.social-share__item--twitter').attr('href', 'http://twitter.com/share?text=' + encodeURI( striptags(caption) ) );
+function updateTwitter(url,title) {
+	$('.social-share__item--twitter').attr('href', 'http://twitter.com/intent/tweet?url=' + encodeURI(url) + '&text=' + encodeURI( striptags(title) ) + '&via=EssenceMag');
 }
 
 function updateEmail(mailSetting) {
@@ -48,15 +58,15 @@ function updateEmail(mailSetting) {
 }
 
 function updateSocialLinks(slide) {
-  updateFacebook(slide.url);
-  updateTwitter(slide.caption);
+  updateFacebook(slide.url,slide.title,slide.image);
+  updateTwitter(slide.url,slide.title);
   updateEmail(slide.mailSetting);
   updatePinterest(slide.url,slide.caption,slide.image);
 }
 
-function outbrainRefresh(){
+function outbrainRefresh(slide){
   if (typeof(OBR) !== "undefined" && typeof(OBR.extern) !== "undefined"
-    && typeof(OBR.extern.researchWidget) !== "undefined") {
+    && typeof(OBR.extern.researchWidget) !== "undefined" && slide.type !== 'ad') {
     //OBR.extern.researchWidget();
     OBR.extern.refreshWidget();
   }
@@ -81,7 +91,6 @@ function refreshADs(){
     var ad_slots = [
       'ad-ad_728x90_1',
       'ad-ad_galery_300x250_1',
-      'ad-ad_galery_300x250_2',
     ];
 
     var existing_ads = [];

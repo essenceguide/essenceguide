@@ -5,7 +5,6 @@
     {{#items}}
     &lt;li class=&quot;content-list__item{{^show_published?}} content-list__item--hide-published{{/show_published?}}&quot;&gt;
       {{^is_ad?}}
-      {{^is_sponsored?}}
       &lt;div class=&quot;content-list__item__wrap&quot;&gt;
       {{#is_nativo_ad?}}
         {{{sponsored_content_html}}}
@@ -35,13 +34,6 @@
           {{/published_time}}
         &lt;/div&gt;
       &lt;/div&gt;
-      {{/is_sponsored?}}
-      {{/is_ad?}}
-      {{#is_sponsored?}}
-        {{{sponsored_content_html}}}
-      {{/is_sponsored?}}
-      {{#is_ad?}}
-      {{&gt; atoms-ad-300x250-placeholder }}
       {{/is_ad?}}
     &lt;/li&gt;
     {{/items}}

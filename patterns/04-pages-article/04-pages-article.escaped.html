@@ -302,9 +302,6 @@
       &lt;/div&gt;
 
       &lt;div class=&quot;site-nav__quickview&quot;&gt;
-        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-left&quot;&gt;
-          &lt;a href=&quot;#&quot; class=&quot;site-nav__quickview-link&quot;&gt;Celebrity&lt;/a&gt;
-        &lt;/div&gt;
         &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-right site-nav__quickview-link&quot;&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -671,7 +668,7 @@
             
               &lt;figure class=&quot;media article__media--hero&quot;&gt;
                 &lt;div class=&quot;media-wrap&quot;&gt;
-                  &lt;picture&gt;&lt;source media=&quot;(min-width: 1400px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source media=&quot;(min-width: 1280px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source media=&quot;(min-width: 1024px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source media=&quot;(min-width: 768px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source media=&quot;(min-width: 480px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source media=&quot;(min-width: 0px)&quot; srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;source srcset=&quot;{{}} 1x&quot;&gt;&lt;/source&gt;&lt;img title=&quot;{{}}&quot; alt=&quot;&quot; src=&quot;{{}}&quot;&gt;&lt;/picture&gt;
+                  &lt;img src='http://placehold.it/900x694' /&gt;
                 &lt;/div&gt;
               &lt;/figure&gt;
             
@@ -817,16 +814,27 @@
                   
             
                   
+                      &lt;p &gt;&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/wUPKMiIeGhA&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+                  
+                  
+            
+            
+            
+                  
+            
+                  
                   
                       &lt;div class=&quot;article-image__wrap&quot; data-js-component=&quot;createPinterestShare&quot;&gt;
-                        &lt;img src='http://placehold.it/200x200' /&gt;
-                          
-                          &lt;div class=&quot;social-share &quot;&gt;
-                              &lt;a href=&quot;&quot; class=&quot;social-share__item social-share__item--pinterest &quot;&gt;
-                                &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
-                                   &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                                &lt;/svg&gt;
-                              &lt;/a&gt;
-                          &lt;/div&gt;
+                        &lt;div class=&quot;article-image__wrap-interior&quot;&gt;
+                          &lt;img src='http://placehold.it/200x200' /&gt;
+                            
+                            &lt;div class=&quot;social-share &quot;&gt;
+                                &lt;a href=&quot;&quot; class=&quot;social-share__item social-share__item--pinterest&quot; onclick =  target = &gt;
+                                  &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                                     &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                                  &lt;/svg&gt;
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
                       &lt;/div&gt;
                   
             
@@ -1017,17 +1025,21 @@
             
             &lt;div id=&quot;disqus_thread&quot;&gt;&lt;/div&gt;
     
+            
             &lt;script&gt;
                 /**
                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
                  */
-                /*
+                
                 var disqus_config = function () {
-                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                    this.page.url =  Drupal.settings.ti_ape_ess_disqus_detail.disqus_url;
+                    console.log(this.page.url);// Replace PAGE_URL with your page's canonical URL variable
+                    this.page.identifier = Drupal.settings.ti_ape_ess_disqus_detail.disqus_identifier;
+                    console.log(this.page.identifier);
+                    console.log('here'); // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                 };
-                */
+                
                 (function() {  // REQUIRED CONFIGURATION VARIABLE: EDIT THE SHORTNAME BELOW
                     var d = document, s = d.createElement('script');
     
@@ -1036,7 +1048,6 @@
                     s.setAttribute('data-timestamp', +new Date());
                     (d.head || d.body).appendChild(s);
                 })();
-    
             &lt;/script&gt;
     
             &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
@@ -1058,7 +1069,12 @@
                   &lt;/div&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;content-list__item content-list__item--hide-published&quot;&gt;
-                    &lt;div class='sponsored-markup'&gt;sponsored module&lt;/div&gt;
+                  &lt;div class=&quot;content-list__item__wrap&quot;&gt;
+                    &lt;div class=&quot;content-list__item-info&quot;&gt;
+                    &lt;/div&gt;
+                    &lt;div class=&quot;content-list__item-published&quot;&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
                 &lt;/li&gt;
                 &lt;li class=&quot;content-list__item&quot;&gt;
                   &lt;div class=&quot;content-list__item__wrap&quot;&gt;
@@ -1115,67 +1131,7 @@
           &lt;/div&gt;
         &lt;/div&gt;
     
-        &lt;script&gt;
-    
-          var DISQUSWIDGETS, disqus_domain, disqus_shortname='essencecom';
-          typeof DISQUSWIDGETS === &quot;undefined&quot; &amp;&amp; (DISQUSWIDGETS = function() {
-              var f = document,
-                  a = f.getElementById(&quot;dsq-count-scr&quot;),
-                  a = a &amp;&amp; a.src.match(/(https?:)?\/\/(?:www\.)?([\w_\-]+)\.((?:dev\.)?disqus\.(?:com|org)(?::\d+)?)/i),
-                  e = {},
-                  s = f.head || f.body,
-                  j = {},
-                  q = {
-                      identifier: 1,
-                      url: 2
-                  };
-              e.domain = a &amp;&amp; a[3] || disqus_domain || &quot;disqus.com&quot;;
-              e.forum = a &amp;&amp; a[2] || disqus_shortname;
-              e.proto = a &amp;&amp; a[1] || &quot;&quot;;
-              e.getCount = function(b) {
-                  var c;
-                  c = encodeURIComponent;
-                  var a = e.proto + &quot;//&quot; + e.forum + &quot;.&quot; + e.domain + &quot;/count-data.js?&quot;,
-                      d = [],
-                      k = 0,
-                      l = 10,
-                      r = &quot;&quot;,
-                      b = b || {};
-                  b.reset &amp;&amp;
-                      (j = {}, r = &quot;&amp;_=&quot; + +new Date);
-                  for (var b = [f.getElementsByTagName(&quot;A&quot;), f.getElementsByClassName &amp;&amp; f.getElementsByClassName(&quot;disqus-comment-count&quot;) || []], m, i, g, h, n = 0; n &lt; b.length; n++) {
-                      m = b[n];
-                      for (var o = 0; o &lt; m.length; o++) {
-                          i = m[o];
-                          g = i.getAttribute(&quot;data-disqus-identifier&quot;);
-                          h = i.hash === &quot;#disqus_thread&quot; &amp;&amp; i.href.replace(&quot;#disqus_thread&quot;, &quot;&quot;) || i.getAttribute(&quot;data-disqus-url&quot;);
-                          if (g) h = q.identifier;
-                          else if (h) g = h, h = q.url;
-                          else continue;
-                          var p;
-                          j.hasOwnProperty(g) ? p = j[g] : (p = j[g] = {
-                              elements: [],
-                              type: h
-                          }, d.push(c(h) + &quot;=&quot; + c(g)));
-                          p.elements.push(i)
-                      }
-                  }
-                  d.sort();
-                  for (c = d.slice(k, l); c.length;) b = f.createElement(&quot;script&quot;), b.src = a + c.join(&quot;&amp;&quot;) + r, s.appendChild(b), k += 10, l += 10, c = d.slice(k, l)
-              };
-              e.displayCount = function(b) {
-                  for (var c, a, d, e = b.counts, b = b.text.comments; c = e.shift();)
-                      if (a = j[c.id]) {
-                          c = c.comments;
-                          a = a.elements;
-                          for (d = a.length - 1; d &gt;= 0; d--) a[d].innerHTML = c
-                      }
-              };
-              return e
-          }());
-          DISQUSWIDGETS.getCount();
-    
-      &lt;/script&gt;
+       &lt;script id=&quot;dsq-count-scr&quot; src=&quot;//essencecom.disqus.com/count.js&quot; async&gt;&lt;/script&gt;
     &lt;/article&gt;
   &lt;/main&gt;
   &lt;aside class=&quot;sidebar sidebar--is-sw&quot;&gt;

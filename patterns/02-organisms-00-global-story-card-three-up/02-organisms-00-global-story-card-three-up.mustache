@@ -4,11 +4,13 @@
 {{/accent_header}}
 &lt;div class=&quot;g-wrap&quot;&gt;
 
-  {{#items}}
+  &lt;div class=&quot;g-wrap__flex-wrap&quot;&gt;
+    {{#items}}
     &lt;div class=&quot;g-span-xs-12 g-span-sm-4&quot;&gt;
       {{&gt; organisms-story-card }}
     &lt;/div&gt;
-  {{/items}}
+    {{/items}}
+  &lt;/div&gt;
 
   {{#cta}}
     &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;

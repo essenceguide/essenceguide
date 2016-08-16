@@ -9,7 +9,7 @@ require('waypointsSticky');
 
 module.exports = function (el) {
   var $el = $(el),
-      topOffset = 65,
+      topOffset = 170,
       $sidebarContainer = $el.closest('.page-container'),
       $articleBodyWrap = $('.article__body').last(),
       $sidebarHaltEl = ( ($articleBodyWrap.length) ? $articleBodyWrap : $sidebarContainer ),

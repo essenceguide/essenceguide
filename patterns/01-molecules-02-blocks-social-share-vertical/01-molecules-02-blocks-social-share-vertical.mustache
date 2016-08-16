@@ -16,7 +16,7 @@
 {{#social_share}}
 &lt;div class=&quot;social-share {{#is_vertical?}}social-share--vertical{{/is_vertical?}}&quot;&gt;
   {{#items}}
-    &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}} &quot;&gt;
+    &lt;a href=&quot;{{url}}&quot; class=&quot;social-share__item social-share__item--{{icon}}&quot; onclick = {{onclick}} target = {{target}}&gt;
       &lt;svg class=&quot;social-share__icon social-share__icon--{{icon}}&quot;&gt;
          {{&gt;molecules-svg-use-tag}}
       &lt;/svg&gt;
