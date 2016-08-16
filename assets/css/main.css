@@ -2442,6 +2442,13 @@ blockquote,
 .related-articles {
   margin-top: 25px;
   margin-bottom: 25px; }
+  .related-articles__wrap {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
   .related-articles__story {
     margin-bottom: 10px; }
     .related-articles__story:after {
