@@ -5833,6 +5833,7 @@ ul.primary {
           -ms-transform: translateY(0);
               transform: translateY(0); }
     .videos-slider__playlist-item {
+      cursor: pointer;
       background-size: cover;
       display: block;
       width: 325px;

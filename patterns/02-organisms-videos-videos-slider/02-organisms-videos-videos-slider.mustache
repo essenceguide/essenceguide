@@ -22,12 +22,12 @@
     {{/featured_video}}
     &lt;div class=&quot;videos-slider__playlist&quot;&gt;
       {{#items}}
-        &lt;a class=&quot;videos-slider__playlist-item&quot; href=&quot;{{url}}&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
+        &lt;div class=&quot;videos-slider__playlist-item&quot; data-video-id=&quot;{{url}}&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
           &lt;div class=&quot;videos-slider__playlist-item__info&quot;&gt;
             &lt;div class=&quot;videos-slider__playlist-item__category&quot;&gt;{{category}}&lt;/div&gt;
             &lt;div class=&quot;videos-slider__playlist-item__title&quot;&gt;{{title}}&lt;/div&gt;
           &lt;/div&gt;
-        &lt;/a&gt;
+        &lt;/div&gt;
       {{/items}}
     &lt;/div&gt;
   &lt;/div&gt;

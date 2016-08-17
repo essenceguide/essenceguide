@@ -2214,6 +2214,9 @@ webpackJsonp([0],[
 	
 	    var $el = $(el),
 	        $playlist = $el.find('.videos-slider__playlist'),
+	        playlistItemSel = '.videos-slider__playlist-item',
+	        videoEmbedID = 'featuredVideoEmbed',
+	        videoPlayer,
 	        slickOptions = {
 	          vertical : true,
 	          slidesToShow: 4,
@@ -2241,6 +2244,19 @@ webpackJsonp([0],[
 	        };
 	
 	    $playlist.slick(slickOptions);
+	
+	    videojs(videoEmbedID).ready(function() {
+	      videoPlayer = this;
+	
+	      $playlist.on('click', playlistItemSel, function(e) {
+	        e.preventDefault();
+	
+	        videoPlayer.catalog.getVideo($(this).data('video-id'), function(error, video) {
+	          videoPlayer.catalog.load(video);
+	          videoPlayer.play();
+	        });
+	      });
+	    });
 	};
 
 /***/ },
