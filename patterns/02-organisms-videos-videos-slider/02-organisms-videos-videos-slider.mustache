@@ -1,24 +1,24 @@
 {{#videos_slider}}
   &lt;div class=&quot;videos-slider&quot; data-js-component=&quot;videoSlider&quot;&gt;
     {{#featured_video}}
-        &lt;div class=&quot;videos-slider__featured&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
+    &lt;div class=&quot;videos-slider__featured&quot; style=&quot;background-image: url({{image_url}});&quot;&gt;
+      &lt;div class=&quot;videos-slider__featured-video__wrap&quot;&gt;
+        &lt;div class=&quot;videos-slider__featured-video__wrap-player&quot;&gt;
           &lt;video id=&quot;featuredVideoEmbed&quot;
-                 data-video-id=&quot;{{playerid}}&quot;
-                 data-account=&quot;{{player_account}}&quot;
-                 data-player=&quot;{{playerkey}}&quot;
-                 data-embed=&quot;default&quot;
-                 class=&quot;video-js&quot;
-                 controls
-                 style=&quot;width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;&quot;&gt;
+            data-video-id=&quot;{{playerid}}&quot;
+            data-account=&quot;{{player_account}}&quot;
+            data-player=&quot;{{playerkey}}&quot;
+            data-embed=&quot;default&quot;
+            class=&quot;video-js&quot;
+            controls
+            autoplay=&quot;false&quot;
+            style=&quot;width: 100%; height: 100%; position: absolute; top: 0px; bottom: 0px; right: 0px; left: 0px;&quot;&gt;
           &lt;/video&gt;
-          &lt;div class=&quot;videos-slider__featured-info&quot;&gt;
-            &lt;div class=&quot;videos-slider__featured-category&quot;&gt;{{category}}&lt;/div&gt;
-            &lt;div class=&quot;videos-slider__featured-title&quot;&gt;{{title}}&lt;/div&gt;
-            &lt;a class=&quot;videos-slider__featured-link btn btn--play&quot; href=&quot;{{url}}&quot;&gt;Watch Now&lt;/a&gt;
-          &lt;/div&gt;
         &lt;/div&gt;
-      &lt;script src=&quot;//players.brightcove.net/{{player_account}}/{{playerkey}}_default/index.min.js&quot;&gt;&lt;/script&gt;
-      &lt;script src=&quot;//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js&quot;&gt;&lt;/script&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&quot;//players.brightcove.net/{{player_account}}/{{playerkey}}_default/index.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;//players.brightcove.net/videojs-overlay/1/videojs-overlay.min.js&quot;&gt;&lt;/script&gt;
     {{/featured_video}}
     &lt;div class=&quot;videos-slider__playlist&quot;&gt;
       {{#items}}
