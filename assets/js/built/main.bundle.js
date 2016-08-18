@@ -2311,8 +2311,8 @@ webpackJsonp([0],[
 	  var $el = $(el),
 	      topOffset = 170,
 	      $sidebarContainer = $el.closest('.page-container'),
-	      $articleBodyWrap = $('.article__body').last(),
-	      $sidebarHaltEl = ( ($articleBodyWrap.length) ? $articleBodyWrap : $sidebarContainer ),
+	      $bodyStopEl = $($el.data('sticky-stop-el')).last() || $('.article__body').last(),
+	      $sidebarHaltEl = ( ($bodyStopEl.length) ? $bodyStopEl : $sidebarContainer ),
 	      mqlAboveTablet = window.matchMedia("(min-width:" + config.breakpoints.medium + "px)"),
 	      stickySidebar,
 	      sidebarHalt;
@@ -2698,7 +2698,7 @@ webpackJsonp([0],[
 /* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict'
+	/* WEBPACK VAR INJECTION */(function(jQuery) {'use strict'
 	
 	var $ = __webpack_require__(2),
 	    ko = __webpack_require__(26),
@@ -2803,6 +2803,103 @@ webpackJsonp([0],[
 	    // Refresh the ADs
 	   adFactory.refreshAds(existing_ads);
 	}
+	
+	// Lazy Loads the AD
+	function lazyLoad(targetElement, renderElement, stickyAdId) {
+	    var viewportWidth = window.matchMedia( "(min-width: 768px)" ).matches;
+	    // To Lazy Load the AD
+	    $(window).scroll( function() {
+	        var wt = $(window).scrollTop();    //* top of the window
+	        var wb = wt + $(window).height();  //* bottom of the window
+	        var articlebody = $(targetElement);
+	        if(viewportWidth){
+	            var ad_dimensions = ["300x250", "300x600"];
+	            var ot = articlebody.offset().top;  //* top of object (i.e. advertising div)
+	            var ob = ot + articlebody.height(); //* bottom of object
+	        }
+	        else if (!viewportWidth){
+	            var ad_dimensions = ["300x50", "300x250", "320x50", "320x320"];
+	            var ot = articlebody.offset().top;  //* top of object (i.e. advertising div)
+	            var ob = ot + articlebody.height(); //* bottom of object
+	        }
+	
+	        if(!articlebody.attr("lazyloadedAD") && wt<=ob && wb >= ot){
+	            $(renderElement).append("<div class='panel-separator'></div><div id='" + stickyAdId + "' class='ad'></div>");
+	            articlebody.attr("lazyloadedAD",true);
+	            var ad = adFactory.getMultiAd(ad_dimensions);
+	            ad.setPosition("2");
+	            ad.write(stickyAdId);
+	            // Call the sticky AD
+	            stickyAD(stickyAdId);
+	        }
+	    });
+	}
+	
+	// Sticks the AD in the Right Rail
+	function stickyAD(stickyAdId) {
+	    var start_sticky = 0;
+	    var end_sticky = 0;
+	    var viewportWidth = window.matchMedia( "(min-width: 1024px)" ).matches;
+	    if(viewportWidth) {
+	        $( window ).scroll(function() { // scroll event
+	            var ob_start_marker =  $('div[data-widget-id="SB_10"]');
+	            var ob_end_marker = $('div[data-widget-id="AR_10"]');
+	            var sticky_div_id = "#" + stickyAdId;
+	            var sticky_ad = $(sticky_div_id);
+	            if(ob_start_marker.length > 0 && ob_end_marker.length > 0) {
+	                // Start the sticky if it reaches the Right Side Outbrain block
+	                if (($(window).scrollTop() > ob_start_marker.offset().top) && (start_sticky == 0)) {
+	                   start_sticky = 1;
+	                   sticky_ad.css({'position': 'fixed','width' : '300px','top': '170px'});
+	                   //setTimeout(function() {sticky_ad.removeAttr('style');}, 5000);
+	                }
+	                // Remove the Sticky if user is scrolling back to the top
+	                if (($(window).scrollTop() < ob_start_marker.offset().top) && (start_sticky == 1)){
+	                   sticky_ad.removeAttr('style');
+	                }
+	
+	                // Remove the sticky if it reaches the bottom Outbrain Block
+	                if (($(window).scrollTop() > ob_end_marker.offset().top) && (end_sticky == 0)) {
+	                    end_sticky = 1;
+	                    sticky_ad.removeAttr('style');
+	                }
+	            }
+	        });
+	    }
+	}
+	
+	
+	(function($) {
+	    $( document ).ready( function() {
+	       var targetElement, renderElement, stickyAdId = '';
+	        // Assign the target and render elements based on the node type
+	        if( $(".node-type-article").length > 0 ){
+	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	                var targetElement = ".article__body";
+	                var renderElement = ".sidebar--is-sw";
+	            }
+	            else {
+	                var targetElement = ".footer__wrap";
+	                var renderElement = ".sidebar--is-sw";
+	            }
+	        }
+	        else if( $(".node-type-gallery").length > 0 ) {
+	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	                var targetElement = "#disqus_thread";
+	                var renderElement = ".sidebar-wrap";
+	            }
+	            else {
+	                var targetElement = ".footer__wrap";
+	                var renderElement = ".sidebar--is-sw";
+	            }
+	        }
+	
+	       var stickyAdId = "ad-ad_300x250_2";
+	       lazyLoad(targetElement, renderElement, stickyAdId);
+	    });
+	})(jQuery);
+	
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 26 */

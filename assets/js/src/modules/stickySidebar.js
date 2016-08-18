@@ -11,8 +11,8 @@ module.exports = function (el) {
   var $el = $(el),
       topOffset = 170,
       $sidebarContainer = $el.closest('.page-container'),
-      $articleBodyWrap = $('.article__body').last(),
-      $sidebarHaltEl = ( ($articleBodyWrap.length) ? $articleBodyWrap : $sidebarContainer ),
+      $bodyStopEl = $($el.data('sticky-stop-el')).last() || $('.article__body').last(),
+      $sidebarHaltEl = ( ($bodyStopEl.length) ? $bodyStopEl : $sidebarContainer ),
       mqlAboveTablet = window.matchMedia("(min-width:" + config.breakpoints.medium + "px)"),
       stickySidebar,
       sidebarHalt;
