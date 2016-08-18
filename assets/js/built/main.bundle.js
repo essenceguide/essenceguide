@@ -2744,9 +2744,9 @@ webpackJsonp([0],[
 	  $('.social-share__item--facebook').attr('href', 'http://www.facebook.com/sharer.php?u=' + encodeURI(url) + '&p=' + encodeURI( striptags(title) ) + '&picture=' + encodeURI(media));
 	}
 	
-	function updatePinterest(url, caption, media) {
+	function updatePinterest(url, pinterestTitle, media) {
 	  $('.social-share__item--pinterest').attr('href', 'http://pinterest.com/pin/create/button/?url=' + encodeURI(url)
-	      + '&description=' + encodeURI( striptags(caption) )
+	      + '&description=' + encodeURI( striptags(pinterestTitle) )
 	      + '&media=' + encodeURI(media));
 	}
 	
@@ -2762,7 +2762,7 @@ webpackJsonp([0],[
 	  updateFacebook(slide.url,slide.title,slide.image);
 	  updateTwitter(slide.url,slide.title);
 	  updateEmail(slide.mailSetting);
-	  updatePinterest(slide.url,slide.caption,slide.image);
+	  updatePinterest(slide.url,slide.pinterestTitle,slide.image);
 	}
 	
 	function outbrainRefresh(slide){

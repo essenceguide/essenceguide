@@ -6299,8 +6299,7 @@ ul.primary {
     .featured-video__link img {
       width: 100%; }
     .featured-video__link .btn, .featured-video__link .videos-slider__featured .vjs-big-play-button, .videos-slider__featured .featured-video__link .vjs-big-play-button {
-      position: relative;
-      bottom: 10px; }
+      position: relative; }
     @media (max-width: 1023px) {
       .featured-video__link .btn, .featured-video__link .videos-slider__featured .vjs-big-play-button, .videos-slider__featured .featured-video__link .vjs-big-play-button {
         left: 50%;
@@ -6362,12 +6361,9 @@ ul.primary {
         -webkit-transform: translateY(-50%);
             -ms-transform: translateY(-50%);
                 transform: translateY(-50%); } }
-  .featured-video .btn, .featured-video .videos-slider__featured .vjs-big-play-button, .videos-slider__featured .featured-video .vjs-big-play-button {
-    position: absolute; }
-    @media (min-width: 1024px) {
-      .featured-video .btn, .featured-video .videos-slider__featured .vjs-big-play-button, .videos-slider__featured .featured-video .vjs-big-play-button {
-        left: 30px;
-        bottom: 20px; } }
+  @media (min-width: 1024px) {
+    .featured-video .btn, .featured-video .videos-slider__featured .vjs-big-play-button, .videos-slider__featured .featured-video .vjs-big-play-button {
+      left: 30px; } }
   .featured-video__text:not(:last-child) {
     margin-bottom: 25px; }
 
@@ -6469,6 +6465,13 @@ ul.primary {
     .billboard__title a:visited,
     .billboard__title a:hover {
       color: #fff; } }
+
+.page-taxonomy-term #page #header,
+.page-taxonomy-term #page #navigation,
+.page-taxonomy-term #page #breadcrumb,
+.page-taxonomy-term #page #page-title,
+.page-taxonomy-term #page .tabs {
+  display: none; }
 
 /*-------------------------------------------- */
 /** Pages */
