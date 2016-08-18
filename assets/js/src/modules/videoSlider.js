@@ -54,36 +54,35 @@ module.exports = function(el) {
       });
     });
 
-    featuredPlayer.on('loadedmetadata', function() {
-
-      featuredPlayer.overlay({
-        overlays: [{
-          align: "bottom-left",
-          content: "<div class='videos-slider__featured-info'>" +
-                      "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
-                      "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
-                    "</div>",
-          start: 'loadeddata',
-          end: 'ads-ad-started'
-        },
-        {
-          align: "bottom-left",
-          content: "<div class='videos-slider__featured-info'>" +
-                      "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
-                      "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
-                    "</div>",
-          start: 'ads-ad-ended',
-          end: 'progress'
-        },
-        {
-          align: "bottom-left",
-          content: "<div class='videos-slider__featured-info'>" +
-                      "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
-                      "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
-                    "</div>",
-          start: 'pause',
-          end: 'play'
-        }]
-      });
-    });
+    // featuredPlayer.on('loadedmetadata', function() {
+    //   featuredPlayer.overlay({
+    //     overlays: [{
+    //       align: "bottom-left",
+    //       content: "<div class='videos-slider__featured-info'>" +
+    //                   "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
+    //                   "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
+    //                 "</div>",
+    //       start: 'loadeddata',
+    //       end: 'ads-ad-started'
+    //     },
+    //     {
+    //       align: "bottom-left",
+    //       content: "<div class='videos-slider__featured-info'>" +
+    //                   "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
+    //                   "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
+    //                 "</div>",
+    //       start: 'ads-ad-ended',
+    //       end: 'progress'
+    //     },
+    //     {
+    //       align: "bottom-left",
+    //       content: "<div class='videos-slider__featured-info'>" +
+    //                   "<div class='videos-slider__featured-category'>" + featuredPlayer.mediainfo.tags[0] + "</div>" +
+    //                   "<div class='videos-slider__featured-title'>" + featuredPlayer.mediainfo.name + "</div>" +
+    //                 "</div>",
+    //       start: 'pause',
+    //       end: 'play'
+    //     }]
+    //   });
+    // });
 };
