@@ -1,3 +1,16 @@
-&lt;div class=&quot;channel-content&quot;&gt;
-  {{&gt; organisms-channel-body }}
+{{#channel_body}}
+&lt;div class=&quot;page-container channel-content&quot;&gt;
+  {{&gt; organisms-channel-section }}
+
+  {{&gt; organisms-story-card-three-up }}
+
+  {{&gt; organisms-story-card-four-up }}
+
+  {{#cta}}
+    &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;
+  {{/cta}}
 &lt;/div&gt;
+
+{{&gt; atoms-full-width-ad }}
+
+{{/channel_body}}

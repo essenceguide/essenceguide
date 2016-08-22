@@ -6480,6 +6480,24 @@ ul.primary {
 .page-taxonomy-term #page .tabs {
   display: none; }
 
+@media (max-width: 767px) {
+  .page-taxonomy-term #story-card__ad {
+    text-align: center;
+    padding-bottom: 50px; }
+    .page-taxonomy-term #story-card__ad:empty {
+      display: none; } }
+
+@media (min-width: 768px) {
+  .page-taxonomy-term #story-card__ad {
+    display: none !important; } }
+
+.node-type-video #page #header,
+.node-type-video #page #navigation,
+.node-type-video #page #breadcrumb,
+.node-type-video #page #page-title,
+.node-type-video #page .tabs {
+  display: none; }
+
 /*-------------------------------------------- */
 /** Pages */
 /*-------------------------------------------- */
