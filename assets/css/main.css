@@ -2457,7 +2457,7 @@ blockquote,
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
   .related-articles__story {
-    margin-bottom: 10px; }
+    margin-bottom: 20px; }
     .related-articles__story:after {
       clear: both;
       content: "";

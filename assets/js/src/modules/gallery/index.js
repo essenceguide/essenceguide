@@ -105,7 +105,7 @@ function refreshADs(){
 }
 
 // Lazy Loads the AD
-function lazyLoad(targetElement, renderElement, stickyAdId) {
+function lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker) {
     var viewportWidth = window.matchMedia( "(min-width: 768px)" ).matches;
     // To Lazy Load the AD
     $(window).scroll( function() {
@@ -130,36 +130,41 @@ function lazyLoad(targetElement, renderElement, stickyAdId) {
             ad.setPosition("2");
             ad.write(stickyAdId);
             // Call the sticky AD
-            stickyAD(stickyAdId);
+            stickyAD(stickyAdId, ob_start_marker, ob_end_marker);
         }
     });
 }
 
 // Sticks the AD in the Right Rail
-function stickyAD(stickyAdId) {
+function stickyAD(stickyAdId, ob_start_marker, ob_end_marker) {
     var start_sticky = 0;
     var end_sticky = 0;
     var viewportWidth = window.matchMedia( "(min-width: 1024px)" ).matches;
     if(viewportWidth) {
         $( window ).scroll(function() { // scroll event
-            var ob_start_marker =  $('div[data-widget-id="SB_10"]');
-            var ob_end_marker = $('div[data-widget-id="AR_10"]');
+            var ob_start_marker_element =  $(ob_start_marker);
+            var ob_end_marker_element = $(ob_end_marker);
             var sticky_div_id = "#" + stickyAdId;
             var sticky_ad = $(sticky_div_id);
-            if(ob_start_marker.length > 0 && ob_end_marker.length > 0) {
+            if(ob_start_marker_element.length > 0 && ob_end_marker_element.length > 0) {
                 // Start the sticky if it reaches the Right Side Outbrain block
-                if (($(window).scrollTop() > ob_start_marker.offset().top) && (start_sticky == 0)) {
+                if (($(window).scrollTop() > ob_start_marker_element.offset().top) && (start_sticky == 0)) {
                    start_sticky = 1;
-                   sticky_ad.css({'position': 'fixed','width' : '300px','top': '170px'});
+                   if ( $(".node-type-video").length > 0 || $(".node-type-package").length > 0) {
+                        sticky_ad.css({'position': 'fixed','width' : '300px','top': '70px'});
+                    }
+                    else {
+                        sticky_ad.css({'position': 'fixed','width' : '300px','top': '170px'});
+                    }
                    //setTimeout(function() {sticky_ad.removeAttr('style');}, 5000);
                 }
                 // Remove the Sticky if user is scrolling back to the top
-                if (($(window).scrollTop() < ob_start_marker.offset().top) && (start_sticky == 1)){
+                if (($(window).scrollTop() < ob_start_marker_element.offset().top) && (start_sticky == 1)) {
                    sticky_ad.removeAttr('style');
                 }
 
                 // Remove the sticky if it reaches the bottom Outbrain Block
-                if (($(window).scrollTop() > ob_end_marker.offset().top) && (end_sticky == 0)) {
+                if (($(window).scrollTop() > ob_end_marker_element.offset().top) && (end_sticky == 0)) {
                     end_sticky = 1;
                     sticky_ad.removeAttr('style');
                 }
@@ -171,12 +176,17 @@ function stickyAD(stickyAdId) {
 
 (function($) {
     $( document ).ready( function() {
-       var targetElement, renderElement, stickyAdId = '';
+       var targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker = '';
         // Assign the target and render elements based on the node type
         if( $(".node-type-article").length > 0 ){
             if ( window.matchMedia("(min-width: 1024px)").matches ) {
+                // For Lazy Load
                 var targetElement = ".article__body";
                 var renderElement = ".sidebar--is-sw";
+
+                // For Sticky AD
+                var ob_start_marker = 'div[data-widget-id="SB_10"]';
+                var ob_end_marker = 'div[data-widget-id="AR_10"]';
             }
             else {
                 var targetElement = ".footer__wrap";
@@ -187,6 +197,52 @@ function stickyAD(stickyAdId) {
             if ( window.matchMedia("(min-width: 1024px)").matches ) {
                 var targetElement = "#disqus_thread";
                 var renderElement = ".sidebar-wrap";
+
+                // For Sticky AD
+                var ob_start_marker = 'div[data-widget-id="SB_10"]';
+                var ob_end_marker = 'div[data-widget-id="AR_10"]';
+            }
+            else {
+                var targetElement = ".footer__wrap";
+                var renderElement = ".sidebar--is-sw";
+            }
+        }
+        else if ( $(".node-type-video").length > 0 ) {
+            if ( window.matchMedia("(min-width: 1024px)").matches ) {
+                var targetElement = ".main-content--has-sw-sidebar > .video-section:eq(1)";
+                var renderElement = ".sidebar--is-sw";
+
+                // For Sticky AD
+                var ob_start_marker = ".main-content--has-sw-sidebar > .video-section:eq(1)";
+                var ob_end_marker = ".main-content--has-sw-sidebar > .video-section:last";
+            }
+            else {
+                var targetElement = ".footer__wrap";
+                var renderElement = ".sidebar--is-sw";
+            }
+        }
+        else if ( $(".node-type-package").length > 0 ) {
+            if ( window.matchMedia("(min-width: 1024px)").matches ) {
+                var targetElement = ".hero-touts";
+                var renderElement = ".sidebar--is-sw";
+
+                // For Sticky AD
+                var ob_start_marker = ".package-content > .package-section:eq(1)";
+                var ob_end_marker = ".package-content > .package-section:last";
+            }
+            else {
+                var targetElement = ".footer__wrap";
+                var renderElement = ".sidebar--is-sw";
+            }
+        }
+        else if ( $(".page-taxonomy-term").length > 0 ) {
+            if ( window.matchMedia("(min-width: 1024px)").matches ) {
+                var targetElement = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
+                var renderElement = ".sidebar--is-sw";
+
+                // For Sticky AD
+                var ob_start_marker = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
+                var ob_end_marker = ".g-wrap__flex-wrap > .g-span-xs-12:last";
             }
             else {
                 var targetElement = ".footer__wrap";
@@ -194,7 +250,15 @@ function stickyAD(stickyAdId) {
             }
         }
 
-       var stickyAdId = "ad-ad_300x250_2";
-       lazyLoad(targetElement, renderElement, stickyAdId);
+
+        // Restrict the call to specific pages
+        if( $(".node-type-article").length > 0 ||
+            $(".node-type-gallery").length > 0 ||
+            $(".node-type-video").length > 0 ||
+            $(".node-type-package").length > 0 ||
+            $(".page-taxonomy-term").length > 0 ) {
+                var stickyAdId = "ad-ad_300x250_2";
+                lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
+        }
     });
 })(jQuery);
