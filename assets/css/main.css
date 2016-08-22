@@ -2015,7 +2015,7 @@ img {
           .article__media .related-articles__story {
             float: left;
             width: 30.6451612903%;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             margin-right: 4.0322580645%; }
             .article__media .related-articles__story:nth-child(3n+3) {
               margin-right: 0; } }
@@ -2457,7 +2457,7 @@ blockquote,
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; }
   .related-articles__story {
-    margin-bottom: 20px; }
+    margin-bottom: 10px; }
     .related-articles__story:after {
       clear: both;
       content: "";

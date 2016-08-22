@@ -2895,12 +2895,12 @@ webpackJsonp([0],[
 	        }
 	        else if( $(".node-type-gallery").length > 0 ) {
 	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = "#disqus_thread";
+	                var targetElement = ".related-content";
 	                var renderElement = ".sidebar-wrap";
 	
 	                // For Sticky AD
-	                var ob_start_marker = 'div[data-widget-id="SB_10"]';
-	                var ob_end_marker = 'div[data-widget-id="AR_10"]';
+	                var ob_start_marker = '.related-content';
+	                var ob_end_marker = '#disqus_thread';
 	            }
 	            else {
 	                var targetElement = ".footer__wrap";
@@ -2923,7 +2923,7 @@ webpackJsonp([0],[
 	        }
 	        else if ( $(".node-type-package").length > 0 ) {
 	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = ".hero-touts";
+	                var targetElement = ".package-content > .package-section:eq(1)";
 	                var renderElement = ".sidebar--is-sw";
 	
 	                // For Sticky AD
