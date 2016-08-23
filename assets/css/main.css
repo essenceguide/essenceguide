@@ -3410,6 +3410,25 @@ ul.primary {
         width: 346px;
         height: 71px;
         fill: #630A5D; }
+  .site-nav__page-description {
+    text-align: center;
+    border-bottom: 1px solid #D1CDCC;
+    padding: 0 0 30px 0; }
+    .site-nav__page-description__interior {
+      margin: 25px auto;
+      height: 70px;
+      overflow-y: hidden;
+      width: 55.5555555556%; }
+    .site-nav__page-description p {
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 500;
+      font-size: 1.125rem;
+      line-height: 1.25;
+      margin: 0; }
+    .site-nav__page-description .load-more__wrap {
+      cursor: pointer; }
+    .site-nav__page-description .load-more__text {
+      color: #C43E95; }
 
 .site-top-nav {
   position: fixed;

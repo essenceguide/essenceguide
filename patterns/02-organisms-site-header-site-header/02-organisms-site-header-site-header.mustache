@@ -252,6 +252,16 @@
       &lt;h1 class=&quot;channel-mantle__title&quot;&gt;{{text}}&lt;/h1&gt;
   &lt;/div&gt;
   {{/channel_mantle}}
+  {{#page_description}}
+  &lt;div class=&quot;page-container site-nav__page-description&quot; data-js-component=&quot;pageDescriptionToggle&quot; data-description-el=&quot;.site-nav__page-description__interior&quot; data-more-toggle-el=&quot;.load-more__text&quot;&gt;
+    &lt;div class=&quot;site-nav__page-description__interior&quot;&gt;
+      {{{page_description}}}
+    &lt;/div&gt;
+    &lt;div class=&quot;load-more__wrap&quot;&gt;
+      &lt;span class=&quot;load-more__text&quot;&gt;More&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  {{/page_description}}
   {{#package_mantle}}
     &lt;div class=&quot;page-container package-mantle&quot;&gt;
       &lt;img class=&quot;package-mantle__desktop&quot; src=&quot;{{image}}&quot; alt=&quot;&quot;&gt;

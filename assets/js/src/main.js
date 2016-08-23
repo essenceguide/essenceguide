@@ -27,6 +27,7 @@ componentRegistry.registerComponent('articleExpand', require('./modules/article/
 componentRegistry.registerComponent('articleShareHeader', require('./modules/article/articleShareHeader'));
 componentRegistry.registerComponent('createPinterestShare', require('./modules/article/createPinterestShare'));
 componentRegistry.registerComponent('gallery', require('./modules/gallery'));
+componentRegistry.registerComponent('pageDescriptionToggle', require('./modules/pageDescriptionToggle'));
 
 componentRegistry.initComponents();
 /*-------------------------------------------- */

@@ -88,10 +88,19 @@ function refreshTealiumTag(slide, slideNum){
 }
 
 function refreshADs(){
-    var ad_slots = [
-      'ad-ad_728x90_1',
-      'ad-ad_galery_300x250_1',
-    ];
+    if ( $("#ad-ad_300x250_2").length > 0 ) {
+        var ad_slots = [
+          'ad-ad_728x90_1',
+          'ad-ad_galery_300x250_1',
+          'ad-ad_300x250_2',
+        ];
+    }
+    else {
+        var ad_slots = [
+          'ad-ad_728x90_1',
+          'ad-ad_galery_300x250_1',
+        ];
+    }
 
     var existing_ads = [];
     // Validate ad slot exists on this page.
@@ -223,12 +232,12 @@ function stickyAD(stickyAdId, ob_start_marker, ob_end_marker) {
         }
         else if ( $(".node-type-package").length > 0 ) {
             if ( window.matchMedia("(min-width: 1024px)").matches ) {
-                var targetElement = ".package-content > .package-section:eq(1)";
+                var targetElement = ".curated-touts > .package-content > .package-section:eq(1)";
                 var renderElement = ".sidebar--is-sw";
 
                 // For Sticky AD
-                var ob_start_marker = ".package-content > .package-section:eq(1)";
-                var ob_end_marker = ".package-content > .package-section:last";
+                var ob_start_marker = ".curated-touts > .package-content > .package-section:eq(1)";
+                var ob_end_marker = ".curated-touts > .package-content > .package-section:last";
             }
             else {
                 var targetElement = ".footer__wrap";
@@ -257,6 +266,10 @@ function stickyAD(stickyAdId, ob_start_marker, ob_end_marker) {
             $(".node-type-video").length > 0 ||
             $(".node-type-package").length > 0 ||
             $(".page-taxonomy-term").length > 0 ) {
+                // Don't Change the below sticky ID.
+                // It is referred in the Gallery AD Refresh
+                // Please update refreshADs() method if this is
+                // getting updated or modified.
                 var stickyAdId = "ad-ad_300x250_2";
                 lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
         }
