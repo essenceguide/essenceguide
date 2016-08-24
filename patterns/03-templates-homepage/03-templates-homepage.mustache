@@ -1,1 +1,26 @@
-{{&gt; organisms-homepage-body }}
+{{#homepage_section}}
+
+{{^is_full_width?}}
+&lt;div class=&quot;page-container&quot;&gt;
+  &lt;div class=&quot;section homepage-section&quot;&gt;
+      {{&gt; organisms-homepage-topstories }}
+      {{&gt; organisms-content-spotlight }}
+      {{&gt; organisms-homepage-category }}
+      {{&gt; organisms-featured-social }}
+      {{&gt; organisms-quote-block }}
+      {{&gt; organisms-simple-story-card-four-up }}
+
+    {{#cta}}
+      &lt;a href=&quot;{{url}}&quot; class=&quot;btn btn--centered btn--arrow&quot;&gt;{{text}}&lt;/a&gt;
+    {{/cta}}
+  &lt;/div&gt;
+&lt;/div&gt;
+{{/is_full_width?}}
+
+{{#is_full_width?}}
+  {{&gt; atoms-full-width-ad }}
+  {{&gt; organisms-featured-topic }}
+  {{&gt; organisms-billboard }}
+{{/is_full_width?}}
+
+{{/homepage_section}}
