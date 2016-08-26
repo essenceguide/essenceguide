@@ -52,6 +52,12 @@
         &lt;/script&gt;
 
         &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/?ref_noscript&quot; rel=&quot;nofollow&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+
+        {{#tags}}
+          &lt;div class=&quot;tags-content&quot;&gt;
+            {{&gt; organisms-tags-content }}
+          &lt;/div&gt;
+        {{/tags}}
       &lt;/div&gt;
       {{#yieldmo}}
       &lt;div class=&quot;yieldmo-content&quot;&gt;
