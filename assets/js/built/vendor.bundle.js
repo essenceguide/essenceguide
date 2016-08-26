@@ -76,7 +76,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 /******/
-/******/ 			script.src = __webpack_require__.p + "" + {"0":"05c9052b04cbb3587ca1"}[chunkId] + ".js";
+/******/ 			script.src = __webpack_require__.p + "" + {"0":"5051875f945b7826950d"}[chunkId] + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -139,7 +139,7 @@
 	        return root.svg4everybody = factory();
 	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : "object" == typeof exports ? module.exports = factory() : root.svg4everybody = factory();
 	}(this, function() {
-	    /*! svg4everybody v2.0.3 | github.com/jonathantneal/svg4everybody */
+	    /*! svg4everybody v2.1.0 | github.com/jonathantneal/svg4everybody */
 	    function embed(svg, target) {
 	        // if the target exists
 	        if (target) {
