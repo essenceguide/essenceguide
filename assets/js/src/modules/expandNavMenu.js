@@ -3,7 +3,7 @@
 var $ = require('jquery'),
     _ = require('underscore');
 
-var OPEN_DELAY = 300,
+var OPEN_DELAY = 600,
     EXIT_DELAY = 500,
     FAST_EXIT_DELAY = 300;
 

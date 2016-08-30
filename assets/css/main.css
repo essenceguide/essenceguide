@@ -3573,6 +3573,11 @@ ul.primary {
         box-sizing: border-box; }
         .footer__tout-interior input[type="text"]:not(:last-child) {
           margin-bottom: 20px; }
+    .footer__tout-info {
+      margin-top: 20px;
+      font-family: "proxima-nova", sans-serif;
+      font-weight: 400;
+      font-size: 0.875rem; }
     .footer__tout-ad-wrap {
       position: relative;
       height: 100%; }
@@ -4257,7 +4262,7 @@ ul.primary {
   right: 0;
   height: 600px;
   padding-top: 30px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   background: white;
   text-align: left;
   z-index: 70; }
@@ -4412,7 +4417,7 @@ ul.primary {
     font-family: "proxima-nova", sans-serif;
     font-weight: 600;
     display: inline-block;
-    font-size: 1.3125rem;
+    font-size: 1rem;
     line-height: 1;
     transition: color .250s ease-out;
     color: #131313; }
@@ -6166,6 +6171,8 @@ ul.primary {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 300px;
+  height: 250px;
   -webkit-transform: translateX(-50%) translateY(-50%);
       -ms-transform: translateX(-50%) translateY(-50%);
           transform: translateX(-50%) translateY(-50%);

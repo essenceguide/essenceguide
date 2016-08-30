@@ -2036,7 +2036,7 @@ webpackJsonp([0],[
 	var $ = __webpack_require__(2),
 	    _ = __webpack_require__(8);
 	
-	var OPEN_DELAY = 300,
+	var OPEN_DELAY = 600,
 	    EXIT_DELAY = 500,
 	    FAST_EXIT_DELAY = 300;
 	
