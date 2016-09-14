@@ -2715,6 +2715,7 @@ webpackJsonp([0],[
 	
 	      try {
 	        outbrainRefresh(galleryViewModel.currentSlide());
+	        triggerLazyLoad_Sticky();
 	        refreshADs();
 	        refreshTealiumTag(galleryViewModel.currentSlide(), galleryViewModel.currentSlideNum());
 	      }
@@ -2735,7 +2736,7 @@ webpackJsonp([0],[
 	        var ref;
 	        if (typeof(OBR) !== "undefined" && typeof(OBR.extern) !== "undefined" 
 	            && (ref = window.OBR) != null) {
-	                ref.extern.reloadWidget();
+	                ref.extern.researchWidget();
 	        }
 	    }
 	};
@@ -2817,6 +2818,7 @@ webpackJsonp([0],[
 	// Lazy Loads the AD
 	function lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker) {
 	    var viewportWidth = window.matchMedia( "(min-width: 768px)" ).matches;
+	    $(targetElement).removeAttr('lazyloadedAD');
 	    // To Lazy Load the AD
 	    $(window).scroll( function() {
 	        var wt = $(window).scrollTop();    //* top of the window
@@ -2838,7 +2840,13 @@ webpackJsonp([0],[
 	            articlebody.attr("lazyloadedAD",true);
 	            var ad = adFactory.getMultiAd(ad_dimensions);
 	            ad.setPosition("2");
-	            ad.write(stickyAdId);
+	            // if it is an video page render it as companion AD
+	            if ( $(".node-type-video").length > 0 ) {
+	                ad.write(stickyAdId, "companion");
+	            }
+	            else {
+	                ad.write(stickyAdId);
+	            }
 	            // Call the sticky AD
 	            stickyAD(stickyAdId, ob_start_marker, ob_end_marker);
 	        }
@@ -2883,97 +2891,108 @@ webpackJsonp([0],[
 	    }
 	}
 	
+	// Trigger the Lazy Load and Sticky ADs on the Page Load.
+	function triggerLazyLoad_Sticky(){
+	    var targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker = '';
+	    // Assign the target and render elements based on the node type
+	    if( $(".node-type-article").length > 0 ){
+	        if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	            // For Lazy Load
+	            var targetElement = ".article__body";
+	            var renderElement = ".sidebar--is-sw";
+	
+	            // For Sticky AD
+	            var ob_start_marker = 'div[data-widget-id="SB_10"]';
+	            var ob_end_marker = 'div[data-widget-id="AR_10"]';
+	        }
+	        else {
+	            var targetElement = ".footer__wrap";
+	            var renderElement = ".sidebar--is-sw";
+	        }
+	    }
+	    else if( $(".node-type-gallery").length > 0 ) {
+	        if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	            var targetElement = ".related-content";
+	            var renderElement = ".sidebar-wrap";
+	
+	            // For Sticky AD
+	            var ob_start_marker = '.related-content';
+	            var ob_end_marker = '#disqus_thread';
+	        }
+	        else {
+	            var targetElement = ".footer__wrap";
+	            var renderElement = ".sidebar--is-sw";
+	        }
+	    }
+	    else if ( $(".node-type-video").length > 0 ) {
+	        if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	            var targetElement = ".main-content--has-sw-sidebar > .video-section:eq(1)";
+	            var renderElement = ".sidebar--is-sw";
+	
+	            // For Sticky AD
+	            var ob_start_marker = ".main-content--has-sw-sidebar > .video-section:eq(1)";
+	            var ob_end_marker = ".main-content--has-sw-sidebar > .video-section:last";
+	        }
+	        else {
+	            var targetElement = ".footer__wrap";
+	            var renderElement = ".sidebar--is-sw";
+	        }
+	    }
+	    else if ( $(".node-type-package").length > 0 ) {
+	        if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	            var targetElement = ".curated-touts > .package-content > .package-section:eq(1)";
+	            var renderElement = ".sidebar--is-sw";
+	
+	            // For Sticky AD
+	            var ob_start_marker = ".curated-touts > .package-content > .package-section:eq(1)";
+	            var ob_end_marker = ".curated-touts > .package-content > .package-section:last";
+	        }
+	        else {
+	            var targetElement = ".footer__wrap";
+	            var renderElement = ".sidebar--is-sw";
+	        }
+	    }
+	    else if ( $(".page-taxonomy-term").length > 0 ) {
+	        if ( window.matchMedia("(min-width: 1024px)").matches ) {
+	            var targetElement = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
+	            var renderElement = ".sidebar--is-sw";
+	
+	            // For Sticky AD
+	            var ob_start_marker = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
+	            var ob_end_marker = ".g-wrap__flex-wrap > .g-span-xs-12:last";
+	        }
+	        else {
+	            var targetElement = ".footer__wrap";
+	            var renderElement = ".sidebar--is-sw";
+	        }
+	    }
+	
+	
+	    // Restrict the call to specific pages
+	    if( $(".node-type-article").length > 0 ||
+	        $(".node-type-gallery").length > 0 ||
+	        $(".node-type-video").length > 0 ||
+	        $(".node-type-package").length > 0 ||
+	        $(".page-taxonomy-term").length > 0 ) {
+	            // Don't Change the below sticky ID.
+	            // It is referred in the Gallery AD Refresh
+	            // Please update refreshADs() method if this is
+	            // getting updated or modified.
+	            var stickyAdId = "ad-ad_300x250_2";
+	            // Remove the AD if it is already available
+	            var sticky_div_id = "#" + stickyAdId;
+	            var sticky_ad = $(sticky_div_id);
+	            if( sticky_ad.length > 0 ) {
+	                $(sticky_ad).remove();
+	            }
+	            lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
+	    }
+	}
 	
 	(function($) {
 	    $( document ).ready( function() {
-	       var targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker = '';
-	        // Assign the target and render elements based on the node type
-	        if( $(".node-type-article").length > 0 ){
-	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                // For Lazy Load
-	                var targetElement = ".article__body";
-	                var renderElement = ".sidebar--is-sw";
-	
-	                // For Sticky AD
-	                var ob_start_marker = 'div[data-widget-id="SB_10"]';
-	                var ob_end_marker = 'div[data-widget-id="AR_10"]';
-	            }
-	            else {
-	                var targetElement = ".footer__wrap";
-	                var renderElement = ".sidebar--is-sw";
-	            }
-	        }
-	        else if( $(".node-type-gallery").length > 0 ) {
-	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = ".related-content";
-	                var renderElement = ".sidebar-wrap";
-	
-	                // For Sticky AD
-	                var ob_start_marker = '.related-content';
-	                var ob_end_marker = '#disqus_thread';
-	            }
-	            else {
-	                var targetElement = ".footer__wrap";
-	                var renderElement = ".sidebar--is-sw";
-	            }
-	        }
-	        else if ( $(".node-type-video").length > 0 ) {
-	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = ".main-content--has-sw-sidebar > .video-section:eq(1)";
-	                var renderElement = ".sidebar--is-sw";
-	
-	                // For Sticky AD
-	                var ob_start_marker = ".main-content--has-sw-sidebar > .video-section:eq(1)";
-	                var ob_end_marker = ".main-content--has-sw-sidebar > .video-section:last";
-	            }
-	            else {
-	                var targetElement = ".footer__wrap";
-	                var renderElement = ".sidebar--is-sw";
-	            }
-	        }
-	        else if ( $(".node-type-package").length > 0 ) {
-	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = ".curated-touts > .package-content > .package-section:eq(1)";
-	                var renderElement = ".sidebar--is-sw";
-	
-	                // For Sticky AD
-	                var ob_start_marker = ".curated-touts > .package-content > .package-section:eq(1)";
-	                var ob_end_marker = ".curated-touts > .package-content > .package-section:last";
-	            }
-	            else {
-	                var targetElement = ".footer__wrap";
-	                var renderElement = ".sidebar--is-sw";
-	            }
-	        }
-	        else if ( $(".page-taxonomy-term").length > 0 ) {
-	            if ( window.matchMedia("(min-width: 1024px)").matches ) {
-	                var targetElement = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
-	                var renderElement = ".sidebar--is-sw";
-	
-	                // For Sticky AD
-	                var ob_start_marker = ".g-wrap__flex-wrap > .g-span-xs-12:eq(4)";
-	                var ob_end_marker = ".g-wrap__flex-wrap > .g-span-xs-12:last";
-	            }
-	            else {
-	                var targetElement = ".footer__wrap";
-	                var renderElement = ".sidebar--is-sw";
-	            }
-	        }
-	
-	
-	        // Restrict the call to specific pages
-	        if( $(".node-type-article").length > 0 ||
-	            $(".node-type-gallery").length > 0 ||
-	            $(".node-type-video").length > 0 ||
-	            $(".node-type-package").length > 0 ||
-	            $(".page-taxonomy-term").length > 0 ) {
-	                // Don't Change the below sticky ID.
-	                // It is referred in the Gallery AD Refresh
-	                // Please update refreshADs() method if this is
-	                // getting updated or modified.
-	                var stickyAdId = "ad-ad_300x250_2";
-	                lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
-	        }
+	       // Trigger the Lazy Load and Sticky.
+	       triggerLazyLoad_Sticky();
 	    });
 	})(jQuery);
 	
@@ -11993,14 +12012,20 @@ webpackJsonp([0],[
 	  // update browser history/url when current slide changes
 	  ko.computed(function() {
 	    if (this.currentSlide() && this.currentSlide().url) {
-	    	var slideUrl = this.currentSlide().url;
-	    	
+	        var galleryUrl = this.config.galleryUrl;
+	        var slideIndex = _.findIndex(this.slides(), {url: this.currentSlide().url});
+	        if(slideIndex > 0) {
+	            var slideUrl = this.currentSlide().url;
+	        }
+	        else {
+	            var slideUrl = galleryUrl;
+	        }
+	
 	    	if (location.search) {
-	    		
-	    		var slideUrl = this.currentSlide().url+location.search;
-	    		
-	    	}
-	      History.pushState({slug: this.currentSlide().url}, this.currentSlide().browserTitle, slideUrl);
+	            var slideUrl = slideUrl+location.search;
+	        }
+	        var browserTitle = this.currentSlide().browserTitle + " | Essence.com";
+	        History.pushState({slug: this.currentSlide().url}, browserTitle, slideUrl);
 	    }
 	  }, this);
 	};
@@ -12022,7 +12047,7 @@ webpackJsonp([0],[
 	module.exports = function (el) {
 	  var $el = $(el),
 	      $descriptionWrap = $($el.data('description-el')),
-	      $descriptionToggle = $($el.data('more-toggle-el')),
+	      $descriptionToggle = $($el.data('more-toggle-el')).not('.no-toggle'),
 	      descriptionFullHeight = $descriptionWrap.find('p').height(),
 	      descriptionOpen = false;
 	
@@ -12034,6 +12059,7 @@ webpackJsonp([0],[
 	
 	  function toggleDescription() {
 	    if (descriptionOpen == false) {
+	
 	
 	      $descriptionWrap.css('height', 'auto');
 	      $descriptionToggle.text('Less');

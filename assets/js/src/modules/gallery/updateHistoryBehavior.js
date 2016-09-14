@@ -19,14 +19,20 @@ module.exports = function() {
   // update browser history/url when current slide changes
   ko.computed(function() {
     if (this.currentSlide() && this.currentSlide().url) {
-    	var slideUrl = this.currentSlide().url;
-    	
+        var galleryUrl = this.config.galleryUrl;
+        var slideIndex = _.findIndex(this.slides(), {url: this.currentSlide().url});
+        if(slideIndex > 0) {
+            var slideUrl = this.currentSlide().url;
+        }
+        else {
+            var slideUrl = galleryUrl;
+        }
+
     	if (location.search) {
-    		
-    		var slideUrl = this.currentSlide().url+location.search;
-    		
-    	}
-      History.pushState({slug: this.currentSlide().url}, this.currentSlide().browserTitle, slideUrl);
+            var slideUrl = slideUrl+location.search;
+        }
+        var browserTitle = this.currentSlide().browserTitle + " | Essence.com";
+        History.pushState({slug: this.currentSlide().url}, browserTitle, slideUrl);
     }
   }, this);
 };

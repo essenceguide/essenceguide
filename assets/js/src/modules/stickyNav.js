@@ -16,7 +16,7 @@ module.exports = function(el) {
     // var mediumHeightTrigger = $('.article__social-share').height() + $('.article__social-share').offset().top;
 
 
-    var headroomOptions = {}
+    var headroomOptions = {useTouchmove: true}
 
     if (window.matchMedia("(min-width: 400px)").matches) {
       /* the viewport is at least 400 pixels wide */
