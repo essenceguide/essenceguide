@@ -5793,7 +5793,7 @@ ul.primary {
       width: 72.5806451613%; } }
 
 .live-video__title {
-  font-size: 1.75rem;
+  font-size: 1.375rem;
   line-height: 1.3;
   margin: 20px 0;
   font-family: "proxima-nova", sans-serif;
@@ -5809,6 +5809,9 @@ ul.primary {
       .live-video__title-wrap {
         padding: 30px;
         width: 25.8064516129%; } }
+  @media (min-width: 1024px) {
+    .live-video__title {
+      font-size: 1.75rem; } }
 
 .live-video__category {
   font-size: 0.75rem;
