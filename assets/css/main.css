@@ -5790,7 +5790,8 @@ ul.primary {
       height: 0; } }
   @media (min-width: 1024px) {
     .live-video__embed {
-      width: 72.5806451613%; } }
+      width: 73.7704918033%;
+      margin-right: auto; } }
 
 .live-video__title {
   font-size: 1.375rem;
@@ -5808,7 +5809,7 @@ ul.primary {
     @media (min-width: 1024px) {
       .live-video__title-wrap {
         padding: 30px;
-        width: 25.8064516129%; } }
+        width: 26.2295081967%; } }
   @media (min-width: 1024px) {
     .live-video__title {
       font-size: 1.75rem; } }
