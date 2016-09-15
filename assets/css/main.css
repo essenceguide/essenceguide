@@ -1970,6 +1970,8 @@ img {
     border-bottom: 2px solid #B70F7C;
     padding-bottom: 15px;
     margin-bottom: 20px; }
+    .article__intro--listicle {
+      border-bottom: 0; }
   .article__hero, .article__meta {
     overflow: hidden; }
   .article__hero {
@@ -6623,6 +6625,61 @@ ul.primary {
 .node-type-package div:empty {
   display: none; }
 
+.listicle-item {
+  width: 100%;
+  clear: both;
+  margin-bottom: 30px; }
+  .listicle-item__header {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: baseline;
+        -ms-flex-align: baseline;
+            align-items: baseline;
+    margin-bottom: 8px; }
+  .listicle-item__number {
+    color: #630A5D;
+    font-size: 3.125rem;
+    line-height: 0.75;
+    font-family: "abril-display", serif;
+    font-weight: 900;
+    margin-right: 10px; }
+  .listicle-item__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    font-family: "proxima-nova", sans-serif;
+    font-weight: 600; }
+    @media (min-width: 1024px) {
+      .listicle-item__title {
+        font-size: 1.625rem; } }
+  .listicle-item__description {
+    font-size: 1.1875rem;
+    line-height: 1.2;
+    margin-bottom: 20px; }
+  .listicle-item__image {
+    text-align: center;
+    width: 100%; }
+    .listicle-item__image img {
+      width: auto;
+      max-height: 690px; }
+    .listicle-item__image .article__media--pl {
+      float: none;
+      margin-right: 0;
+      max-width: none;
+      display: inline-block; }
+      .listicle-item__image .article__media--pl .media-wrap {
+        margin-bottom: 10px; }
+      .listicle-item__image .article__media--pl figcaption {
+        text-align: left; }
+      .listicle-item__image .article__media--pl .media__credit {
+        float: none;
+        text-align: left; }
+  .listicle-item__ad-wrap {
+    text-align: center; }
+
+.listicle__bottom .ad-outbrain__title {
+  text-align: left; }
+
 /*-------------------------------------------- */
 /** Pages */
 /*-------------------------------------------- */
@@ -6648,11 +6705,29 @@ ul.primary {
   .channel-section .content-list__interior {
     margin-bottom: 30px; } }
 
-.homepage-section .accent-header__title-text {
-  font-size: 2.125rem; }
-  @media (min-width: 768px) {
-    .homepage-section .accent-header__title-text {
-      font-size: 2.5rem; } }
+.homepage-section {
+  margin-bottom: 0; }
+  .homepage-section .top-stories__wrap,
+  .homepage-section .quote-block,
+  .homepage-section .live-video,
+  .homepage-section .featured-social {
+    margin-bottom: 25px; }
+    @media (min-width: 1024px) {
+      .homepage-section .top-stories__wrap,
+      .homepage-section .quote-block,
+      .homepage-section .live-video,
+      .homepage-section .featured-social {
+        margin-bottom: 50px; } }
+  .homepage-section .accent-header__title-text {
+    font-size: 2.125rem; }
+    @media (min-width: 768px) {
+      .homepage-section .accent-header__title-text {
+        font-size: 2.5rem; } }
+  .homepage-section .btn--centered {
+    margin-bottom: 25px; }
+    @media (min-width: 1024px) {
+      .homepage-section .btn--centered {
+        margin-bottom: 50px; } }
 
 .search-content .search-header {
   margin-bottom: 30px; }

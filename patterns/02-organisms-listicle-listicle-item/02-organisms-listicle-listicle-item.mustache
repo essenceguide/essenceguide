@@ -1,0 +1,19 @@
+&lt;div class=&quot;listicle-item&quot;&gt;
+  {{^is_ad}}
+  &lt;div class=&quot;listicle-item__wrap&quot;&gt;
+    &lt;div class=&quot;listicle-item__header&quot;&gt;
+      &lt;div class=&quot;listicle-item__number&quot;&gt;{{number}}.&lt;/div&gt;
+      &lt;div class=&quot;listicle-item__title&quot;&gt;{{title}}&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;listicle-item__description&quot;&gt;{{description}}&lt;/div&gt;
+    &lt;div class=&quot;listicle-item__image&quot;&gt;
+      {{&gt; organisms-article-media }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+  {{/is_ad}}
+  {{#is_ad}}
+    &lt;div class=&quot;listicle-item__ad-wrap&quot;&gt;
+      {{{ad_html}}}
+    &lt;/div&gt;
+  {{/is_ad}}
+&lt;/div&gt;
