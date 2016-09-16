@@ -5413,12 +5413,14 @@ ul.primary {
 .featured-topic__content-interior {
   display: block;
   position: relative;
-  background-position: center center;
-  background-size: cover;
+  background-position: center top;
+  background-size: auto 560px;
   background-repeat: no-repeat; }
   @media (min-width: 768px) {
     .featured-topic__content-interior {
-      height: 708px; } }
+      height: 708px;
+      background-position: center center;
+      background-size: cover; } }
 
 .featured-topic .story-overlay__info {
   text-align: left;
@@ -5905,6 +5907,9 @@ ul.primary {
         height: 500px;
         float: left;
         margin: 0; } }
+  @media (min-width: 1024px) {
+    .videos-slider__livestream {
+      float: right; } }
   .videos-slider__playlist {
     width: 100%;
     clear: both; }
