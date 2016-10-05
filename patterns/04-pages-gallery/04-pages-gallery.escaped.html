@@ -42,10 +42,10 @@
       &lt;/div&gt;
     &lt;/div&gt;
 
+    &lt;div class=&quot;site_nav__sticky-spacer&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;site-nav__brand-bar&quot; data-js-component=&quot;stickyToTop&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
-        &lt;div class=&quot;site-nav__block&quot;&gt;
-
+        &lt;div class=&quot;site-nav__block site-nav__menu-btn-wrap&quot;&gt;
           &lt;div class=&quot;site-nav__menu-btn&quot; data-js-component=&quot;enableMenu&quot; data-active-state=&quot;site-nav__menu-btn--is-active&quot;&gt;
             &lt;div class=&quot;site-nav__menu-icon&quot;&gt;
               &lt;span class=&quot;site-nav__menu-bar&quot;&gt;&lt;/span&gt;
@@ -60,6 +60,7 @@
             &lt;use xlink:href='../../assets/img/symbols.svg#icon-essence-logo--slideout'&gt;&lt;/use&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
+
         &lt;nav class=&quot;site-nav__main-nav&quot; data-js-component=&quot;expandNavMenu&quot; data-sub-menu-target=&quot;#expanded-menu&quot;&gt;
           &lt;ul class=&quot;site-nav__main-nav-list list-unstyled&quot;&gt;
             &lt;li class=&quot;site-nav__main-nav-list-item&quot;&gt;
@@ -94,7 +95,6 @@
 
         &lt;div class=&quot;site-nav__block site-nav__utility-links&quot;&gt;
           &lt;span class=&quot;site-nav__utility-links--desktop-items&quot;&gt;
-
             &lt;div class=&quot;etr-dropdown site-nav__utility-links-item hidden-xs hidden-lg subscription-link&quot; data-js-component=&quot;dropdownToggle&quot; data-trigger=&quot;#subscribe-dropdown-trigger&quot; data-active-class=&quot;etr-dropdown--is-open&quot; data-toggle-class=&quot;etr-dropdown__group--is-open&quot;&gt;
               &lt;a href=&quot;#&quot; id=&quot;subscribe-dropdown-trigger&quot;&gt;
                 &lt;span class=&quot;site-nav__utility-links-item__link&quot;&gt;Subscribe&lt;/span&gt;
@@ -301,11 +301,12 @@
         &lt;/div&gt;
       &lt;/div&gt;
 
+
       &lt;div class=&quot;site-nav__quickview&quot;&gt;
-        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-right site-nav__quickview-link&quot;&gt;
+        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-right site-nav__quickview-link&quot;&gt;&lt;/div&gt;
       &lt;/div&gt;
-    &lt;/div&gt;
     &lt;/div&gt;&lt;!-- /.site-nav --&gt;
+
     &lt;div class=&quot;search-overlay&quot; data-active-class=&quot;search-overlay--is-open&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
         &lt;div class=&quot;search-overlay__close&quot;&gt;
@@ -719,19 +720,18 @@
                 
                     &lt;/div&gt;
                 
-                    &lt;!-- ko if: currentSlide().type === 'image' --&gt;
-                      
-                      &lt;div class=&quot;social-share &quot;&gt;
-                          &lt;a href=&quot;foo.com&quot;  class=&quot;social-share__item social-share__item--facebook&quot; onclick =  target = &gt;
-                            &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
-                               &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                            &lt;/svg&gt;
-                          &lt;/a&gt;
-                          &lt;a href=&quot;foo.com&quot;  class=&quot;social-share__item social-share__item--pinterest&quot; onclick =  target = &gt;
-                            &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
-                               &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                            &lt;/svg&gt;
-                          &lt;/a&gt;
-                      &lt;/div&gt;
-                    &lt;!-- /ko --&gt;
+                   
+                    
+                    &lt;div class=&quot;social-share &quot;&gt;
+                        &lt;a href=&quot;foo.com&quot;  class=&quot;social-share__item social-share__item--facebook&quot; onclick =  target = &gt;
+                          &lt;svg class=&quot;social-share__icon social-share__icon--facebook&quot;&gt;
+                             &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-facebook&quot;&gt;&lt;/use&gt;                          &lt;/svg&gt;
+                        &lt;/a&gt;
+                        &lt;a href=&quot;foo.com&quot;  class=&quot;social-share__item social-share__item--pinterest&quot; onclick =  target = &gt;
+                          &lt;svg class=&quot;social-share__icon social-share__icon--pinterest&quot;&gt;
+                             &lt;use xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; xlink:href=&quot;/assets/img/symbols.svg#icon-pinterest&quot;&gt;&lt;/use&gt;                          &lt;/svg&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
                 
                   &lt;/div&gt;
                   &lt;!-- ko if: currentSlide().type === 'image' --&gt;
@@ -825,7 +825,7 @@
                   
                   &lt;div class=&quot;related-articles&quot;&gt;
                       &lt;div class=&quot;accent-header&quot;&gt;
-                        &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;More From Essence&lt;/span&gt;&lt;/h1&gt;
+                          &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;More From Essence&lt;/span&gt;&lt;/h2&gt;
                       &lt;/div&gt;
                   
                     &lt;div class=&quot;related-articles__wrap&quot;&gt;

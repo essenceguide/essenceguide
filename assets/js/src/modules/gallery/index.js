@@ -8,10 +8,16 @@ var $ = require('jquery'),
 module.exports = function(el) {
      var configVar = $(el).data('config'),
      galleryViewModel = new GalleryViewModel(window[configVar]);
-
     galleryViewModel.currentSlide.subscribe(function(){
+        if(galleryViewModel.currentSlide().type !== "undefined" &&
+                galleryViewModel.currentSlide().type === "image") {
+            $(".social-share").css('display','block');
+        }
+        else if(galleryViewModel.currentSlide().type !== "undefined" &&
+              galleryViewModel.currentSlide().type !== "image") {
+            $(".social-share").css('display','none');
+        }
       updateSocialLinks(galleryViewModel.currentSlide());
-
       try {
         outbrainRefresh(galleryViewModel.currentSlide());
         triggerLazyLoad_Sticky();
@@ -26,7 +32,7 @@ module.exports = function(el) {
 
     ko.applyBindings(galleryViewModel, el);
 
-    updateSocialLinks(galleryViewModel.currentSlide());
+   updateSocialLinks(galleryViewModel.currentSlide());
 
 }
 
@@ -139,13 +145,7 @@ function lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_
             articlebody.attr("lazyloadedAD",true);
             var ad = adFactory.getMultiAd(ad_dimensions);
             ad.setPosition("2");
-            // if it is an video page render it as companion AD
-            if ( $(".node-type-video").length > 0 ) {
-                ad.write(stickyAdId, "companion");
-            }
-            else {
-                ad.write(stickyAdId);
-            }
+            ad.write(stickyAdId);
             // Call the sticky AD
             stickyAD(stickyAdId, ob_start_marker, ob_end_marker);
         }
@@ -167,7 +167,7 @@ function stickyAD(stickyAdId, ob_start_marker, ob_end_marker) {
                 // Start the sticky if it reaches the Right Side Outbrain block
                 if (($(window).scrollTop() > ob_start_marker_element.offset().top) && (start_sticky == 0)) {
                    start_sticky = 1;
-                   if ( $(".node-type-video").length > 0 || $(".node-type-package").length > 0) {
+                   if ( $(".node-type-video").length > 0 || $(".node-type-package").length > 0 || $(".page-taxonomy-term").length > 0) {
                         sticky_ad.css({'position': 'fixed','width' : '300px','top': '70px'});
                     }
                     else {
@@ -203,10 +203,6 @@ function triggerLazyLoad_Sticky(){
             // For Sticky AD
             var ob_start_marker = 'div[data-widget-id="SB_10"]';
             var ob_end_marker = 'div[data-widget-id="AR_10"]';
-        }
-        else {
-            var targetElement = ".footer__wrap";
-            var renderElement = ".sidebar--is-sw";
         }
     }
     else if( $(".node-type-gallery").length > 0 ) {
@@ -247,7 +243,7 @@ function triggerLazyLoad_Sticky(){
             var ob_end_marker = ".curated-touts > .package-content > .package-section:last";
         }
         else {
-            var targetElement = ".footer__wrap";
+            var targetElement = ".curated-touts > .package-content > .package-section:last";
             var renderElement = ".sidebar--is-sw";
         }
     }
@@ -284,7 +280,9 @@ function triggerLazyLoad_Sticky(){
             if( sticky_ad.length > 0 ) {
                 $(sticky_ad).remove();
             }
-            lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
+            if($(targetElement).length > 0 ) {
+                lazyLoad(targetElement, renderElement, stickyAdId, ob_start_marker, ob_end_marker);
+            }
     }
 }
 

@@ -21,10 +21,10 @@
       &lt;/div&gt;
     &lt;/div&gt;
 
+    &lt;div class=&quot;site_nav__sticky-spacer&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;site-nav__brand-bar&quot; data-js-component=&quot;stickyToTop&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
-        &lt;div class=&quot;site-nav__block&quot;&gt;
-
+        &lt;div class=&quot;site-nav__block site-nav__menu-btn-wrap&quot;&gt;
           &lt;div class=&quot;site-nav__menu-btn&quot; data-js-component=&quot;enableMenu&quot; data-active-state=&quot;site-nav__menu-btn--is-active&quot;&gt;
             &lt;div class=&quot;site-nav__menu-icon&quot;&gt;
               &lt;span class=&quot;site-nav__menu-bar&quot;&gt;&lt;/span&gt;
@@ -39,6 +39,7 @@
             &lt;use xlink:href='{{path_to_symbols}}#icon-essence-logo--slideout'&gt;&lt;/use&gt;
           &lt;/svg&gt;
         &lt;/a&gt;
+
         {{#nav_menu}}
         &lt;nav class=&quot;site-nav__main-nav&quot; data-js-component=&quot;expandNavMenu&quot; data-sub-menu-target=&quot;#expanded-menu&quot;&gt;
           &lt;ul class=&quot;site-nav__main-nav-list list-unstyled&quot;&gt;
@@ -53,7 +54,6 @@
 
         &lt;div class=&quot;site-nav__block site-nav__utility-links&quot;&gt;
           &lt;span class=&quot;site-nav__utility-links--desktop-items&quot;&gt;
-
             &lt;div class=&quot;etr-dropdown site-nav__utility-links-item hidden-xs hidden-lg subscription-link&quot; data-js-component=&quot;dropdownToggle&quot; data-trigger=&quot;#subscribe-dropdown-trigger&quot; data-active-class=&quot;etr-dropdown--is-open&quot; data-toggle-class=&quot;etr-dropdown__group--is-open&quot;&gt;
               &lt;a href=&quot;#&quot; id=&quot;subscribe-dropdown-trigger&quot;&gt;
                 &lt;span class=&quot;site-nav__utility-links-item__link&quot;&gt;Subscribe&lt;/span&gt;
@@ -144,21 +144,22 @@
       &lt;/div&gt;
       {{/expanded_menus}}
 
-      &lt;div class=&quot;site-nav__quickview&quot;&gt;
-      {{#mobile_category}}
-        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-left&quot;&gt;
-          &lt;a href=&quot;{{url}}&quot; class=&quot;site-nav__quickview-link&quot;&gt;{{title}}&lt;/a&gt;
-        &lt;/div&gt;
-      {{/mobile_category}}
-        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-right site-nav__quickview-link&quot;&gt;
+      {{#social_share}}
+      &lt;div class=&quot;site-nav__quickshare hide-at-sm&quot;&gt;
+        {{&gt; organisms-content-share }}
       &lt;/div&gt;
-    &lt;/div&gt;
-    {{#social_share}}
-    &lt;div class=&quot;site-nav__quickshare hide-at-sm&quot;&gt;
-      {{&gt; organisms-content-share }}
-    &lt;/div&gt;
-    {{/social_share}}
+      {{/social_share}}
+
+      &lt;div class=&quot;site-nav__quickview&quot;&gt;
+        {{#mobile_category}}
+          &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-left&quot;&gt;
+            &lt;a href=&quot;{{url}}&quot; class=&quot;site-nav__quickview-link&quot;&gt;{{title}}&lt;/a&gt;
+          &lt;/div&gt;
+        {{/mobile_category}}
+        &lt;div class=&quot;site-nav__quickview__column site-nav__quickview__column-right site-nav__quickview-link&quot;&gt;&lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;&lt;!-- /.site-nav --&gt;
+
     &lt;div class=&quot;search-overlay&quot; data-active-class=&quot;search-overlay--is-open&quot;&gt;
       &lt;div class=&quot;page-container&quot;&gt;
         &lt;div class=&quot;search-overlay__close&quot;&gt;

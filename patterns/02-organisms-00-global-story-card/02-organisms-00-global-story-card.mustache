@@ -1,5 +1,12 @@
 {{#story_card}}
-&lt;div class=&quot;story-card {{#horizontal?}}story-card--horizontal{{/horizontal?}} {{#featured?}}story-card--featured{{/featured?}} {{#social_share}}has-social-share{{/social_share}} {{#hide_image?}}story-card--hide-image{{/hide_image?}}&quot;&gt;
+&lt;div class=&quot;story-card {{#horizontal?}}story-card--horizontal{{/horizontal?}} {{#featured?}}story-card--featured{{/featured?}} {{#social_share}}has-social-share{{/social_share}} {{#hide_image?}}story-card--hide-image{{/hide_image?}}{{#content_type}} story-card--{{content_type}}{{/content_type}}&quot;&gt;
+  {{#nativo_div}}
+    &lt;div&gt;
+    &lt;div class=&quot;ad&quot;&gt;
+        {{{nativo_div}}}
+    &lt;/div&gt;
+    &lt;/div&gt;
+  {{/nativo_div}}
   {{#src}}
   &lt;div class=&quot;story-card__media&quot;&gt;
     &lt;a href=&quot;{{url}}&quot; class=&quot;story-card__link media-wrap&quot;&gt;
@@ -46,5 +53,3 @@
   &lt;/div&gt;
 &lt;/div&gt;
 {{/story_card}}
-
-&lt;div id=&quot;story-card__ad&quot;&gt;&lt;/div&gt;

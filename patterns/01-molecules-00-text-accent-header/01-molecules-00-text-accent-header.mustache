@@ -3,6 +3,11 @@
   {{#subtitle}}
     &lt;h3 class=&quot;accent-header__subtitle&quot;&gt;{{subtitle}}&lt;/h3&gt;
   {{/subtitle}}
-  &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;{{title}}&lt;/span&gt;&lt;/h1&gt;
+  {{#pageTitle}}
+    &lt;h1 class=&quot;accent-header__title {{#pageTitleHidden}}accent-header__title--hidden{{/pageTitleHidden}}&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;{{title}}&lt;/span&gt;&lt;/h1&gt;
+  {{/pageTitle}}
+  {{^pageTitle}}
+    &lt;h2 class=&quot;accent-header__title&quot;&gt;&lt;span class=&quot;accent-header__title-text&quot;&gt;{{title}}&lt;/span&gt;&lt;/h2&gt;
+  {{/pageTitle}}
 &lt;/div&gt;
 {{/accent_header}}
